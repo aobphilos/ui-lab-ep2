@@ -110,12 +110,73 @@ export default class PageVerifyReport extends Vue {
   private currentUrl: string = '';
   private isPass: boolean = false;
 
-  public renderDocument(url: string) {
-    this.isPass = true;
-    this.currentUrl = url;
+  public async getReport() {
+    const vm = this;
+
+    if (vm.reportId.trim() === '') {
+      return;
+    }
+
+    vm.hasError = false;
+    vm.isLoading = true;
+    vm.isPass = false;
+    vm.currentUrl = '';
+
+    const reportName = `${vm.reportId}.pdf`;
+    const localUrl = `/certificates/${vm.reportId}.pdf`;
+    const localSubFolderUrl = `/certificates/${vm.reportId.substr(0, 4)}/${vm.reportId}.pdf`;
+    const apiUrl = `http://dreamxchange-001-site3.btempurl.com/api/certificates/DownloadAndOpen?id=${
+      vm.reportId
+    }`;
+
+    // =================== [Get Local Report Main] ========================
+    try {
+      const xhrBlob = await vm.getReportLocal(localUrl);
+      if (vm.checkValidReport(xhrBlob)) {
+        vm.renderDocument(localUrl);
+        return;
+      }
+    } catch {
+      // continue to find out the report document.
+    }
+
+    // =================== [Get Local Report Sub] ========================
+    try {
+      const xhrBlob = await vm.getReportLocal(
+        localSubFolderUrl,
+      );
+      if (vm.checkValidReport(xhrBlob)) {
+        vm.renderDocument(localSubFolderUrl);
+        return;
+      }
+    } catch {
+      // continue to find out the report document.
+    }
+
+    // =================== [Get Server Report] ========================
+    try {
+      await vm.getReportServer(apiUrl);
+      vm.renderDocument(apiUrl);
+      return;
+    } catch {
+      vm.isLoading = false;
+      vm.reportId = '';
+      vm.hasError = true;
+    }
   }
 
-  public getReportServer(url: string) {
+  public mounted() {
+    $('.parallax-mirror').hide();
+  }
+
+  private renderDocument(url: string) {
+    this.isPass = true;
+    this.currentUrl = url;
+    this.isLoading = false;
+    this.reportId = '';
+  }
+
+  private getReportServer(url: string) {
     // id: 1803SNV0075
     return $.ajax({
       method: 'GET',
@@ -128,7 +189,7 @@ export default class PageVerifyReport extends Vue {
     });
   }
 
-  public getReportLocal(url: string) {
+  private getReportLocal(url: string) {
     // id: 1803CDR9999
     // id: 1206_CDS0001 -> outter
     // id: 1206_CDR0001 -> inner
@@ -142,79 +203,9 @@ export default class PageVerifyReport extends Vue {
     });
   }
 
-  public checkValidReport(response: any) {
+  private checkValidReport(response: any) {
     const reg = /^application\/pdf/;
-    const contentType = response.getResponseHeader('content-type');
-    return reg.test(contentType);
-  }
-
-  public getReport() {
-    const vm = this;
-
-    if (vm.reportId.trim() === '') {
-      return;
-    }
-
-    vm.hasError = false;
-    vm.isLoading = true;
-    vm.isPass = false;
-    vm.currentUrl = '';
-
-    const reportName = `${this.reportId}.pdf`;
-    const localUrl = `/certificates/${this.reportId}.pdf`;
-    const localSubFolderUrl = `/certificates/${this.reportId.substr(0, 4)}/${
-      this.reportId
-    }.pdf`;
-    const apiUrl = `http://dreamxchange-001-site3.btempurl.com/api/certificates/DownloadAndOpen?id=${
-      this.reportId
-    }`;
-
-    $.when(vm.getReportLocal(localUrl))
-      .then((content, status, response) => {
-        if (vm.checkValidReport(response)) {
-          return vm.renderDocument(localUrl);
-        } else {
-          return $.Deferred()
-            .reject()
-            .promise();
-        }
-      })
-      .then(() => {
-        vm.isLoading = false;
-        vm.reportId = '';
-      })
-      .fail(() => {
-        $.when(vm.getReportLocal(localSubFolderUrl))
-          .then((content, status, response) => {
-            if (vm.checkValidReport(response)) {
-              return vm.renderDocument(localSubFolderUrl);
-            } else {
-              return $.Deferred()
-                .reject()
-                .promise();
-            }
-          })
-          .then(() => {
-            vm.isLoading = false;
-            vm.reportId = '';
-          })
-          .fail(() => {
-            vm.getReportServer(apiUrl)
-              .then(() => {
-                return vm.renderDocument(apiUrl);
-              })
-              .fail(() => {
-                vm.hasError = true;
-              })
-              .always(() => {
-                vm.isLoading = false;
-                vm.reportId = '';
-              });
-          });
-      });
-  }
-  public mounted() {
-    $('.parallax-mirror').hide();
+    return reg.test(response.type);
   }
 }
 </script>
