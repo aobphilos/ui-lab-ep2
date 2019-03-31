@@ -74,3 +74,6 @@ typings/
 # Other
 .DS_Store
 /dist
+
+# Firebase
+.firebase
