@@ -4,12 +4,13 @@
     <div class="container">
       <div class="row">
         <div class="col-md-2">
+          <div class="locale-changer-small hidden-md hidden-lg">
+            <locale-changer/>
+          </div>
           <a href="#/">
             <img src="/img/nav-logo.png" alt="GCILab" class="main-nav-logo">
           </a>
-          <span class="ti-menu nav-btn-open hidden-md hidden-lg">
-            <locale-changer/>
-          </span>
+          <span class="ti-menu nav-btn-open hidden-md hidden-lg"></span>
         </div>
         <div class="col-md-8 text-center">
           <ul class="main-nav">
@@ -55,10 +56,19 @@ export default class SectionHeader extends Vue {
         navigation.css('height', '100%');
         $el.removeClass('ti-menu').addClass('ti-close');
       } else {
-        navigation.css('height', '80px');
+        navigation.css('height', '75px');
         $el.removeClass('ti-close').addClass('ti-menu');
       }
     });
   }
 }
 </script>
+<style lang="less" scoped>
+  .locale-changer-small {
+    width: 60px;
+    float: right;
+    right: 80px;
+    position: relative;
+  }
+</style>
+

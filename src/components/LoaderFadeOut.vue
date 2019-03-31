@@ -17,7 +17,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 export default class LoaderFadeOut extends Vue {
   private show: boolean = true;
   private enter(el: any, done: any) {
-    setTimeout(() => this.show = false, 500); // hide the message after 0.5 seconds
+    setTimeout(() => this.show = false, 400); // hide the message after 0.4 seconds
   }
 }
 </script>
@@ -25,7 +25,7 @@ export default class LoaderFadeOut extends Vue {
 <style lang="less" scoped>
   .fade-enter-active,
   .fade-leave-active {
-    transition: opacity 0.5s ease;
+    transition: opacity 1s ease;
   }
 
   .fade-enter,

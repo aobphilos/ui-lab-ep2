@@ -43,9 +43,8 @@ export default class LocaleChanger extends Vue {
     }
     @media (max-width: 992px) {
       & {
-        position: relative;
-        top: -48px;
-        left: -71px;
+        position: absolute;
+        top: 2px;
       }
     }
   }
