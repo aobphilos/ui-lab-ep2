@@ -1,7 +1,8 @@
 module.exports = {
     "env": {
         "es6": true,
-        "node": true
+        "node": true,
+        "jquery": true
     },
     "extends": [
         "eslint:recommended",
@@ -9,7 +10,11 @@ module.exports = {
     ],
     "globals": {
         "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "SharedArrayBuffer": "readonly",
+        "easing": true,
+        "SmoothScroll": true,
+        "parallax": true,
+        "lightbox": true,
     },
     "parserOptions": {
         "ecmaVersion": 2018,
@@ -19,5 +24,9 @@ module.exports = {
         "vue"
     ],
     "rules": {
+        // allow async-await
+        'generator-star-spacing': 'off',
+        // allow debugger during development
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
     }
 };
