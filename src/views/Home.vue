@@ -12,7 +12,7 @@
           <div
             class="col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 padding-tb100"
           >
-            <h4 class="h4-type2 margin-t10">GEMS &amp; GEMOLOGY CONSULTANT</h4>
+            <h4 class="h4-type2 margin-t10">{{ $t('content.home.section.services.subject')}}</h4>
             <div class="border-bar margin-t20"></div>
             <p
               class="p-type-3 color-grey margin-t20"

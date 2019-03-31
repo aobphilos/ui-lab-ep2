@@ -52,6 +52,9 @@ sm layout and below
     width: 100%;
     padding-bottom: 50px;
   }
+  #navigation .main-nav {
+    height: 100%;
+  }
   #navigation .main-nav li {
     display: inline-block;
     width: 100%;

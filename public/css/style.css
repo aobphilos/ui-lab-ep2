@@ -39,27 +39,36 @@ CONTENTS :
 @charset "utf-8";
 @import url("reset.css");
 @import url("themify-icons.css");
+
 @font-face {
-	font-family: 'Gothic';
-	src:url('../fonts/gothic_0.eot');
-	src:url('../fonts/gothic_0.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/gothic_0.woff') format('woff'),
-		url('../fonts/gothic_0.ttf') format('truetype'),
-		url('../fonts/gothic_0.svg?#CenturyGothic') format('svg');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'Gothic';
+  src: url('../fonts/gothic_0.eot');
+  src: url('../fonts/gothic_0.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/gothic_0.woff') format('woff'),
+    url('../fonts/gothic_0.ttf') format('truetype'),
+    url('../fonts/gothic_0.svg?#CenturyGothic') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
+
 body {
   font-family: 'Popins', sans-serif;
   overflow-x: hidden;
 }
-.component-fade-enter-active, .component-fade-leave-active {
+
+.component-fade-enter-active,
+.component-fade-leave-active {
   transition: opacity .5s ease;
 }
-.component-fade-enter, .component-fade-leave-to
-/* .component-fade-leave-active below version 2.1.8 */ {
+
+.component-fade-enter,
+.component-fade-leave-to
+
+/* .component-fade-leave-active below version 2.1.8 */
+  {
   opacity: 0;
 }
+
 #loader {
   width: 100%;
   height: 100%;
@@ -122,6 +131,7 @@ body {
     transform: scale(0);
     opacity: 1;
   }
+
   to {
     transform: scale(1);
     opacity: 0;
@@ -133,6 +143,7 @@ body {
     -o-transform: scale(0);
     opacity: 1;
   }
+
   to {
     -o-transform: scale(1);
     opacity: 0;
@@ -144,6 +155,7 @@ body {
     -ms-transform: scale(0);
     opacity: 1;
   }
+
   to {
     -ms-transform: scale(1);
     opacity: 0;
@@ -155,6 +167,7 @@ body {
     -webkit-transform: scale(0);
     opacity: 1;
   }
+
   to {
     -webkit-transform: scale(1);
     opacity: 0;
@@ -166,6 +179,7 @@ body {
     -moz-transform: scale(0);
     opacity: 1;
   }
+
   to {
     -moz-transform: scale(1);
     opacity: 0;
@@ -364,7 +378,7 @@ body {
 ***********************************************************************************************/
 
 #navigation {
-  height: 80px;
+  height: 75px;
   position: fixed;
   top: 0;
   left: 0;
@@ -378,6 +392,10 @@ body {
 #navigation .main-nav-logo {
   height: 55px;
   margin: 10px 0;
+}
+
+#navigation .main-nav {
+  height: 75px;
 }
 
 #navigation .main-nav li {
@@ -618,8 +636,8 @@ body {
   padding: 6px 0;
 }
 
-#footer .contact-details div p{
-  display: block;  
+#footer .contact-details div p {
+  display: block;
   color: #c1c1c1;
   font-size: 14px;
   line-height: 1.6;
@@ -818,13 +836,16 @@ body {
 #contact_form .contact_detail img {
   max-width: unset;
 }
+
 #contact_form .contact_detail p.logo {
   margin-top: 16px;
 }
+
 #contact_form .contact_detail img.logo {
   width: 48px;
   margin-top: 14px;
 }
+
 #contact_form .contact_detail img.qrcode {
   width: 96px;
 }
@@ -860,28 +881,28 @@ body {
   box-shadow: 0px 4px 12px -1px rgba(240, 182, 23, 0.671);
 }
 
-#verify  .input_text {
-    width: 100%;
-    height: 50px;
-    border: 1px solid #ddd;
-    margin: 10px 0 0 0;
-    padding: 0 15px;
-    border-radius: 2px;
-    font-size: 14px;
-    box-shadow: 1px 4px 8px -3px rgb(221, 221, 221);
-    outline: none;
-  }
+#verify .input_text {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #ddd;
+  margin: 10px 0 0 0;
+  padding: 0 15px;
+  border-radius: 2px;
+  font-size: 14px;
+  box-shadow: 1px 4px 8px -3px rgb(221, 221, 221);
+  outline: none;
+}
 
-  .diploma ul {
-    list-style: unset;
-    padding: 0 0 0 25px;
-  }
+.diploma ul {
+  list-style: unset;
+  padding: 0 0 0 25px;
+}
 
-  #services ol {
-    list-style: decimal;
-    padding: 0 0 0 35px;
-  }
+#services ol {
+  list-style: decimal;
+  padding: 0 0 0 35px;
+}
 
-  #services .example {
-    padding: 0 0 0 20px;
-  }
+#services .example {
+  padding: 0 0 0 20px;
+}

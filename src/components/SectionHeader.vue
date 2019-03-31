@@ -4,10 +4,12 @@
     <div class="container">
       <div class="row">
         <div class="col-md-2">
-          <a href="#/">
+          <a href="/">
             <img src="/img/nav-logo.png" alt="GCILab" class="main-nav-logo">
           </a>
-          <span class="ti-menu nav-btn-open hidden-md hidden-lg"></span>
+          <span class="ti-menu nav-btn-open hidden-md hidden-lg">
+            <locale-changer/>
+          </span>          
         </div>
         <div class="col-md-8 text-center">
           <ul class="main-nav">
@@ -25,7 +27,11 @@
             </li>
           </ul>
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-2">
+          <div class="hidden-xs hidden-sm">
+            <locale-changer/>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -34,16 +40,12 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import LocaleChanger from '@/components/LocaleChanger.vue';
 
-@Component
+@Component({
+  components: { LocaleChanger },
+})
 export default class SectionHeader extends Vue {
-  public data() {
-    return {
-      img: {
-        nav_logo: '',
-      },
-    };
-  }
   public mounted() {
     const navigation = $('#navigation');
     const navigationButton = $('.nav-btn-open');
