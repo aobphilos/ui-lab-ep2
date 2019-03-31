@@ -1,4 +1,5 @@
 import Vue, { VNode } from 'vue';
+import 'jquery';
 
 declare global {
   namespace JSX {
@@ -10,4 +11,23 @@ declare global {
       [elem: string]: any;
     }
   }
+
+  // =====================[ JQuery Extends ]============================
+  interface JQuery<TElement = HTMLElement> extends Iterable<TElement> {
+    parallax(statement?: string): JQuery;
+    flexslider(arg0: {
+      animation: string;
+      controlNav: boolean;
+      easing: string;
+      slideshowSpeed: number;
+      animationSpeed: number;
+      pauseOnAction: boolean;
+      touch: boolean;
+      keyboard: boolean;
+      after: () => void;
+      before: () => void;
+    }): any;
+  }
+
+  // =====================[ JQuery Extends ]============================
 }

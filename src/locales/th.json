@@ -1,0 +1,139 @@
+{
+  "header": {
+    "title": "GCI-Lab"
+  },
+  "footer": {},
+  "address": [{
+    "name": "Bangkok",
+    "lines": [
+      "Jewelry Trade Center",
+      "341A/A 3rd Floor Silom road Bangrak Bangkok",
+      "Tel: +(66)2 630 0699"
+    ]
+  }, {
+    "name": "Chanthaburi",
+    "lines": [
+      "Room D202/1 2nd Floor, Chan Gems Building",
+      "189 Sichuan Rd. Mueang Chanthaburi District, Chanthaburi 22000"
+    ]
+  }],
+  "menu": {
+    "home": "HOME",
+    "aboutUs": "ABOUT US",
+    "services": "SERVICES",
+    "submitAGem": "SUBMIT A GEM",
+    "verifyReport": "VERIFY REPORT",
+    "contact": "CONTACT"
+  },
+  "content": {
+    "home": {
+      "section": {
+        "services": {
+          "subject": "GEMS & GEMOLOGY CONSULTANT",
+          "detail": "by experienced graduate gemologist (G.G.) instructor from GIA",
+          "button": "READ MORE"
+        },
+        "verifyReport": {
+          "subject": "VERIFY REPORT",
+          "detail": "",
+          "button": "CHECK"
+        },
+        "gallery": {
+          "subject": "GALLERY",
+          "detail": "",
+          "button": ""
+        }
+      }
+    },
+    "aboutUs": {
+      "section": {
+        "overview": {
+          "lines": [
+            "OVER 15 YEARS OF EXPERIENCES AS INSTRUCTORS AT GIA AND AIGS, WE WOULD LOVE TO SHARE OUR KNOWLEDGE AND ENSURE THE TRUST IN GEMS TO THE BUSINESS.",
+            "WE ARE WELCOME TO DO THE GEMOLOGICAL CONSULTANCY SERVICE BY THE EXPERT GEMOLOGISTS OF GCILAB."
+          ]
+        },
+        "diploma": [{
+            "subjects": [
+              "SURACHART PANJATHAMMAWIT, G.G., B.SC.",
+              "GRADUATE GEMOLOGIST/GIA"
+            ],
+            "lines": [
+              "Material Science (Gems and Jewelry), SWU",
+              "Graduate Gemologist (G.G.), GIA",
+              "Accredited Jewelry Professional (A.J.P.), GIA",
+              "Graduate Pearls Diploma, GIA",
+              "Manager of Gemology Education (School’s Principal), GIA Thailand Apr 2000—Jan 2011",
+              "Director of English Academic, AIGS Feb 2011—Apr 2012",
+              "Owner and Gemologist of Gemological Consultancy (GC Lab)",
+              "Over 10 years of teaching experiences for Graduate Gemologist Program (G.G.), GIA",
+              "Instructor for cooperate class Accredited Jewelry Professional(A.J.P.) with Christie’s,",
+              "Pearl Grading course in Singapore and Sri Lanka",
+              "Gemologist of GCI Lab (Gemological Consultancy)"
+            ]
+          },
+          {
+            "subjects": [
+              "PATTARAT TERMPAISIT, G.G., B.SC.",
+              "GRADUATE GEMOLOGIST/GIA"
+            ],
+            "lines": [
+              "Material Science (Gems and Jewelry), SWU",
+              "Graduate Gemologist (G.G.), GIA",
+              "Accredited Jewelry Professional (A.J.P.), GIA",
+              "Graduate Pearls Diploma, GIA",
+              "Instructor of Graduate Gemologist Program (G.G.), GIA",
+              "Manager of Marketing Laboratory Development, AIGS",
+              "Instructor for cooperate class “Diamond Grading” with Debswana (De Beers), Botswana",
+              "Marketing Executive, Regal Jewelry"
+            ]
+          }
+        ]
+      }
+    },
+    "services": {
+      "section": {
+        "identification": {
+          "subject": "GEM IDENTIFICATION CONSULTANCY REPORT",
+          "lines": [
+            "800 BAHT/STONE",
+            "350 BAHT/STONE",
+            "350 BAHT/STONE",
+            "200 BAHT/STONE"
+          ],
+          "example": {
+            "subject": "ONE REPORT CAN BE CONTAINED MULTIPLE STONES DETAILS WITH ADDITIONAL FEE OF 100 BAHT PER STONE.",
+            "lines": [
+              "FOR EXAMPLE:",
+              "ONE REPORT (NUMBER 1, 800 BAHT) FOR A PAIR OF RUBIES = THE TOTAL FEE IS 900 BAHT. (800 + 100)"
+            ]
+          }
+        },
+        "verbal": {
+          "subject": "VERBAL GEMS TESTING",
+          "lines": [
+            "100 BAHT/STONE (WITH NO REPORT ISSUED)"
+          ]
+        }
+      }
+    },
+    "submitAGem": {},
+    "verifyReport": {
+      "section": {
+        "verify": {
+          "subject": "Please use this form to search your verify report",
+          "input": "Enter Report ID",
+          "button": "Search",
+          "error": {
+            "subject": "** Invalid Report Id **",
+            "detail": "\"GCi reports can be verified after 5 business days\" (from the date of issued)"
+          }
+        },
+        "sample": {
+          "subject": "Sample Report"
+        }
+      }
+    },
+    "contact": {}
+  }
+}
