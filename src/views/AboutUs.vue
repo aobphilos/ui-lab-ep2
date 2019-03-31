@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <h4 class="h4-type3">ABOUT US</h4>
+            <h4 class="h4-type3">{{ $t('menu.aboutUs') }}</h4>
             <div class="border-bar4 margin-t20"></div>
           </div>
         </div>
@@ -27,11 +27,11 @@
             <div class="margin-t20"></div>
             <p
               class="p-type-5 color-grey margin-t20"
-            >OVER 15 YEARS OF EXPERIENCES AS INSTRUCTORS AT GIA AND AIGS, WE WOULD LOVE TO SHARE OUR KNOWLEDGE AND ENSURE THE TRUST IN GEMS TO THE BUSINESS.</p>
+            >{{ $t('content.aboutUs.section.overview.lines[0]')}}</p>
             <div class="margin-t20"></div>
             <p
               class="p-type-5 color-grey margin-t20"
-            >WE ARE WELCOME TO DO THE GEMOLOGICAL CONSULTANCY SERVICE BY THE EXPERT GEMOLOGISTS OF GCILAB.</p>
+            >{{ $t('content.aboutUs.section.overview.lines[1]')}}</p>
           </div>
         </div>
       </div>
@@ -43,23 +43,14 @@
         <div class="row testimonial">
           <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
             <h5 class>
-              SURACHART PANJATHAMMAWIT, G.G., B.SC.
-              <br>GRADUATE GEMOLOGIST/GIA
+              {{ $t('content.aboutUs.section.diploma[0].subjects[0]')}}
+              <br>
+              {{ $t('content.aboutUs.section.diploma[0].subjects[1]')}}
             </h5>
             <div class="margin-t20"></div>
             <div class="p-type-5 color-grey margin-t20">
               <ul>
-                <li>Material Science (Gems and Jewelry), SWU</li>
-                <li>Graduate Gemologist (G.G.), GIA</li>
-                <li>Accredited Jewelry Professional (A.J.P.), GIA</li>
-                <li>Graduate Pearls Diploma, GIA</li>
-                <li>Manager of Gemology Education (School’s Principal), GIA Thailand Apr 2000—Jan 2011</li>
-                <li>Director of English Academic, AIGS Feb 2011—Apr 2012</li>
-                <li>Owner and Gemologist of Gemological Consultancy (GC Lab)</li>
-                <li>Over 10 years of teaching experiences for Graduate Gemologist Program (G.G.), GIA</li>
-                <li>Instructor for cooperate class Accredited Jewelry Professional(A.J.P.) with Christie’s,</li>
-                <li>Pearl Grading course in Singapore and Sri Lanka</li>
-                <li>Gemologist of GCI Lab (Gemological Consultancy)</li>
+                <li v-for="line in getDiplomaLines(0)" :key="line.id">{{line}}</li>
               </ul>
             </div>
           </div>
@@ -84,20 +75,14 @@
         <div class="row testimonial">
           <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
             <h5 class>
-              PATTARAT TERMPAISIT, G.G., B.SC.
-              <br>GRADUATE GEMOLOGIST/GIA
+              {{ $t('content.aboutUs.section.diploma[1].subjects[0]')}}
+              <br>
+              {{ $t('content.aboutUs.section.diploma[1].subjects[1]')}}
             </h5>
             <div class="margin-t20"></div>
             <div class="p-type-5 color-grey margin-t20">
               <ul>
-                <li>Material Science (Gems and Jewelry), SWU</li>
-                <li>Graduate Gemologist (G.G.), GIA</li>
-                <li>Accredited Jewelry Professional (A.J.P.), GIA</li>
-                <li>Graduate Pearls Diploma, GIA</li>
-                <li>Instructor of Graduate Gemologist Program (G.G.), GIA</li>
-                <li>Manager of Marketing Laboratory Development, AIGS</li>
-                <li>Instructor for cooperate class “Diamond Grading” with Debswana (De Beers), Botswana</li>
-                <li>Marketing Executive, Regal Jewelry</li>
+                <li v-for="line in getDiplomaLines(1)" :key="line.id">{{line}}</li>
               </ul>
             </div>
           </div>
@@ -121,6 +106,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import LoaderFadeOut from '@/components/LoaderFadeOut.vue';
+import { type } from 'os';
 
 @Component({
   components: {
@@ -128,8 +114,24 @@ import LoaderFadeOut from '@/components/LoaderFadeOut.vue';
   },
 })
 export default class PageAboutUs extends Vue {
+
   public mounted() {
     $('.parallax-mirror').hide();
+  }
+  private getDiplomaLines(index: number) {
+    const locale = this.$i18n.getLocaleMessage(this.$i18n.locale);
+    if (!locale) { return []; }
+    const content: any = locale.content;
+    if (!content) { return []; }
+    const aboutUs: any = content.aboutUs;
+    if (!aboutUs) { return []; }
+    const section: any = aboutUs.section;
+    if (!section) { return []; }
+    const diploma = section.diploma;
+    if (diploma) {
+      return diploma[index].lines;
+    }
+    return [];
   }
 }
 </script>

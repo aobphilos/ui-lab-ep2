@@ -14,7 +14,8 @@
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "webpack-env"
+      "webpack-env",
+      "webpack"
     ],
     "paths": {
       "@/*": [
@@ -38,7 +39,9 @@
   "exclude": [
     "node_modules"
   ],
-  "plugins": [{
-    "name": "typescript-tslint-plugin"
-  }]
+  "plugins": [
+    {
+      "name": "typescript-tslint-plugin"
+    }
+  ]
 }

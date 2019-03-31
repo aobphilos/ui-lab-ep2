@@ -18,12 +18,12 @@
     ]
   }],
   "menu": {
-    "home": "HOME",
-    "aboutUs": "ABOUT US",
-    "services": "SERVICES",
+    "home": "หน้าหลัก",
+    "aboutUs": "เกี่ยวกับเรา",
+    "services": "บริการ",
     "submitAGem": "SUBMIT A GEM",
-    "verifyReport": "VERIFY REPORT",
-    "contact": "CONTACT"
+    "verifyReport": "รายงานการตรวจสอบ",
+    "contact": "ติดต่อเรา"
   },
   "content": {
     "home": {

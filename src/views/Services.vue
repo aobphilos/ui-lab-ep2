@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <h4 class="h4-type3">SERVICES</h4>
+            <h4 class="h4-type3">{{ $t('menu.services') }}</h4>
             <div class="border-bar4 margin-t20"></div>
           </div>
         </div>
@@ -20,35 +20,37 @@
           <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
             <div class="row padding-tb50">
               <div class="col-md-11">
-                <h4 class="h4-type1">GEM IDENTIFICATION CONSULTANCY REPORT</h4>
+                <h4 class="h4-type1">{{ $t('content.services.section.identification.subject')}}</h4>
                 <div>
                   <div class="p-type-3 color-grey margin-t20">
                     <ol>
-                      <li>800 BAHT/STONE</li>
-                      <li>350 BAHT/STONE</li>
-                      <li>350 BAHT/STONE</li>
-                      <li>200 BAHT/STONE</li>
+                      <li>{{ $t('content.services.section.identification.lines[0]')}}</li>
+                      <li>{{ $t('content.services.section.identification.lines[1]')}}</li>
+                      <li>{{ $t('content.services.section.identification.lines[2]')}}</li>
+                      <li>{{ $t('content.services.section.identification.lines[3]')}}</li>
                     </ol>
                   </div>
                   <p
                     class="p-type-3 color-grey margin-t20"
-                  >ONE REPORT CAN BE CONTAINED MULTIPLE STONES DETAILS WITH ADDITIONAL FEE OF 100 BAHT PER STONE.</p>
+                  >{{ $t('content.services.section.identification.example.subject')}}</p>
                   <div class="example">
-                    <p class="p-type-3 color-grey margin-t20">FOR EXAMPLE:</p>
                     <p
                       class="p-type-3 color-grey margin-t20"
-                    >ONE REPORT (NUMBER 1, 800 BAHT) FOR A PAIR OF RUBIES = THE TOTAL FEE IS 900 BAHT. (800 + 100)</p>
+                    >{{ $t('content.services.section.identification.example.lines[0]')}}</p>
+                    <p
+                      class="p-type-3 color-grey margin-t20"
+                    >{{ $t('content.services.section.identification.example.lines[1]')}}</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="row padding-tb50">
               <div class="col-md-11">
-                <h4 class="h4-type1">VERBAL GEMS TESTING</h4>
+                <h4 class="h4-type1">{{ $t('content.services.section.verbal.subject')}}</h4>
                 <div>
                   <div class="p-type-3 color-grey margin-t20">
                     <ol>
-                      <li>100 BAHT/STONE (WITH NO REPORT ISSUED)</li>
+                      <li>{{ $t('content.services.section.verbal.lines[0]')}}</li>
                     </ol>
                   </div>
                 </div>

@@ -52,15 +52,17 @@ export default class ItemSlider extends Vue {}
   .bg-img-3 {
     background-image: url(/img/slides/slide3.jpg);
   }
+  .h5-type-1 {
+    text-align: left;
+  }
 
   @media (max-width: 992px) {
     .bg-img-2 .flex-caption {
       width: inherit;
       float: inherit;
     }
-  }
-
-  .h5-type-1 {
-    text-align: left;
+    .h5-type-1 {
+      text-align: center;
+    }
   }
 </style>

@@ -8,7 +8,7 @@ import PageVerifyReport from '@/views/VerifyReport.vue';
 
 Vue.use(Router);
 
-export default new Router({
+const mainRouter = new Router({
   routes: [
     {
       path: '/',
@@ -37,3 +37,12 @@ export default new Router({
     },
   ],
 });
+
+mainRouter.afterEach(() => {
+  $('#navigation').css('height', '75px');
+  $('.nav-btn-open')
+    .removeClass('ti-close')
+    .addClass('ti-menu');
+});
+
+export default mainRouter;

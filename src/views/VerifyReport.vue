@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <h4 class="h4-type3">VERIFY REPORT</h4>
+            <h4 class="h4-type3">{{ $t('menu.verifyReport') }}</h4>
             <div class="border-bar4 margin-t20"></div>
           </div>
         </div>
@@ -21,14 +21,14 @@
             <div class="padding-tb25">
               <form action="#/verify">
                 <div class="form-group">
-                  <label for="verifyId">Please use this form to search your verify report</label>
+                  <label for="verifyId">{{ $t('content.verifyReport.section.verify.subject')}}</label>
                   <br>
                   <br>
                   <input
                     type="text"
                     class="input_text"
                     name="verifyId"
-                    placeholder="Enter Report ID"
+                    :placeholder="$t('content.verifyReport.section.verify.input')"
                     v-model="reportId"
                     v-bind:disabled="isLoading"
                   >
@@ -39,26 +39,32 @@
                   @click.prevent="getReport"
                   v-bind:disabled="isLoading"
                 >
-                  Search
-                  <i class="glyphicon glyphicon-refresh" v-bind:class="{loader: isLoading}"></i>
+                  {{ $t('content.verifyReport.section.verify.button')}}
+                  <i
+                    class="glyphicon glyphicon-refresh"
+                    v-bind:class="{loader: isLoading}"
+                  ></i>
                 </button>
                 <p class="p-type-3 color-grey margin-t20">
                   <span v-show="isPass">
                     <a :href="currentUrl" target="_blank">Open File | เปิดไฟล์ | 点击这</a>
                   </span>
-                  <span class="error" v-show="hasError">** Invalid Report Id **</span>
+                  <span
+                    class="error"
+                    v-show="hasError"
+                  >{{ $t('content.verifyReport.section.verify.error.subject')}}</span>
                   <br>
                   <span
                     class="error"
                     v-show="hasError"
-                  >"GCi reports can be verified after 5 business days" (from the date of issued)</span>
+                  >{{ $t('content.verifyReport.section.verify.error.detail')}}</span>
                 </p>
               </form>
             </div>
           </div>
           <div class="col-md-8 col-sm-7 col-xs-12 text-center">
             <div class="row wrapper-image">
-              <h4 class="h4-type1">Sample Report</h4>
+              <h4 class="h4-type1">{{ $t('content.verifyReport.section.sample.subject')}}</h4>
             </div>
             <div class="row wrapper-image">
               <a
@@ -124,7 +130,9 @@ export default class PageVerifyReport extends Vue {
 
     const reportName = `${vm.reportId}.pdf`;
     const localUrl = `/certificates/${vm.reportId}.pdf`;
-    const localSubFolderUrl = `/certificates/${vm.reportId.substr(0, 4)}/${vm.reportId}.pdf`;
+    const localSubFolderUrl = `/certificates/${vm.reportId.substr(0, 4)}/${
+      vm.reportId
+    }.pdf`;
     const apiUrl = `http://dreamxchange-001-site3.btempurl.com/api/certificates/DownloadAndOpen?id=${
       vm.reportId
     }`;
@@ -142,9 +150,7 @@ export default class PageVerifyReport extends Vue {
 
     // =================== [Get Local Report Sub] ========================
     try {
-      const xhrBlob = await vm.getReportLocal(
-        localSubFolderUrl,
-      );
+      const xhrBlob = await vm.getReportLocal(localSubFolderUrl);
       if (vm.checkValidReport(xhrBlob)) {
         vm.renderDocument(localSubFolderUrl);
         return;
