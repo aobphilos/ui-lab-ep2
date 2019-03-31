@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <h4 class="h4-type3">CONTACT</h4>
+            <h4 class="h4-type3">{{ $t('menu.contact')}}</h4>
             <div class="border-bar4 margin-t20"></div>
           </div>
         </div>
@@ -22,21 +22,24 @@
           </div>
           <div class="col-md-5 col-sm-5 col-xs-12">
             <div class="col-md-12 col-sm-12 col-xs-12 contact_detail">
-              <h4 class="h4-type1">Bangkok</h4>
+              <h4 class="h4-type1">{{ $t('address[0].name') }}</h4>
               <div>
                 <p class="p-type-3">
-                  Jewelry Trade Center
-                  <br>341A/A 3rd Floor Silom road Bangrak Bangkok 10500
-                  <br>Tel: +(66)2 630 0699
+                   {{ $t('address[0].lines[0]') }}
+                    <br>
+                    {{ $t('address[0].lines[1]') }}
+                    <br>
+                    {{ $t('address[0].lines[2]') }}
                 </p>
               </div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12 contact_detail">
-              <h4 class="h4-type1">Chanthaburi</h4>
+              <h4 class="h4-type1">{{ $t('address[1].name') }}</h4>
               <div>
                 <p class="p-type-3">
-                  Room D202/1 2nd Floor, Chan Gems Building
-                  <br>189 Sichuan Rd. Mueang Chanthaburi District, Chanthaburi 22000
+                  {{ $t('address[1].lines[0]') }}
+                    <br>
+                    {{ $t('address[1].lines[1]') }}
                 </p>
               </div>
             </div>

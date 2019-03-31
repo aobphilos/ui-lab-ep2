@@ -16,13 +16,13 @@
             <div class="border-bar margin-t20"></div>
             <p
               class="p-type-3 color-grey margin-t20"
-            >by experienced graduate gemologist (G.G.) instructor from GIA</p>
+            >{{ $t('content.home.section.services.detail')}}</p>
             <router-link
               to="services"
               rel="tooltip"
               title="READ MORE"
               class="btn login-btn"
-            >READ MORE</router-link>
+            >{{ $t('content.home.section.services.button')}}</router-link>
           </div>
           <div
             class="col-md-6 col-xs-12 parallax-window"
@@ -47,7 +47,7 @@
           <div
             class="col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 padding-tb100"
           >
-            <h4 class="h4-type2 margin-t10">VERIFY REPORT</h4>
+            <h4 class="h4-type2 margin-t10">{{ $t('content.home.section.verifyReport.subject')}}</h4>
             <div class="border-bar margin-t20"></div>
             <p class="p-type-3 color-grey margin-t20"></p>
             <router-link
@@ -55,7 +55,7 @@
               rel="tooltip"
               title="MORE COLLECTION"
               class="btn login-btn"
-            >CHECK</router-link>
+            >{{ $t('content.home.section.verifyReport.button')}}</router-link>
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h4 class="h4-type2 text-center">GALLERY</h4>
+            <h4 class="h4-type2 text-center">{{ $t('content.home.section.gallery.subject')}}</h4>
             <div class="border-bar2 margin-t20"></div>
           </div>
         </div>

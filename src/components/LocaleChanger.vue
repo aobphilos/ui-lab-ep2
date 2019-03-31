@@ -1,8 +1,8 @@
 <template>
   <div class="locale-changer">
     <div class="switcher">
-      <span @click="setLocale('en')" :class="{ active: isActive('en') }">EN</span> |
-      <span @click="setLocale('th')" :class="{ active: isActive('th') }">TH</span>
+      <span @click.prevent="setLocale('en')" :class="{ active: isActive('en') }">EN</span> |
+      <span @click.prevent="setLocale('th')" :class="{ active: isActive('th') }">TH</span>
     </div>
   </div>
 </template>

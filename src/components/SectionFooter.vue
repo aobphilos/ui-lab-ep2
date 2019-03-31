@@ -12,19 +12,44 @@
           <div class="col-md-2 padding-tb50">
             <ul class="main-nav">
               <li>
-                <router-link to="/" class="nav-link" rel="tooltip" title="GCILab">Home</router-link>
+                <router-link
+                  to="/"
+                  class="nav-link"
+                  rel="tooltip"
+                  title="GCILab"
+                >{{ $t('menu.home')}}</router-link>
               </li>
               <li>
-                <router-link to="about" class="nav-link" rel="tooltip" title="About GCILab">About Us</router-link>
+                <router-link
+                  to="about"
+                  class="nav-link"
+                  rel="tooltip"
+                  title="About GCILab"
+                >{{ $t('menu.aboutUs')}}</router-link>
               </li>
               <li>
-                <router-link to="services" class="nav-link" rel="tooltip" title="Services">Services</router-link>
+                <router-link
+                  to="services"
+                  class="nav-link"
+                  rel="tooltip"
+                  title="Services"
+                >{{ $t('menu.services')}}</router-link>
               </li>
               <li>
-                <router-link to="verify" class="nav-link" rel="tooltip" title="Verify">Verify Report</router-link>
+                <router-link
+                  to="verify"
+                  class="nav-link"
+                  rel="tooltip"
+                  title="Verify"
+                >{{ $t('menu.verifyReport')}}</router-link>
               </li>
               <li>
-                <router-link to="contact" class="nav-link" rel="tooltip" title="Contact">Contact</router-link>
+                <router-link
+                  to="contact"
+                  class="nav-link"
+                  rel="tooltip"
+                  title="Contact"
+                >{{ $t('menu.contact')}}</router-link>
               </li>
             </ul>
           </div>
@@ -34,20 +59,23 @@
           <div class="col-md-5 padding-tb50">
             <div class="contact-details">
               <div>
-                <h3 class="p-type-3">Bangkok</h3>
+                <h3 class="p-type-3">{{ $t('address[0].name') }}</h3>
                 <div>
                   <p class="p-type-3">
-                    Jewelry Trade Center
-                    <br>341A/A 3rd Floor Silom road Bangrak Bangkok 10500
-                    <br>Tel: +(66)2 630 0699
+                    {{ $t('address[0].lines[0]') }}
+                    <br>
+                    {{ $t('address[0].lines[1]') }}
+                    <br>
+                    {{ $t('address[0].lines[2]') }}
                   </p>
                 </div>
                 <br>
-                <h3 class="p-type-3">Chanthaburi</h3>
+                <h3 class="p-type-3">{{ $t('address[1].name') }}</h3>
                 <div>
                   <p class="p-type-3">
-                    Room D202/1 2nd Floor, Chan Gems Building
-                    <br>189 Sichuan Rd. Mueang Chanthaburi District, Chanthaburi 22000
+                    {{ $t('address[1].lines[0]') }}
+                    <br>
+                    {{ $t('address[1].lines[1]') }}
                   </p>
                 </div>
               </div>
@@ -60,12 +88,7 @@
                 <a href="#" target="_self">gcilab</a>
               </div>
               <div>
-                <img
-                  src="/img/social/facebook.svg"
-                  class="logo"
-                  title="Facebook"
-                  alt="Facebook"
-                >
+                <img src="/img/social/facebook.svg" class="logo" title="Facebook" alt="Facebook">
                 <a href="#" target="_self">gcilab</a>
               </div>
               <div>

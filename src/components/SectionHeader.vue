@@ -4,26 +4,26 @@
     <div class="container">
       <div class="row">
         <div class="col-md-2">
-          <a href="/">
+          <a href="#/">
             <img src="/img/nav-logo.png" alt="GCILab" class="main-nav-logo">
           </a>
           <span class="ti-menu nav-btn-open hidden-md hidden-lg">
             <locale-changer/>
-          </span>          
+          </span>
         </div>
         <div class="col-md-8 text-center">
           <ul class="main-nav">
             <li>
-              <router-link to="about" rel="tooltip" title="About GCILab">About Us</router-link>
+              <router-link to="about" rel="tooltip" title="About GCILab">{{ $t('menu.aboutUs') }}</router-link>
             </li>
             <li>
-              <router-link to="services" rel="tooltip" title="Services">Services</router-link>
+              <router-link to="services" rel="tooltip" title="Services">{{ $t('menu.services')}}</router-link>
             </li>
             <li>
-              <router-link to="verify" rel="tooltip" title="Verify">Verify Report</router-link>
+              <router-link to="verify" rel="tooltip" title="Verify">{{ $t('menu.verifyReport')}}</router-link>
             </li>
             <li>
-              <router-link to="contact" rel="tooltip" title="Contact">Contact</router-link>
+              <router-link to="contact" rel="tooltip" title="Contact">{{ $t('menu.contact')}}</router-link>
             </li>
           </ul>
         </div>
