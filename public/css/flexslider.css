@@ -254,12 +254,3 @@ html[xmlns] .flexslider .slides {
     right: 0px;
   }
 }
-.flexslider .slides li{
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.flexslider .flex-viewport,.flexslider .flex-viewport ul{
-  height:100%;
-}

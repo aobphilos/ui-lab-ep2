@@ -3,7 +3,7 @@
     <loader-fade-out/>
 
     <!-- About us heading-->
-    <section id="about_header">
+    <section id="about_header" class="section_header">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -18,7 +18,7 @@
     <section id="whoweare" class="padding-tb50">
       <div class="container">
         <div class="row">
-          <div class="col-md-5 col-xs-12">
+          <div class="col-md-5 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
             <div>
               <img src="/img/whoweare.jpg" alt>
             </div>
@@ -42,7 +42,7 @@
       <div class="container">
         <div class="row testimonial">
           <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <h5 class>
+            <h5>
               {{ $t('content.aboutUs.section.diploma[0].subjects[0]')}}
               <br>
               {{ $t('content.aboutUs.section.diploma[0].subjects[1]')}}
@@ -54,7 +54,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-5 col-xs-12">
+          <div class="col-md-5 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
             <div>
               <a
                 href="/img/aboutus/full/diploma-surachart.jpg"
@@ -74,7 +74,7 @@
       <div class="container">
         <div class="row testimonial">
           <div class="col-md-7 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-            <h5 class>
+            <h5>
               {{ $t('content.aboutUs.section.diploma[1].subjects[0]')}}
               <br>
               {{ $t('content.aboutUs.section.diploma[1].subjects[1]')}}
@@ -86,7 +86,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-md-5 col-xs-12">
+          <div class="col-md-5 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
             <div>
               <a
                 href="/img/aboutus/full/diploma-patarat.jpg"
@@ -114,19 +114,26 @@ import { type } from 'os';
   },
 })
 export default class PageAboutUs extends Vue {
-
   public mounted() {
     $('.parallax-mirror').hide();
   }
   private getDiplomaLines(index: number) {
     const locale = this.$i18n.getLocaleMessage(this.$i18n.locale);
-    if (!locale) { return []; }
+    if (!locale) {
+      return [];
+    }
     const content: any = locale.content;
-    if (!content) { return []; }
+    if (!content) {
+      return [];
+    }
     const aboutUs: any = content.aboutUs;
-    if (!aboutUs) { return []; }
+    if (!aboutUs) {
+      return [];
+    }
     const section: any = aboutUs.section;
-    if (!section) { return []; }
+    if (!section) {
+      return [];
+    }
     const diploma = section.diploma;
     if (diploma) {
       return diploma[index].lines;
@@ -138,14 +145,43 @@ export default class PageAboutUs extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-  #about_header {
-    height: 265px;
-    background-image: url(/img/cover/default.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    @media (max-width: 768px) {
-      & {
-        height: 230px;
+  .testimonial {
+    &-text {
+      color: #fff;
+      font-size: 16px;
+      width: 70%;
+      margin: 20px 15%;
+      line-height: 1.6;
+      font-style: italic;
+      font-weight: 600;
+    }
+    h5 {
+      color: #dea700;
+      font-size: 20px;
+      font-family: "Gothic", sans-serif;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    h6 {
+      color: #fff;
+      font-size: 12px;
+      font-family: "Gothic", sans-serif;
+      padding-top: 10px;
+    }
+    .slides {
+      li {
+        padding: 0 0 50px 0;
+        margin-right: 0px !important;
+      }
+    }
+    .flex-control-nav {
+      position: relative;
+    }
+  }
+  @media (max-width: 991px) {
+    section {
+      img {
+        margin-top: 25px;
       }
     }
   }

@@ -2,7 +2,7 @@
   <div>
     <loader-fade-out/>
     <!-- Verify heading-->
-    <section id="verify_header">
+    <section id="verify_header" class="section_header">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -218,12 +218,6 @@ export default class PageVerifyReport extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-  #verify_header {
-    height: 265px;
-    background-image: url("/img/cover/default.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
   .input_submit[disabled] {
     filter: grayscale(1);
   }
@@ -257,11 +251,6 @@ export default class PageVerifyReport extends Vue {
     }
     100% {
       transform: rotate(360deg);
-    }
-  }
-  @media (max-width: 768px) {
-    #verify_header {
-      height: 230px;
     }
   }
 </style>

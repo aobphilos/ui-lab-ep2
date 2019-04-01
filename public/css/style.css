@@ -17,11 +17,7 @@ Global style
 
 CONTENTS :
     *   1. General
-    *   2. Navigation
-    *   3. Slider
-    *   4. What We Do
     *   5. Portfolio  
-    *   6. Testimonial
     *   7. Clients
     *   8. Footer
     *   9. Contact Form
@@ -56,29 +52,6 @@ body {
   overflow-x: hidden;
 }
 
-.component-fade-enter-active,
-.component-fade-leave-active {
-  transition: opacity .5s ease;
-}
-
-.component-fade-enter,
-.component-fade-leave-to
-
-/* .component-fade-leave-active below version 2.1.8 */
-  {
-  opacity: 0;
-}
-
-#loader {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  background-color: #fff;
-}
-
 .wrapper {
   padding-left: 1em;
   padding-right: 1em;
@@ -87,103 +60,17 @@ body {
   width: 195px;
 }
 
-.cssload-loader {
-  width: 49px;
-  height: 49px;
-  border-radius: 50%;
-  margin: 3em;
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-  background: rgb(0, 0, 0);
-}
-
-.cssload-loader,
-.cssload-loader:before,
-.cssload-loader:after {
-  animation: 1.15s infinite ease-in-out;
-  -o-animation: 1.15s infinite ease-in-out;
-  -ms-animation: 1.15s infinite ease-in-out;
-  -webkit-animation: 1.15s infinite ease-in-out;
-  -moz-animation: 1.15s infinite ease-in-out;
-}
-
-.cssload-loader:before,
-.cssload-loader:after {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.cssload-loader {
-  animation-name: cssload-loader;
-  -o-animation-name: cssload-loader;
-  -ms-animation-name: cssload-loader;
-  -webkit-animation-name: cssload-loader;
-  -moz-animation-name: cssload-loader;
-}
-
-@keyframes cssload-loader {
-  from {
-    transform: scale(0);
-    opacity: 1;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 0;
-  }
-}
-
-@-o-keyframes cssload-loader {
-  from {
-    -o-transform: scale(0);
-    opacity: 1;
-  }
-
-  to {
-    -o-transform: scale(1);
-    opacity: 0;
-  }
-}
-
-@-ms-keyframes cssload-loader {
-  from {
-    -ms-transform: scale(0);
-    opacity: 1;
-  }
-
-  to {
-    -ms-transform: scale(1);
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes cssload-loader {
-  from {
-    -webkit-transform: scale(0);
-    opacity: 1;
-  }
-
-  to {
-    -webkit-transform: scale(1);
-    opacity: 0;
-  }
-}
-
-@-moz-keyframes cssload-loader {
-  from {
-    -moz-transform: scale(0);
-    opacity: 1;
-  }
-
-  to {
-    -moz-transform: scale(1);
-    opacity: 0;
-  }
+.login-btn {
+  padding: 10px 30px;
+  margin: 20px 0;
+  color: #000;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  background-color: #dea700;
+  letter-spacing: 1px;
+  border-radius: 25px;
+  font-family: "Gothic", sans-serif;
 }
 
 .p-type-1 {
@@ -333,7 +220,7 @@ body {
 .h4-type3 {
   font-family: 'Gothic';
   font-size: 36px;
-  margin: 150px 0 0 2px;
+  margin: 125px 0 0 2px;
   font-weight: bolder;
   color: #ffffff;
   text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.17);
@@ -369,207 +256,6 @@ body {
 .p404_txt span {
   font-size: 25px;
   color: rgba(0, 0, 0, 0.82);
-}
-
-/**********************************************************************************************
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-                                            2. Navigation 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-***********************************************************************************************/
-
-#navigation {
-  height: 75px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  width: 100%;
-  border-bottom: 1px solid rgba(221, 221, 221, 0.2);
-  transition: all 0.5s ease;
-  overflow: hidden;
-}
-
-#navigation .main-nav-logo {
-  height: 55px;
-  margin: 10px 0;
-}
-
-#navigation .main-nav {
-  height: 75px;
-}
-
-#navigation .main-nav li {
-  display: inline-block;
-}
-
-#navigation .main-nav li a {
-  text-decoration: none;
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 2px;
-  font-weight: 700;
-  padding: 33px 10px 34px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0);
-  display: inline-block;
-  transition: all 0.5s ease;
-  font-family: 'Gothic', sans-serif;
-}
-
-#navigation .main-nav li a:hover {
-  color: #dea700;
-  border-bottom: 1px solid #dea700;
-}
-
-.login-btn {
-  padding: 10px 30px;
-  margin: 20px 0;
-  color: #000;
-  font-size: 14px;
-  font-weight: 900;
-  text-transform: uppercase;
-  background-color: #dea700;
-  letter-spacing: 1px;
-  border-radius: 25px;
-  font-family: 'Gothic', sans-serif;
-}
-
-.color_navigation {
-  background-color: #000;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
-}
-
-#navigation .nav-btn-open {
-  color: #fff;
-  display: block;
-  width: 50px;
-  height: 50px;
-  float: right;
-  margin: 15px;
-  text-align: center;
-  padding-top: 15px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-/**********************************************************************************************
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-                                            3. Slider
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-***********************************************************************************************/
-
-#slider {
-  width: 100%;
-  height: 100vh;
-  background-color: black;
-}
-
-#slider img {
-  width: 100%;
-  height: 100%;
-}
-
-.flexslide-container {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.flex-caption {
-  margin-top: 30vh;
-  color: #fff;
-  font-size: 14px;
-}
-
-.flex-caption .p-type-2 {
-  max-width: 800px;
-}
-
-/**********************************************************************************************
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-                                            4. Who we are
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-***********************************************************************************************/
-
-.parallax-window {
-  height: 500px;
-}
-
-/**********************************************************************************************
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-                                            5. Portfolio
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-***********************************************************************************************/
-
-.portfolio-item {
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  cursor: url('../img/curser.png'), auto;
-  background-color: #000
-}
-
-.portfolio-item img {
-  transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
-  transition: all 0.8s ease;
-  -moz-transition: all 0.8s ease;
-  -webkit-transition: all 0.8s ease;
-  -ms-transition: all 0.8s ease;
-  -o-transition: all 0.8s ease;
-  cursor: url('../img/curser.png'), auto;
-}
-
-.portfolio-item:hover img {
-  transform: scale(1);
-  opacity: 0.4;
-}
-
-/**********************************************************************************************
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-                                            6. Testimonial
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-***********************************************************************************************/
-
-#testimonial {
-  overflow: hidden;
-}
-
-.testimonial-text {
-  color: #fff;
-  font-size: 16px;
-  width: 70%;
-  margin: 20px 15%;
-  line-height: 1.6;
-  font-style: italic;
-  font-weight: 600;
-}
-
-.testimonial h5 {
-  color: #dea700;
-  font-size: 20px;
-  font-family: 'Gothic', sans-serif;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.testimonial h6 {
-  color: #fff;
-  font-size: 12px;
-  font-family: 'Gothic', sans-serif;
-  padding-top: 10px;
-}
-
-.testimonial .slides li {
-  padding: 0 0 50px 0;
-  margin-right: 0px !important;
-}
-
-.testimonial .flex-control-nav {
-  position: relative;
 }
 
 /**********************************************************************************************
@@ -708,34 +394,6 @@ body {
   font-size: 12px;
   font-weight: 700;
   padding-top: 20px;
-}
-
-#about_header {
-  height: 300px;
-  background-image: url('../img/aboutus.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#services_header {
-  height: 300px;
-  background-image: url('../img/services.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#portfolio_header {
-  height: 300px;
-  background-image: url('../img/portfolio.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#contact_header {
-  height: 300px;
-  background-image: url('../img/contact.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 /**********************************************************************************************
@@ -905,4 +563,39 @@ body {
 
 #services .example {
   padding: 0 0 0 20px;
+}
+
+/**********************************************************************************************
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+                                            X Revolutions
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+***********************************************************************************************/
+.section_header {
+  height: 235px;
+  background-image: url('../img/cover/default.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .section_header {
+    height: 200px;
+  }
+
+  .border-bar4 {
+    height: 3px;
+  }
+
+  .p-type-5 {
+    width: auto;
+  }
+
+  .h4-type3 {
+    margin: 108px 0 0 2px;
+    font-size: 32px;
+  }
+
+  .padding-tb50 {
+    padding: 15px 0;
+  }
 }

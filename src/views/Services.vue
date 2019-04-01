@@ -2,7 +2,7 @@
   <div>
     <loader-fade-out/>
     <!-- Services heading-->
-    <section id="services_header">
+    <section id="services_header" class="section_header">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -128,18 +128,6 @@ export default class PageServices extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-  #services_header {
-    height: 265px;
-    background-image: url(/img/cover/default.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    @media (max-width: 768px) {
-      & {
-        height: 230px;
-      }
-    }
-  }
-
   .imgage-box .padding-tb25 {
     padding: 15px 0;
     margin: 10px 0;

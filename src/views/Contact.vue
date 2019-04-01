@@ -2,7 +2,7 @@
   <div>
     <loader-fade-out/>
     <!-- Contact us heading-->
-    <section id="contact_header">
+    <section id="contact_header" class="section_header">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -25,11 +25,11 @@
               <h4 class="h4-type1">{{ $t('address[0].name') }}</h4>
               <div>
                 <p class="p-type-3">
-                   {{ $t('address[0].lines[0]') }}
-                    <br>
-                    {{ $t('address[0].lines[1]') }}
-                    <br>
-                    {{ $t('address[0].lines[2]') }}
+                  {{ $t('address[0].lines[0]') }}
+                  <br>
+                  {{ $t('address[0].lines[1]') }}
+                  <br>
+                  {{ $t('address[0].lines[2]') }}
                 </p>
               </div>
             </div>
@@ -38,8 +38,8 @@
               <div>
                 <p class="p-type-3">
                   {{ $t('address[1].lines[0]') }}
-                    <br>
-                    {{ $t('address[1].lines[1]') }}
+                  <br>
+                  {{ $t('address[1].lines[1]') }}
                 </p>
               </div>
             </div>
@@ -135,18 +135,12 @@ export default class PageContact extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-  #contact_header {
-    height: 265px;
-    background-image: url(/img/cover/default.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
   #imgContactUs {
     width: 100%;
   }
   @media (max-width: 768px) {
-    #contact_header {
-      height: 230px;
+    #contact_form {
+      padding: 10px 0;
     }
     #imgContactUs {
       width: 93%;
