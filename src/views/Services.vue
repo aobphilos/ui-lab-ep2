@@ -128,11 +128,22 @@ export default class PageServices extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-  .imgage-box .padding-tb25 {
-    padding: 15px 0;
-    margin: 10px 0;
-    text-align: center;
-    border: 2px solid lightgray;
-    border-radius: 25px;
+  #services {
+    .imgage-box {
+      .padding-tb25 {
+        padding: 15px 0;
+        margin: 10px 0;
+        text-align: center;
+        border: 2px solid lightgray;
+        border-radius: 25px;
+      }
+    }
+    ol {
+      list-style: decimal;
+      padding: 0 0 0 35px;
+    }
+    .example {
+      padding: 0 0 0 20px;
+    }
   }
 </style>
