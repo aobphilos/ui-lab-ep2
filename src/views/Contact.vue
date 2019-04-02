@@ -2,7 +2,7 @@
   <div>
     <loader-fade-out/>
     <!-- Contact us heading-->
-    <section id="contact_header">
+    <section id="contact_header" class="section_header">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -25,11 +25,11 @@
               <h4 class="h4-type1">{{ $t('address[0].name') }}</h4>
               <div>
                 <p class="p-type-3">
-                   {{ $t('address[0].lines[0]') }}
-                    <br>
-                    {{ $t('address[0].lines[1]') }}
-                    <br>
-                    {{ $t('address[0].lines[2]') }}
+                  {{ $t('address[0].lines[0]') }}
+                  <br>
+                  {{ $t('address[0].lines[1]') }}
+                  <br>
+                  {{ $t('address[0].lines[2]') }}
                 </p>
               </div>
             </div>
@@ -38,8 +38,8 @@
               <div>
                 <p class="p-type-3">
                   {{ $t('address[1].lines[0]') }}
-                    <br>
-                    {{ $t('address[1].lines[1]') }}
+                  <br>
+                  {{ $t('address[1].lines[1]') }}
                 </p>
               </div>
             </div>
@@ -108,7 +108,7 @@
     <section id="googlemap">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242.24518580092612!2d100.51996847439027!3d13.723113154212902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e298d2d351f5d1%3A0xc18202ec7d5a3d1e!2sJewelry+Trade+Center+Thailand!5e0!3m2!1sen!2sth!4v1519454169213"
-        height="400"
+        height="320"
         style="border:0"
         allowfullscreen
         class="map-frame"
@@ -135,21 +135,67 @@ export default class PageContact extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-  #contact_header {
-    height: 265px;
-    background-image: url(/img/cover/default.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+  #contact_form {
+    padding: 50px 0;
+    .contact_detail {
+      margin: 10px 0;
+      border-bottom: 1px solid rgba(221, 221, 221, 0.29);
+      span.icon {
+        display: inline-block;
+        background-color: #fff;
+        font-size: 46px;
+        text-align: center;
+        padding: 12px;
+        border: 2px solid #dea700;
+        border-radius: 100%;
+        color: #ebb103;
+        margin: 10px 0;
+      }
+      p {
+        font-size: 16px;
+        color: #424242;
+        margin: 10px 0 0 0;
+        line-height: 1.6;
+        padding: 8px;
+        text-align: left;
+        &.logo {
+          margin-top: 16px;
+        }
+      }
+      img {
+        max-width: unset;
+        &.logo {
+          width: 48px;
+          margin-top: 14px;
+        }
+        &.qrcode {
+          width: 96px;
+        }
+      }
+    }
   }
+
   #imgContactUs {
     width: 100%;
   }
   @media (max-width: 768px) {
-    #contact_header {
-      height: 230px;
+    #contact_form {
+      padding: 10px 0;
     }
     #imgContactUs {
       width: 93%;
+    }
+  }
+</style>
+
+<style lang="less">
+  #googlemap {
+    width: 100%;
+    height: 400px;
+    .map-frame {
+      width: 100%;
+      height: 100%;
+      position: relative;
     }
   }
 </style>

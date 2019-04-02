@@ -150,4 +150,40 @@ export default class PageHome extends Vue {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
+  .parallax-window {
+    height: 500px;
+  }
+  #portfolio {
+    .portfolio-item {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      cursor: url(/img/curser.png), auto;
+      background-color: #000;
+      img {
+        transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transition: all 0.8s ease;
+        -moz-transition: all 0.8s ease;
+        -webkit-transition: all 0.8s ease;
+        -ms-transition: all 0.8s ease;
+        -o-transition: all 0.8s ease;
+        cursor: url(/img/curser.png), auto;
+      }
+      &:hover {
+        img {
+          transform: scale(1);
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+  @media (max-width: 991px) {
+    #whoweare .login-btn {
+      float: left;
+    }
+  }
 </style>

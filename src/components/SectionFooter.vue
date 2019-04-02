@@ -108,3 +108,72 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class SectionFooter extends Vue {}
 </script>
+
+<style lang="less" scoped>
+  #footer {
+    background-color: #000;
+    .footerlogo {
+      width: 150px;
+      /* filter: grayscale(1);  */
+    }
+    ul {
+      li {
+        a {
+          color: #a0a0a0;
+          text-decoration: none;
+          padding: 6px 0;
+          font-size: 12px;
+          display: block;
+          letter-spacing: 1px;
+          font-weight: 600;
+          text-transform: uppercase;
+          transition: all 0.4s ease;
+          &:hover {
+            color: #dea700;
+          }
+        }
+      }
+    }
+    .contact-details {
+      div {
+        overflow: auto;
+        padding: 6px 0;
+        a {
+          color: #c1c1c1;
+          font-size: 14px;
+          line-height: 1.6;
+          font-weight: 600;
+          padding: 0 0 0 10px;
+        }
+        p {
+          display: block;
+          color: #c1c1c1;
+          font-size: 14px;
+          line-height: 1.6;
+          font-weight: 600;
+          padding: 0 0 0 30px;
+        }
+        span {
+          display: table-cell;
+          float: left;
+          color: rgb(234, 234, 234);
+          font-weight: 700;
+          font-size: 16px;
+          vertical-align: middle;
+          opacity: 1;
+          padding-top: 4px;
+        }
+      }
+      img.logo {
+        width: 32px;
+        /* filter: grayscale(1);  */
+      }
+    }
+    .copyright {
+      color: #808280;
+      font-size: 12px;
+      font-weight: 700;
+      padding-top: 20px;
+    }
+  }
+</style>

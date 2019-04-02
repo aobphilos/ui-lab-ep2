@@ -24,7 +24,7 @@ export default class LocaleChanger extends Vue {
 <style scoped lang="less">
   .locale-changer {
     margin: 0;
-    min-width: 60px;
+    min-width: 70px;
     color: #fff;
     font-size: 12px;
     letter-spacing: 2px;
@@ -41,7 +41,7 @@ export default class LocaleChanger extends Vue {
         color: #dea700;
       }
     }
-    @media (max-width: 992px) {
+    @media (max-width: 991px) {
       & {
         position: absolute;
         top: 2px;

@@ -2,7 +2,7 @@
   <div>
     <loader-fade-out/>
     <!-- Verify heading-->
-    <section id="verify_header">
+    <section id="verify_header" class="section_header">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -218,11 +218,35 @@ export default class PageVerifyReport extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-  #verify_header {
-    height: 265px;
-    background-image: url("/img/cover/default.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+  #verify {
+    .input_text {
+      width: 100%;
+      height: 50px;
+      border: 1px solid #ddd;
+      margin: 10px 0 0 0;
+      padding: 0 15px;
+      border-radius: 2px;
+      font-size: 14px;
+      box-shadow: 1px 4px 8px -3px rgb(221, 221, 221);
+      outline: none;
+    }
+    .input_submit {
+      width: 150px;
+      height: 40px;
+      border: none;
+      outline: none;
+      padding: 10px 30px;
+      margin: 20px 0;
+      color: #000;
+      font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+      background-color: #dea700;
+      letter-spacing: 1px;
+      border-radius: 25px;
+      font-family: "Gothic", sans-serif;
+      box-shadow: 0px 4px 12px -1px rgba(240, 182, 23, 0.671);
+    }
   }
   .input_submit[disabled] {
     filter: grayscale(1);
@@ -257,11 +281,6 @@ export default class PageVerifyReport extends Vue {
     }
     100% {
       transform: rotate(360deg);
-    }
-  }
-  @media (max-width: 768px) {
-    #verify_header {
-      height: 230px;
     }
   }
 </style>
