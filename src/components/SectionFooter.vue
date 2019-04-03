@@ -16,7 +16,7 @@
                   to="/"
                   class="nav-link"
                   rel="tooltip"
-                  title="GCILab"
+                  :title="$t('menu.home')"
                 >{{ $t('menu.home')}}</router-link>
               </li>
               <li>
@@ -24,7 +24,7 @@
                   to="about"
                   class="nav-link"
                   rel="tooltip"
-                  title="About GCILab"
+                  :title="$t('menu.aboutUs')"
                 >{{ $t('menu.aboutUs')}}</router-link>
               </li>
               <li>
@@ -32,7 +32,7 @@
                   to="services"
                   class="nav-link"
                   rel="tooltip"
-                  title="Services"
+                  :title="$t('menu.services')"
                 >{{ $t('menu.services')}}</router-link>
               </li>
               <li>
@@ -40,15 +40,23 @@
                   to="verify"
                   class="nav-link"
                   rel="tooltip"
-                  title="Verify"
+                  :title="$t('menu.verifyReport')"
                 >{{ $t('menu.verifyReport')}}</router-link>
+              </li>
+              <li>
+                <router-link
+                  to="submitgem"
+                  class="nav-link"
+                  rel="tooltip"
+                  :title="$t('menu.submitAGem')"
+                >{{ $t('menu.submitAGem')}}</router-link>
               </li>
               <li>
                 <router-link
                   to="contact"
                   class="nav-link"
                   rel="tooltip"
-                  title="Contact"
+                  :title="$t('menu.contact')"
                 >{{ $t('menu.contact')}}</router-link>
               </li>
             </ul>

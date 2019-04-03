@@ -5,6 +5,7 @@ import PageContact from '@/views/Contact.vue';
 import PageHome from '@/views/Home.vue';
 import PageServices from '@/views/Services.vue';
 import PageVerifyReport from '@/views/VerifyReport.vue';
+import SubmitGem from '@/views/SubmitGem.vue';
 
 Vue.use(Router);
 
@@ -31,6 +32,11 @@ const mainRouter = new Router({
       component: PageVerifyReport,
     },
     {
+      path: '/submitgem',
+      name: 'SubmitGem',
+      component: SubmitGem,
+    },
+    {
       path: '/contact',
       name: 'PageContact',
       component: PageContact,
@@ -38,7 +44,7 @@ const mainRouter = new Router({
   ],
 });
 
-mainRouter.afterEach(() => {
+mainRouter.afterEach((a, b) => {
   $('#navigation').css('height', '75px');
   $('.nav-btn-open')
     .removeClass('ti-close')

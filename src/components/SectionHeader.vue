@@ -15,16 +15,39 @@
         <div class="col-md-8 text-center">
           <ul class="main-nav">
             <li>
-              <router-link to="about" rel="tooltip" title="About GCILab">{{ $t('menu.aboutUs') }}</router-link>
+              <router-link
+                to="about"
+                rel="tooltip"
+                :title="$t('menu.aboutUs')"
+              >{{ $t('menu.aboutUs') }}</router-link>
             </li>
             <li>
-              <router-link to="services" rel="tooltip" title="Services">{{ $t('menu.services')}}</router-link>
+              <router-link
+                to="services"
+                rel="tooltip"
+                :title="$t('menu.services')"
+              >{{ $t('menu.services')}}</router-link>
             </li>
             <li>
-              <router-link to="verify" rel="tooltip" title="Verify">{{ $t('menu.verifyReport')}}</router-link>
+              <router-link
+                to="verify"
+                rel="tooltip"
+                :title="$t('menu.verifyReport')"
+              >{{ $t('menu.verifyReport')}}</router-link>
             </li>
             <li>
-              <router-link to="contact" rel="tooltip" title="Contact">{{ $t('menu.contact')}}</router-link>
+              <router-link
+                to="submitgem"
+                rel="tooltip"
+                :title="$t('menu.submitAGem')"
+              >{{ $t('menu.submitAGem')}}</router-link>
+            </li>
+            <li>
+              <router-link
+                to="contact"
+                rel="tooltip"
+                :title="$t('menu.contact')"
+              >{{ $t('menu.contact')}}</router-link>
             </li>
           </ul>
         </div>
@@ -101,13 +124,15 @@ export default class SectionHeader extends Vue {
           letter-spacing: 2px;
           font-weight: 700;
           padding: 33px 10px 34px;
-          border-bottom: 1px solid rgba(0, 0, 0, 0);
+          border: none;
           display: inline-block;
           transition: all 0.5s ease;
           font-family: "Gothic", sans-serif;
           &:hover {
             color: #dea700;
-            border-bottom: 1px solid #dea700;
+          }
+          &.router-link-active {
+            color: #dea700;
           }
         }
       }
