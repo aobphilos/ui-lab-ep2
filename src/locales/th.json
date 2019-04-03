@@ -4,26 +4,26 @@
   },
   "footer": {},
   "address": [{
-    "name": "Bangkok",
+    "name": "กรุงเทพมหานคร",
     "lines": [
-      "Jewelry Trade Center",
-      "341A/A 3rd Floor Silom road Bangrak Bangkok",
-      "Tel: +(66)2 630 0699"
+      "อาคารจิวเวลรี่เทรดเซ็นเตอร์",
+      "341A/A ชั้น 3 ถ. สีลม เขต บางรัก กรุงเทพมหานคร 10500",
+      "เบอร์โทร : +(66)2 630 0699"
     ]
   }, {
-    "name": "Chanthaburi",
+    "name": "จันทบุรี",
     "lines": [
-      "Room D202/1 2nd Floor, Chan Gems Building",
-      "189 Sichuan Rd. Mueang Chanthaburi District, Chanthaburi 22000"
+      "ห้อง D202/1 ชั้น 2 อาคารจันท์เจมส์",
+      "เลขที่ 189 ถนนศรีจันทร์ ต.วัดใหม่ อ.เมือง จ.จันทบุรี 22000"
     ]
   }],
   "menu": {
     "home": "หน้าหลัก",
-    "aboutUs": "เกี่ยวกับเรา",
+    "aboutUs": "เกี่ยวกับบริษัท",
     "services": "บริการ",
-    "submitAGem": "SUBMIT A GEM",
-    "verifyReport": "รายงานการตรวจสอบ",
-    "contact": "ติดต่อเรา"
+    "submitAGem": "การจัดส่งอัญมณี",
+    "verifyReport": "ตรวจสอบใบรายงานผล",
+    "contact": "การติดต่อกับบบริษัท"
   },
   "content": {
     "home": {
@@ -94,25 +94,25 @@
     "services": {
       "section": {
         "identification": {
-          "subject": "GEM IDENTIFICATION CONSULTANCY REPORT",
+          "subject": "ใบรายงานผลการตรวจสอบอัญมณี",
           "lines": [
-            "800 BAHT/STONE",
-            "350 BAHT/STONE",
-            "350 BAHT/STONE",
-            "200 BAHT/STONE"
+            "800 บาท/ชิ้น",
+            "350 บาท/ชิ้น",
+            "350 บาท/ชิ้น",
+            "200 บาท/ชิ้น"
           ],
           "example": {
-            "subject": "ONE REPORT CAN BE CONTAINED MULTIPLE STONES DETAILS WITH ADDITIONAL FEE OF 100 BAHT PER STONE.",
+            "subject": "ใบรายงานผลการตรวจสอบสามารถแสดงผลได้มากกว่า 1 เม็ดในหนึ่งใบ  โดยชำระเพิ่ม 100 บาท/ชิ้น",
             "lines": [
-              "FOR EXAMPLE:",
-              "ONE REPORT (NUMBER 1, 800 BAHT) FOR A PAIR OF RUBIES = THE TOTAL FEE IS 900 BAHT. (800 + 100)"
+              "ยกตัวอย่าง:",
+              "ใบรายงานหนึ่งใบ ราคา 800 บาท สำหรับทับทิม 1 คู่ เท่ากับ 900 บาท (800 + 100)"
             ]
           }
         },
         "verbal": {
-          "subject": "VERBAL GEMS TESTING",
+          "subject": "การทดสอบแบบไม่ออกใบรับรองผล",
           "lines": [
-            "100 BAHT/STONE (WITH NO REPORT ISSUED)"
+            "100 บาท/ชิ้น (โดยไม่ออกรับใบรับรอง)"
           ]
         }
       }
