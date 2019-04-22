@@ -32,7 +32,7 @@ const mainRouter = new Router({
       component: PageVerifyReport,
     },
     {
-      path: '/submitgem',
+      path: '/submit-gem',
       name: 'SubmitGem',
       component: SubmitGem,
     },

@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <h4 class="h4-type3">{{ $t('menu.submitAGem') }}</h4>
+            <h4 class="h4-type3">{{ $t('menu.submitGem') }}</h4>
             <div class="border-bar4 margin-t20"></div>
           </div>
         </div>
@@ -27,7 +27,7 @@
             <div class="margin-t20"></div>
             <p
               class="p-type-5 color-grey margin-t20"
-            >{{ $t('content.aboutUs.section.overview.lines[0]')}}</p>
+            >{{ JSON.stringify($store.submitGemModel) }}</p>
             <div class="margin-t20"></div>
             <p
               class="p-type-5 color-grey margin-t20"
@@ -49,8 +49,14 @@ import LoaderFadeOut from '@/components/LoaderFadeOut.vue';
   },
 })
 export default class SubmitGem extends Vue {
+  public created() {
+    console.log('create: ', this.$store.submitGem);
+  }
   public mounted() {
+    console.log('mounted: ', this.$store);
     $('.parallax-mirror').hide();
+
+
   }
 }
 </script>

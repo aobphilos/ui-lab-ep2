@@ -21,7 +21,7 @@
     "home": "HOME",
     "aboutUs": "ABOUT US",
     "services": "SERVICES",
-    "submitAGem": "SUBMIT A GEM",
+    "submitGem": "SUBMIT A GEM",
     "verifyReport": "VERIFY REPORT",
     "contact": "CONTACT"
   },
@@ -117,7 +117,7 @@
         }
       }
     },
-    "submitAGem": {},
+    "submitGem": {},
     "verifyReport": {
       "section": {
         "verify": {

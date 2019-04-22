@@ -37,10 +37,10 @@
             </li>
             <li>
               <router-link
-                to="submitgem"
+                to="submit-gem"
                 rel="tooltip"
-                :title="$t('menu.submitAGem')"
-              >{{ $t('menu.submitAGem')}}</router-link>
+                :title="$t('menu.submitGem')"
+              >{{ $t('menu.submitGem')}}</router-link>
             </li>
             <li>
               <router-link

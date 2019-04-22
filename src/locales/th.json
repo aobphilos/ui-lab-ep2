@@ -21,7 +21,7 @@
     "home": "หน้าหลัก",
     "aboutUs": "เกี่ยวกับบริษัท",
     "services": "บริการ",
-    "submitAGem": "การจัดส่งอัญมณี",
+    "submitGem": "การจัดส่งอัญมณี",
     "verifyReport": "ตรวจสอบใบรายงานผล",
     "contact": "การติดต่อกับบบริษัท"
   },
@@ -117,7 +117,7 @@
         }
       }
     },
-    "submitAGem": {},
+    "submitGem": {},
     "verifyReport": {
       "section": {
         "verify": {
