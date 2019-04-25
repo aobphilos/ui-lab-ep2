@@ -35,13 +35,13 @@
                 :title="$t('menu.verifyReport')"
               >{{ $t('menu.verifyReport')}}</router-link>
             </li>
-            <li>
+            <!-- <li>
               <router-link
                 to="submit-gem"
                 rel="tooltip"
                 :title="$t('menu.submitGem')"
               >{{ $t('menu.submitGem')}}</router-link>
-            </li>
+            </li> -->
             <li>
               <router-link
                 to="contact"

@@ -5,7 +5,7 @@ import PageContact from '@/views/Contact.vue';
 import PageHome from '@/views/Home.vue';
 import PageServices from '@/views/Services.vue';
 import PageVerifyReport from '@/views/VerifyReport.vue';
-import SubmitGem from '@/views/SubmitGem.vue';
+// import SubmitGem from '@/views/SubmitGem.vue';
 
 Vue.use(Router);
 
@@ -31,11 +31,11 @@ const mainRouter = new Router({
       name: 'PageVerifyReport',
       component: PageVerifyReport,
     },
-    {
-      path: '/submit-gem',
-      name: 'SubmitGem',
-      component: SubmitGem,
-    },
+    // {
+    //   path: '/submit-gem',
+    //   name: 'SubmitGem',
+    //   component: SubmitGem,
+    // },
     {
       path: '/contact',
       name: 'PageContact',

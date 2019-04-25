@@ -28,8 +28,6 @@
                   {{ $t('address[0].lines[0]') }}
                   <br>
                   {{ $t('address[0].lines[1]') }}
-                  <br>
-                  {{ $t('address[0].lines[2]') }}
                 </p>
               </div>
             </div>

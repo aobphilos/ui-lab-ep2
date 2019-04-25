@@ -49,14 +49,8 @@ import LoaderFadeOut from '@/components/LoaderFadeOut.vue';
   },
 })
 export default class SubmitGem extends Vue {
-  public created() {
-    console.log('create: ', this.$store.submitGem);
-  }
   public mounted() {
-    console.log('mounted: ', this.$store);
     $('.parallax-mirror').hide();
-
-
   }
 }
 </script>
