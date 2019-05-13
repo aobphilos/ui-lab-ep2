@@ -31,3 +31,18 @@ declare global {
 
   // =====================[ JQuery Extends ]============================
 }
+
+export function Action(targetOrParams: any, key: any, descriptor: any): any;
+export function Module(modOrOpt: any): any;
+export function Mutation(target: any, key: any, descriptor: any): void;
+export function MutationAction(paramsOrTarget: any, key: any, descriptor: any): any;
+export class VuexModule {
+  public actions: any;
+  public mutations: any;
+  public state: any;
+  public getters: any;
+  public namespaced: any;
+  public modules: any;
+  constructor(module: any);
+}
+export function getModule(moduleClass: any, store: any): any;

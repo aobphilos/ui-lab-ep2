@@ -8,9 +8,12 @@ import router from './router';
 import store from './store';
 import Directives from './directives';
 import i18n from './i18n';
+import Vuelidate from 'vuelidate';
 
 Vue.config.productionTip = false;
 Directives.register();
+
+Vue.use(Vuelidate);
 
 new Vue({
   router,

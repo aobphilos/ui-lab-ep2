@@ -3,19 +3,22 @@
     "title": "GCI-Lab"
   },
   "footer": {},
-  "address": [{
-    "name": "กรุงเทพมหานคร",
-    "lines": [
-      "อาคารจิวเวลรี่เทรดเซ็นเตอร์",
-      "341A/A ชั้น 3 ถ. สีลม เขต บางรัก กรุงเทพมหานคร 10500"
-    ]
-  }, {
-    "name": "จันทบุรี",
-    "lines": [
-      "ห้อง D202/1 ชั้น 2 อาคารจันท์เจมส์",
-      "เลขที่ 189 ถนนศรีจันทร์ ต.วัดใหม่ อ.เมือง จ.จันทบุรี 22000"
-    ]
-  }],
+  "address": [
+    {
+      "name": "กรุงเทพมหานคร",
+      "lines": [
+        "อาคารจิวเวลรี่เทรดเซ็นเตอร์",
+        "341A/A ชั้น 3 ถ. สีลม เขต บางรัก กรุงเทพมหานคร 10500"
+      ]
+    },
+    {
+      "name": "จันทบุรี",
+      "lines": [
+        "ห้อง D202/1 ชั้น 2 อาคารจันท์เจมส์",
+        "เลขที่ 189 ถนนศรีจันทร์ ต.วัดใหม่ อ.เมือง จ.จันทบุรี 22000"
+      ]
+    }
+  ],
   "menu": {
     "home": "หน้าหลัก",
     "aboutUs": "เกี่ยวกับบริษัท",
@@ -52,7 +55,8 @@
             "WE ARE WELCOME TO DO THE GEMOLOGICAL CONSULTANCY SERVICE BY THE EXPERT GEMOLOGISTS OF GCILAB."
           ]
         },
-        "diploma": [{
+        "diploma": [
+          {
             "subjects": [
               "SURACHART PANJATHAMMAWIT, G.G., B.SC.",
               "GRADUATE GEMOLOGIST/GIA"
@@ -110,13 +114,102 @@
         },
         "verbal": {
           "subject": "การทดสอบแบบไม่ออกใบรับรองผล",
-          "lines": [
-            "100 บาท/ชิ้น (โดยไม่ออกรับใบรับรอง)"
-          ]
+          "lines": ["100 บาท/ชิ้น (โดยไม่ออกรับใบรับรอง)"]
         }
       }
     },
-    "submitGem": {},
+    "submitGem": {
+      "stepper": {
+        "stepOne": {
+          "title": "เลือกอัญมณี",
+          "set1": {
+            "subject": "อัญมณีชนิดใดที่คุณต้องการส่งเพื่อตรวจ?",
+            "choice1": "เพชร",
+            "choice2": "พลอย",
+            "choice3": "ไม่ทราบประเภท"
+          },
+          "set2": {
+            "subject": "คุณต้องการส่งตรวจกี่เม็ด?"
+          }
+        },
+        "stepTwo": {
+          "title": "รายงานและการบริการ",
+          "set1": {
+            "subject": "เป็นอัญมณีที่อยู่ในตัวเรือนหรือไม่?",
+            "choice1": "อัญมณีร่วง",
+            "choice2": "อยู่ในตัวเรือน"
+          },
+          "set2": {
+            "subject": "กรุณาถ่ายภาพอัญมณีที่ท่านต้องการส่งตรวจ (ไม่เกิน 10 เม็ดต่อ 1 รูป)",
+            "selectAll": "เลือกทั้งหมด"
+          },
+          "set3": {
+            "subject": "Select a report",
+            "caption1": "GCI Premium Report",
+            "caption2": "Regular Report",
+            "caption3": "Small Report",
+            "caption4": "Sealing-card",
+            "caption5": "Sealing-box",
+            "sample": "View sample",
+            "detail": "Identify and describe stones and lists detectable treatments",
+            "noPicture": "(No picture and cannot verify online with gcilab.com)",
+            "extra1": "Sealing-card",
+            "extra2": "Sealing-box(+100 THB)",
+            "extra3": "Origin report (Only Ruby, Sapphire or Emerald"
+          }
+        },
+        "stepThree": {
+          "title": "ข้อมูลติดต่อ",
+          "set1": {
+            "subject": "Primary Contact",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "phone": "Primary Phone Number",
+            "email": "Email",
+            "whatsApp": "WhatsApp ID (Optional)",
+            "lineId": "Line ID (Optional)"
+          },
+          "set2": {
+            "subject": "Address",
+            "address1": "Address 1",
+            "address2": "Address 2 (Optional)",
+            "city": "City",
+            "state": "State / Provice",
+            "country": "Country",
+            "zipCode": "Zip / Postal Code",
+            "returnGem": "Return your gemstone(s) to this address?"
+          },
+          "set3": {
+            "subject": "Return Address",
+            "address1": "Return Address 1",
+            "address2": "Return Address 2 (Optional)"
+          },
+          "set4": {
+            "subject": "Return Instructions",
+            "choice1": "In person pick-up",
+            "choice2": "Kerry (Additional cost xxx THB) (No additional fee if submitted 10 stones or more)",
+            "instruction": "Enter Instructions"
+          }
+        },
+        "stepFour": {
+          "title": "ขั้นตอนการชำระเงิน",
+          "set1": {
+            "subject": "Terms & Policy",
+            "accept": "Accept terms & policy"
+          },
+          "set2": {
+            "subject": "Payment Information"
+          }
+        },
+        "stepFive": {
+          "title": "สรุปรายการ",
+          "set1": {
+            "subject": "Order Summary",
+            "detail": "Order number 203948023 is sent to GCI lab."
+          }
+        }
+      }
+    },
     "verifyReport": {
       "section": {
         "verify": {

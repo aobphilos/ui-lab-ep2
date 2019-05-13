@@ -3,19 +3,22 @@
     "title": "GCI-Lab"
   },
   "footer": {},
-  "address": [{
-    "name": "Bangkok",
-    "lines": [
-      "Jewelry Trade Center",
-      "341A/A 3rd Floor Silom road Bangrak Bangkok"
-    ]
-  }, {
-    "name": "Chanthaburi",
-    "lines": [
-      "Room D202/1 2nd Floor, Chan Gems Building",
-      "189 Sichuan Rd. Mueang Chanthaburi District, Chanthaburi 22000"
-    ]
-  }],
+  "address": [
+    {
+      "name": "Bangkok",
+      "lines": [
+        "Jewelry Trade Center",
+        "341A/A 3rd Floor Silom road Bangrak Bangkok"
+      ]
+    },
+    {
+      "name": "Chanthaburi",
+      "lines": [
+        "Room D202/1 2nd Floor, Chan Gems Building",
+        "189 Sichuan Rd. Mueang Chanthaburi District, Chanthaburi 22000"
+      ]
+    }
+  ],
   "menu": {
     "home": "HOME",
     "aboutUs": "ABOUT US",
@@ -52,7 +55,8 @@
             "WE ARE WELCOME TO DO THE GEMOLOGICAL CONSULTANCY SERVICE BY THE EXPERT GEMOLOGISTS OF GCILAB."
           ]
         },
-        "diploma": [{
+        "diploma": [
+          {
             "subjects": [
               "SURACHART PANJATHAMMAWIT, G.G., B.SC.",
               "GRADUATE GEMOLOGIST/GIA"
@@ -110,13 +114,102 @@
         },
         "verbal": {
           "subject": "VERBAL GEMS TESTING",
-          "lines": [
-            "100 BAHT/STONE (WITH NO REPORT ISSUED)"
-          ]
+          "lines": ["100 BAHT/STONE (WITH NO REPORT ISSUED)"]
         }
       }
     },
-    "submitGem": {},
+    "submitGem": {
+      "stepper": {
+        "stepOne": {
+          "title": "SELECT A GEMSTONE",
+          "set1": {
+            "subject": "What type of gemstones are you submitting?",
+            "choice1": "Diamond",
+            "choice2": "Colored stone",
+            "choice3": "Unknown"
+          },
+          "set2": {
+            "subject": "How many stones are you submitting?"
+          }
+        },
+        "stepTwo": {
+          "title": "REPORTS & SERVICES",
+          "set1": {
+            "subject": "Is the stone loose, or mounted?",
+            "choice1": "Loose",
+            "choice2": "Mounted"
+          },
+          "set2": {
+            "subject": "Please upload files or photos of all stones you are submitting (maximum 10 stones per photo)",
+            "selectAll": "Select All"
+          },
+          "set3": {
+            "subject": "Select a report",
+            "caption1": "GCI Premium Report",
+            "caption2": "Regular Report",
+            "caption3": "Small Report",
+            "caption4": "Sealing-card",
+            "caption5": "Sealing-box",
+            "sample": "View sample",
+            "detail": "Identify and describe stones and lists detectable treatments",
+            "noPicture": "(No picture and cannot verify online with gcilab.com)",
+            "extra1": "Sealing-card",
+            "extra2": "Sealing-box(+100 THB)",
+            "extra3": "Origin report (Only Ruby, Sapphire or Emerald"
+          }
+        },
+        "stepThree": {
+          "title": "CONTACT INFORMATION",
+          "set1": {
+            "subject": "Primary Contact",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "phone": "Primary Phone Number",
+            "email": "Email",
+            "whatsApp": "WhatsApp ID (Optional)",
+            "lineId": "Line ID (Optional)"
+          },
+          "set2": {
+            "subject": "Address",
+            "address1": "Address 1",
+            "address2": "Address 2 (Optional)",
+            "city": "City",
+            "state": "State / Provice",
+            "country": "Country",
+            "zipCode": "Zip / Postal Code",
+            "returnGem": "Return your gemstone(s) to this address?"
+          },
+          "set3": {
+            "subject": "Return Address",
+            "address1": "Return Address 1",
+            "address2": "Return Address 2 (Optional)"
+          },
+          "set4": {
+            "subject": "Return Instructions",
+            "choice1": "In person pick-up",
+            "choice2": "Kerry (Additional cost xxx THB) (No additional fee if submitted 10 stones or more)",
+            "instruction": "Enter Instructions"
+          }
+        },
+        "stepFour": {
+          "title": "POLICY & PAYMENT",
+          "set1": {
+            "subject": "Terms & Policy",
+            "accept" : "Accept terms & policy"
+          },
+          "set2": {
+            "subject": "Payment Information"
+          }
+        },
+        "stepFive": {
+          "title": "SUMMARY",
+          "set1": {
+            "subject": "Order Summary",
+            "detail": "Order number 203948023 is sent to GCI lab."
+          }
+        }
+      }
+    },
     "verifyReport": {
       "section": {
         "verify": {
