@@ -1,26 +1,13 @@
-export enum StoneType {
-  DIAMOND,
-  COLORED_STONE,
-  UNKNOWN,
-}
+import { StoneType, MountingType, ReportType, PickupType } from './enum/enums';
+export { StoneType, MountingType, ReportType, PickupType };
 
-export enum MountingType {
-  LOOSE,
-  MOUNTED,
-}
-
-export enum ReportType {
-  PREMIUM_REPORT,
-  REGULAR_REPORT,
-  SMALL_REPORT,
-  SEALING_CARD,
-  SEALING_BOX,
-}
-
-export interface StonePhoto {
-  path: string;
-  description: string;
-}
+import { Address } from './class/address';
+import { Contact } from './class/contact';
+import { ReturnAddress } from './class/return-address';
+import { ReturnInstruction } from './class/return-instruction';
+import { StonePhoto } from './class/stone-photo';
+import { Report } from './class/report';
+export { Address, Contact, ReturnAddress, ReturnInstruction, StonePhoto, Report };
 
 export class SubmitGemModel {
   constructor(
@@ -28,12 +15,20 @@ export class SubmitGemModel {
     public stoneCount: number = 1,
     public mountingType: MountingType = MountingType.LOOSE,
     public stonePhotos: StonePhoto[] = [],
-    public reportType: ReportType = ReportType.REGULAR_REPORT,
+    public report: Report = new Report(),
+    public contact: Contact = new Contact(),
+    public address: Address = new Address(),
+    public returnAddress: ReturnAddress = new ReturnAddress(),
+    public returnInstruction: ReturnInstruction = new ReturnInstruction(),
   ) {
     this.stoneType = stoneType;
     this.stoneCount = stoneCount;
     this.mountingType = mountingType;
     this.stonePhotos = stonePhotos;
-    this.reportType = reportType;
+    this.report = report;
+    this.contact = contact;
+    this.address = address;
+    this.returnAddress = returnAddress;
+    this.returnInstruction = returnInstruction;
   }
 }

@@ -4,9 +4,9 @@
     <div class="container">
       <div class="row margin-t20">
         <div class="columns">
-          <span>{{ $t('content.submitGem.stepper.stepFour.set1.subject') }}</span>
+          <h4 class="h4-type1">{{ $t('content.submitGem.stepper.stepFour.set1.subject') }}</h4>
           <div class="margin-t10">
-            <textarea readonly class="text-readonly">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper sem a varius auctor. Curabitur ut felis tempor, vestibulum erat eget, mollis risus. Praesent interdum, arcu vel pretium condimentum, eros tortor fringilla lectus, ut consectetur nisl eros vel mauris. Aenean non dignissim nulla, sed hendrerit lectus. Mauris a orci nec nisi auctor maximus. Integer at tempor nisi. Cras sollicitudin, sapien tempus lobortis imperdiet, augue velit commodo odio, id suscipit purus nunc sed augue. Mauris risus sem, mattis quis urna ac, cursus lacinia odio. Nunc blandit lobortis urna, convallis feugiat est pretium in. Fusce hendrerit molestie scelerisque. Praesent ipsum tortor, mattis ac euismod at, malesuada et dolor. Curabitur eu porta elit. Aenean quis suscipit lorem.
+            <textarea readonly class="text-readonly p-type-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper sem a varius auctor. Curabitur ut felis tempor, vestibulum erat eget, mollis risus. Praesent interdum, arcu vel pretium condimentum, eros tortor fringilla lectus, ut consectetur nisl eros vel mauris. Aenean non dignissim nulla, sed hendrerit lectus. Mauris a orci nec nisi auctor maximus. Integer at tempor nisi. Cras sollicitudin, sapien tempus lobortis imperdiet, augue velit commodo odio, id suscipit purus nunc sed augue. Mauris risus sem, mattis quis urna ac, cursus lacinia odio. Nunc blandit lobortis urna, convallis feugiat est pretium in. Fusce hendrerit molestie scelerisque. Praesent ipsum tortor, mattis ac euismod at, malesuada et dolor. Curabitur eu porta elit. Aenean quis suscipit lorem.
 
 Fusce condimentum orci rhoncus, viverra eros sit amet, euismod eros. Nam pretium eros quis posuere elementum. Morbi feugiat eu sapien ac tincidunt. Pellentesque laoreet ligula a imperdiet hendrerit. Vestibulum aliquet nisi in lorem lacinia maximus. Aliquam tristique dui non lectus congue, sed porttitor risus sagittis. Vivamus mollis mauris ut ligula interdum aliquam. Nullam iaculis rutrum enim sed egestas. Vivamus et porta purus, ac lobortis felis. Aliquam purus risus, tincidunt ut tincidunt non, pellentesque quis felis. Aliquam sit amet nulla arcu. Morbi efficitur vel magna ac condimentum.
 
@@ -19,14 +19,14 @@ Morbi mi sapien, suscipit ut aliquam eget, vehicula vitae odio. Ut suscipit non 
           <div class="margin-t10">
             <div id="example-3">
               <input type="checkbox" id="acceptTerms" v-model="form.acceptTerms">
-              <label for="acceptTerms">{{ $t('content.submitGem.stepper.stepFour.set1.accept') }}</label>
+              <label for="acceptTerms" class="padding-l10 p-type-5">{{ $t('content.submitGem.stepper.stepFour.set1.accept') }}</label>
             </div>
           </div>
         </div>
       </div>
-      <div class="row margin-t20">
+      <div class="row margin-t40">
         <div class="columns">
-          <span>{{ $t('content.submitGem.stepper.stepFour.set2.subject') }}</span>
+          <h4 class="h4-type1">{{ $t('content.submitGem.stepper.stepFour.set2.subject') }}</h4>
           <p
             class="p-type-5 color-grey margin-t10"
           >Etiam facilisis mattis lectus, vel aliquam odio egestas ut. Nam eget nunc tellus. Aenean interdum ut eros sit amet consequat. Sed ac eleifend ante. Integer eleifend arcu vitae suscipit molestie. Integer faucibus sollicitudin pretium. Donec dapibus leo massa. Donec purus lectus, tristique a lorem at, porta sagittis augue. Nam egestas dui magna, eget sodales sapien tristique eu. Cras mollis dapibus massa in elementum.</p>
@@ -43,32 +43,31 @@ Morbi mi sapien, suscipit ut aliquam eget, vehicula vitae odio. Ut suscipit non 
   <!-- Stepper Container End -->
 </template>
 <script lang="ts">
-import { getModule } from "vuex-module-decorators";
-import SubmitGem from "@/store/modules/submit-gem";
-import { Component, Vue, Watch } from "vue-property-decorator";
+import { getModule } from 'vuex-module-decorators';
+import SubmitGem from '@/store/modules/submit-gem';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 
 @Component
 export default class StepPolicyPayment extends Vue {
   public submitGem = getModule(SubmitGem);
 
   public form = {
-    acceptTerms: false
+    acceptTerms: false,
   };
 
   public created() {
-    this.$root.$on("validate-step-4", this.validateForm);
+    this.$root.$on('validate-step-4', this.validateForm);
   }
   public mounted() {
     this.validateForm();
   }
 
-  @Watch("form", { deep: true })
+  @Watch('form', { deep: true })
   private validateForm() {
-    console.log("into step 4");
     if (this.form.acceptTerms) {
-      this.$emit("can-continue", { value: true });
+      this.$emit('can-continue', { value: true });
     } else {
-      this.$emit("can-continue", { value: false });
+      this.$emit('can-continue', { value: false });
     }
   }
 }

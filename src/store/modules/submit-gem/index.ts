@@ -3,7 +3,11 @@ import {
   StoneType,
   MountingType,
   StonePhoto,
-  ReportType,
+  Contact,
+  Address,
+  ReturnAddress,
+  ReturnInstruction,
+  Report,
 } from '@/models/submit-gem';
 import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators';
 import store from '@/store';
@@ -29,8 +33,24 @@ export default class SubmitGem extends VuexModule {
     return this.model.mountingType;
   }
 
-  public get reportType() {
-    return this.model.reportType;
+  public get report() {
+    return this.model.report;
+  }
+
+  public get contact() {
+    return this.model.contact;
+  }
+
+  public get address() {
+    return this.model.address;
+  }
+
+  public get returnAddress() {
+    return this.model.returnAddress;
+  }
+
+  public get returnInstruction() {
+    return this.model.returnInstruction;
   }
 
   @Mutation
@@ -39,28 +59,24 @@ export default class SubmitGem extends VuexModule {
   }
 
   @Mutation
-  public SET_STONE_PHOTOS(photos: StonePhoto[]) {
-    this.model.stonePhotos = photos;
+  public SET_STEP_1(payload: any) {
+    this.model.stoneType = payload.stoneType;
+    this.model.stoneCount = payload.stoneCount;
   }
 
   @Mutation
-  public SET_STONE_COUNT(count: number) {
-    this.model.stoneCount = count;
+  public SET_STEP_2(payload: any) {
+    this.model.mountingType = payload.mountingType;
+    this.model.stonePhotos = payload.stonePhotos;
+    this.model.report = payload.report;
   }
 
   @Mutation
-  public SET_STONE_TYPE(stone: StoneType) {
-    this.model.stoneType = stone;
-  }
-
-  @Mutation
-  public SET_MOUNTING_TYPE(mount: MountingType) {
-    this.model.mountingType = mount;
-  }
-
-  @Mutation
-  public SET_REPORT_TYPE(report: ReportType) {
-    this.model.reportType = report;
+  public SET_STEP_3(payload: any) {
+    this.model.contact = payload.contact;
+    this.model.address = payload.address;
+    this.model.returnAddress = payload.returnAddress;
+    this.model.returnInstruction = payload.returnInstruction;
   }
 
   @Action({ commit: 'RESET_MODEL' })
@@ -68,28 +84,27 @@ export default class SubmitGem extends VuexModule {
     return new SubmitGemModel();
   }
 
-  @Action({ commit: 'SET_STONE_PHOTOS' })
-  public setStonePhotos(photos: StonePhoto[]) {
-    return photos;
+  @Action({ commit: 'SET_STEP_1' })
+  public setStep1(stone: StoneType, count: number) {
+    return { stoneType: stone, stoneCount: count };
   }
 
-  @Action({ commit: 'SET_STONE_COUNT' })
-  public setStoneCount(count: number) {
-    return count;
+  @Action({ commit: 'SET_STEP_2' })
+  public setStep2(
+    mount: MountingType,
+    photos: StonePhoto[],
+    report: Report,
+  ) {
+    return { mountingType: mount, stonePhotos: photos, report };
   }
 
-  @Action({ commit: 'SET_STONE_TYPE' })
-  public setStoneType(stone: StoneType) {
-    return stone;
-  }
-
-  @Action({ commit: 'SET_MOUNTING_TYPE' })
-  public setMountingType(mount: MountingType) {
-    return mount;
-  }
-
-  @Action({ commit: 'SET_REPORT_TYPE' })
-  public setReportType(report: ReportType) {
-    return report;
+  @Action({ commit: 'SET_STEP_3' })
+  public setStep3(
+    contact: Contact,
+    address: Address,
+    returnAddress: ReturnAddress,
+    returnInstruction: ReturnInstruction,
+  ) {
+    return { contact, address, returnAddress, returnInstruction };
   }
 }

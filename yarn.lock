@@ -761,13 +761,6 @@
   dependencies:
     source-map "^0.6.1"
 
-"@types/vuelidate@^0.7.5":
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/@types/vuelidate/-/vuelidate-0.7.5.tgz#903708687403c8e33ae2f992769b3c09979841e5"
-  integrity sha512-Xz4znSLv5VAiTvxaCvF5mlXwzJiOWAV0BysCHk0cyXUK7LpMSnXQcYNSbPioa821O1Vcs4SBuM+VAuHbIhFdqw==
-  dependencies:
-    vue "^2.5.16"
-
 "@types/webpack-env@^1.13.9":
   version "1.13.9"
   resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.13.9.tgz#a67287861c928ebf4159a908d1fb1a2a34d4097a"
@@ -9075,6 +9068,11 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
+vee-validate@^2.2.7:
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-2.2.7.tgz#6b089f41f8ae1be0c2f3a76b1085aba7d6be3d56"
+  integrity sha512-TC5jomtBGK5rMDrWZvjFjxW3rT81HfWvNebBiye6/o32EDabmMWBqQqZ955ahrJAC1h1gl9HEqH9fbQ2NPL0Ww==
+
 vendors@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.3.tgz#a6467781abd366217c050f8202e7e50cc9eef8c0"
@@ -9211,11 +9209,6 @@ vue@^2.5.16, vue@^2.6.6:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
-
-vuelidate@^0.7.4:
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.7.4.tgz#5a0e54be09ac0192f1aa3387d74b92e0945bf8aa"
-  integrity sha512-QHZWYOL325Zo+2K7VBNEJTZ496Kd8Z31p85aQJFldKudUUGBmgw4zu4ghl4CyqPwjRCmqZ9lDdx4FSdMnu4fGg==
 
 vuex-module-decorators@^0.9.9:
   version "0.9.9"

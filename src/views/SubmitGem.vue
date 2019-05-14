@@ -20,7 +20,8 @@
         <div class="row">
           <div class="columns">
             <horizontal-stepper
-              :steps="demoSteps"
+              id="mainStepper"
+              :steps="submitSteps"
               @completed-step="completeStep"
               @active-step="isStepActive"
               @stepper-finished="sendForm"
@@ -56,7 +57,7 @@ import Step5 from '@/views/submit-gem/5-summary.vue';
 export default class PageSubmitGem extends Vue {
   public submitGem = getModule(SubmitGem);
 
-  public demoSteps = [
+  public submitSteps = [
     {
       icon: 'select_all',
       name: 'step_select_gem',
@@ -106,7 +107,7 @@ export default class PageSubmitGem extends Vue {
 
   // Executed when @completed-step event is triggered
   public completeStep(payload: any) {
-    this.demoSteps.forEach((step) => {
+    this.submitSteps.forEach((step) => {
       if (step.name === payload.name) {
         step.completed = true;
       }
@@ -114,7 +115,7 @@ export default class PageSubmitGem extends Vue {
   }
   // Executed when @active-step event is triggered
   public isStepActive(payload: any) {
-    this.demoSteps.forEach((step, idx) => {
+    this.submitSteps.forEach((step, idx) => {
       if (step.name === payload.name) {
         this.$root.$emit(`validate-step-${idx + 1}`);
         if (step.completed === true) {
@@ -123,9 +124,11 @@ export default class PageSubmitGem extends Vue {
       }
     });
   }
+
   // Executed when @stepper-finished event is triggered
   public sendForm(payload: any) {
-    console.log('send form: ', payload);
+    alert(' Success ');
+    this.$router.push('/');
   }
 
   public created() {
@@ -153,11 +156,11 @@ export default class PageSubmitGem extends Vue {
       'content.submitGem.stepper.stepFive.title',
     ).toString();
 
-    this.demoSteps[0].title = titleStep1;
-    this.demoSteps[1].title = titleStep2;
-    this.demoSteps[2].title = titleStep3;
-    this.demoSteps[3].title = titleStep4;
-    this.demoSteps[4].title = titleStep5;
+    this.submitSteps[0].title = titleStep1;
+    this.submitSteps[1].title = titleStep2;
+    this.submitSteps[2].title = titleStep3;
+    this.submitSteps[3].title = titleStep4;
+    this.submitSteps[4].title = titleStep5;
   }
 }
 </script>

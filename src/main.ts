@@ -8,12 +8,12 @@ import router from './router';
 import store from './store';
 import Directives from './directives';
 import i18n from './i18n';
-import Vuelidate from 'vuelidate';
+import VeeValidate from 'vee-validate';
 
 Vue.config.productionTip = false;
 Directives.register();
 
-Vue.use(Vuelidate);
+Vue.use(VeeValidate, { aria: true });
 
 new Vue({
   router,

@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row margin-t20">
         <div style="columns">
-          <span>{{ $t('content.submitGem.stepper.stepFive.set1.subject') }}</span>
+          <h4 class="h4-type1">{{ $t('content.submitGem.stepper.stepFive.set1.subject') }}</h4>
           <p
             class="p-type-5 color-grey margin-t10"
           >Vestibulum facilisis accumsan ante, vitae bibendum sem ornare sed. Nulla vitae maximus odio. Donec sed turpis ex. Fusce eget arcu tincidunt, porta leo et, pulvinar odio. Donec tincidunt odio tellus, a maximus felis faucibus in. Vestibulum vitae ante et ex sagittis cursus. Duis ullamcorper lobortis molestie.</p>
@@ -49,7 +49,7 @@ export default class StepSummary extends Vue {
   @Watch('form', { deep: true })
   private validateForm() {
     if (this.form.acceptTerms) {
-      this.$emit('can-continue', { value: true });
+      this.$emit('can-continue', { value: true});
     } else {
       this.$emit('can-continue', { value: false });
     }

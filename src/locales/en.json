@@ -166,7 +166,7 @@
             "lastName": "Last Name",
             "phone": "Primary Phone Number",
             "email": "Email",
-            "whatsApp": "WhatsApp ID (Optional)",
+            "whatsAppId": "WhatsApp ID (Optional)",
             "lineId": "Line ID (Optional)"
           },
           "set2": {
