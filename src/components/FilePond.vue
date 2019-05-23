@@ -1,0 +1,25 @@
+<script lang="ts">
+import * as FilePond from 'filepond';
+
+// Import Vue FilePond
+import vueFilePond from 'vue-filepond';
+
+// Import FilePond styles
+import 'filepond/dist/filepond.min.css';
+
+// Import image preview plugin styles
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
+
+// Import image preview and file type validation plugins
+import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size';
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+
+// Create component
+const customFilePond = vueFilePond(
+  FilePondPluginFileValidateSize,
+  FilePondPluginFileValidateType,
+  FilePondPluginImagePreview,
+);
+export default customFilePond;
+</script>

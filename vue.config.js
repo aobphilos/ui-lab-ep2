@@ -7,5 +7,7 @@ module.exports = {
       enableInSFC: false
     }
   },
-  transpileDependencies: ['vuex-module-decorators']
+
+  transpileDependencies: ['vuex-module-decorators'],
+  assetsDir: 'public'
 };

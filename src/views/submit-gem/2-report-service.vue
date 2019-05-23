@@ -43,7 +43,9 @@
               class="padding-l10 p-type-5"
             >{{ $t('content.submitGem.stepper.stepTwo.set2.selectAll') }}</label>
           </div>
-          <div class="margin-t10">LOOP IMAGE SECTION</div>
+          <div class="margin-t10">
+            <file-upload name="filex1"></file-upload>
+          </div>
         </div>
       </div>
       <div class="row margin-t40">
@@ -166,6 +168,7 @@
                   <input
                     type="radio"
                     name="reportType"
+                    id="reportTypeSmall"
                     :value="SMALL_REPORT"
                     v-model="form.report.reportType"
                   >
@@ -236,37 +239,9 @@
               </div>
             </div>
           </div>
-          <div class="margin-t10">
-            <div class="row report-type">
-              <div class="col-sm-2 col-xs-3">
-                <div class="img-report">
-                  <input
-                    type="radio"
-                    name="reportType"
-                    :value="SEALING_BOX"
-                    v-model="form.report.reportType"
-                  >
-                </div>
-              </div>
-              <div class="col-sm-10 col-xs-9">
-                <div class="col-sm-6">
-                  <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.caption5') }}</p>
-                </div>
-                <div class="col-sm-6">
-                  <a href="#">View Sample</a>
-                </div>
-                <div class="col-sm-12">
-                  <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.detail') }}</p>
-                </div>
-                <div class="col-sm-12">
-                  <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.noPicture') }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
+    </div>    
   </section>
   <!-- Stepper Container End -->
 </template>
@@ -280,9 +255,11 @@ import {
   StonePhoto,
   Report
 } from "@/models/submit-gem";
-import { KeyObject } from "crypto";
+import FileUpload from "@/components/FileUpload.vue";
 
-@Component
+@Component({
+  components: { FileUpload }
+})
 export default class StepReportService extends Vue {
   public submitGem = getModule(SubmitGem);
   public isSelectAll = false;
@@ -344,7 +321,7 @@ export default class StepReportService extends Vue {
     ];
     this.form.stonePhotos = photos;
   }
-
+  
   public created() {
     this.setStonePhoto();
     this.$root.$on("validate-step-2", this.validateForm);

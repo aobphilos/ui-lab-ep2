@@ -1,5 +1,6 @@
 {
   "projects": {
-    "dev": "gci-lab"
+    "dev": "gci-lab",
+    "default": "gci-lab"
   }
 }

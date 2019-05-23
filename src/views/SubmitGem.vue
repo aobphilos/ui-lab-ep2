@@ -34,80 +34,83 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
-import { getModule } from 'vuex-module-decorators';
-import LoaderFadeOut from '@/components/LoaderFadeOut.vue';
-import SubmitGem from '@/store/modules/submit-gem';
-import { StonePhoto } from '@/models/submit-gem';
-import HorizontalStepper from 'vue-stepper';
+import { Component, Vue, Watch } from "vue-property-decorator";
+import { getModule } from "vuex-module-decorators";
+import LoaderFadeOut from "@/components/LoaderFadeOut.vue";
+import SubmitGem from "@/store/modules/submit-gem";
+import { StonePhoto } from "@/models/submit-gem";
+import HorizontalStepper from "vue-stepper";
 
 // This components will have the content for each stepper step.
-import Step1 from '@/views/submit-gem/1-select-gem.vue';
-import Step2 from '@/views/submit-gem/2-report-service.vue';
-import Step3 from '@/views/submit-gem/3-contact-infor.vue';
-import Step4 from '@/views/submit-gem/4-policy-payment.vue';
-import Step5 from '@/views/submit-gem/5-summary.vue';
+import Step1 from "@/views/submit-gem/1-select-gem.vue";
+import Step2 from "@/views/submit-gem/2-report-service.vue";
+import Step3 from "@/views/submit-gem/3-contact-infor.vue";
+import Step4 from "@/views/submit-gem/4-policy-payment.vue";
+import Step5 from "@/views/submit-gem/5-summary.vue";
+
+import * as firebase from "firebase/app";
+import "firebase/firestore";
 
 @Component({
   components: {
     LoaderFadeOut,
-    HorizontalStepper,
-  },
+    HorizontalStepper
+  }
 })
 export default class PageSubmitGem extends Vue {
   public submitGem = getModule(SubmitGem);
-
+  private db = firebase.firestore();
   public submitSteps = [
     {
-      icon: 'select_all',
-      name: 'step_select_gem',
-      title: 'SELECT A GEMSTONE',
-      subtitle: '',
+      icon: "select_all",
+      name: "step_select_gem",
+      title: "SELECT A GEMSTONE",
+      subtitle: "",
       component: Step1,
-      completed: false,
+      completed: false
     },
     {
-      icon: 'business_center',
-      name: 'step_report_service',
-      title: 'REPORTS & SERVICES',
-      subtitle: '',
+      icon: "business_center",
+      name: "step_report_service",
+      title: "REPORTS & SERVICES",
+      subtitle: "",
       component: Step2,
-      completed: false,
+      completed: false
     },
     {
-      icon: 'contacts',
-      name: 'step_contact_info',
-      title: 'CONTACT INFORMATION',
-      subtitle: '',
+      icon: "contacts",
+      name: "step_contact_info",
+      title: "CONTACT INFORMATION",
+      subtitle: "",
       component: Step3,
-      completed: false,
+      completed: false
     },
     {
-      icon: 'redeem',
-      name: 'step_policy_payment',
-      title: 'POLICY & PAYMENT',
-      subtitle: '',
+      icon: "redeem",
+      name: "step_policy_payment",
+      title: "POLICY & PAYMENT",
+      subtitle: "",
       component: Step4,
-      completed: false,
+      completed: false
     },
     {
-      icon: 'send',
-      name: 'step_summary',
-      title: 'SUMMARY',
-      subtitle: '',
+      icon: "send",
+      name: "step_summary",
+      title: "SUMMARY",
+      subtitle: "",
       component: Step5,
-      completed: false,
-    },
+      completed: false
+    }
   ];
 
-  @Watch('$i18n.locale')
+  @Watch("$i18n.locale")
   public onLocaleChange(val: any) {
     this.getStepperTitle();
   }
 
   // Executed when @completed-step event is triggered
   public completeStep(payload: any) {
-    this.submitSteps.forEach((step) => {
+    this.submitSteps.forEach(step => {
       if (step.name === payload.name) {
         step.completed = true;
       }
@@ -127,33 +130,46 @@ export default class PageSubmitGem extends Vue {
 
   // Executed when @stepper-finished event is triggered
   public sendForm(payload: any) {
-    alert(' Success ');
-    this.$router.push('/');
+    alert(" Success ");
+    this.$router.push("/");
+  }
+
+  private sumbitForm() {
+    this.db
+      .collection("submit-gem")
+      .add(this.submitGem.model)
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
   }
 
   public created() {
     this.getStepperTitle();
+    this.$root.$on('submit-form', this.sumbitForm);
   }
 
   public mounted() {
-    $('.parallax-mirror').hide();
+    $(".parallax-mirror").hide();
   }
 
   private getStepperTitle() {
     const titleStep1 = this.$t(
-      'content.submitGem.stepper.stepOne.title',
+      "content.submitGem.stepper.stepOne.title"
     ).toString();
     const titleStep2 = this.$t(
-      'content.submitGem.stepper.stepTwo.title',
+      "content.submitGem.stepper.stepTwo.title"
     ).toString();
     const titleStep3 = this.$t(
-      'content.submitGem.stepper.stepThree.title',
+      "content.submitGem.stepper.stepThree.title"
     ).toString();
     const titleStep4 = this.$t(
-      'content.submitGem.stepper.stepFour.title',
+      "content.submitGem.stepper.stepFour.title"
     ).toString();
     const titleStep5 = this.$t(
-      'content.submitGem.stepper.stepFive.title',
+      "content.submitGem.stepper.stepFive.title"
     ).toString();
 
     this.submitSteps[0].title = titleStep1;

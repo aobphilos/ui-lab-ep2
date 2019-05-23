@@ -13,9 +13,12 @@
               :value="DIAMOND"
               v-model="form.stoneType"
             >
-            <label for="stoneType1" class="padding-l10 p-type-5">{{ $t('content.submitGem.stepper.stepOne.set1.choice1') }}</label>
+            <label
+              for="stoneType1"
+              class="padding-l10 p-type-5"
+            >{{ $t('content.submitGem.stepper.stepOne.set1.choice1') }}</label>
           </div>
-          <div class="margin-t10 ">
+          <div class="margin-t10">
             <input
               type="radio"
               name="stoneType"
@@ -23,7 +26,10 @@
               :value="COLORED_STONE"
               v-model="form.stoneType"
             >
-            <label for="stoneType2" class="padding-l10 p-type-5">{{ $t('content.submitGem.stepper.stepOne.set1.choice2') }}</label>
+            <label
+              for="stoneType2"
+              class="padding-l10 p-type-5"
+            >{{ $t('content.submitGem.stepper.stepOne.set1.choice2') }}</label>
           </div>
           <div class="margin-t10">
             <input
@@ -33,7 +39,10 @@
               :value="UNKNOWN"
               v-model="form.stoneType"
             >
-            <label for="stoneType3" class="padding-l10 p-type-5">{{ $t('content.submitGem.stepper.stepOne.set1.choice3') }}</label>
+            <label
+              for="stoneType3"
+              class="padding-l10 p-type-5"
+            >{{ $t('content.submitGem.stepper.stepOne.set1.choice3') }}</label>
           </div>
         </div>
       </div>
@@ -57,10 +66,10 @@
   <!-- Stepper Container End -->
 </template>
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
-import { getModule } from 'vuex-module-decorators';
-import { StoneType } from '@/models/submit-gem';
-import SubmitGem from '@/store/modules/submit-gem';
+import { Component, Vue, Watch } from "vue-property-decorator";
+import { getModule } from "vuex-module-decorators";
+import { StoneType } from "@/models/submit-gem";
+import SubmitGem from "@/store/modules/submit-gem";
 
 @Component
 export default class StepSelectGem extends Vue {
@@ -68,7 +77,7 @@ export default class StepSelectGem extends Vue {
 
   public form = {
     stoneType: StoneType.DIAMOND,
-    stoneCount: 1,
+    stoneCount: 1
   };
 
   private get DIAMOND() {
@@ -83,21 +92,21 @@ export default class StepSelectGem extends Vue {
 
   public async created() {
     await this.submitGem.reset();
-    this.$root.$on('validate-step-1', this.validateForm);
+    this.$root.$on("validate-step-1", this.validateForm);
   }
 
   public mounted() {
     this.validateForm();
   }
 
-  @Watch('form', { deep: true })
+  @Watch("form", { deep: true })
   private async validateForm() {
     await this.$validator.validate();
     if (this.form.stoneCount && this.form.stoneCount > 0) {
       this.submitGem.setStep1(this.form.stoneType, this.form.stoneCount);
-      this.$emit('can-continue', { value: true });
+      this.$emit("can-continue", { value: true });
     } else {
-      this.$emit('can-continue', { value: false });
+      this.$emit("can-continue", { value: false });
     }
   }
 }
