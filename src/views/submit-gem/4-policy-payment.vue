@@ -80,10 +80,15 @@ section {
     width: 95%;
   }
   min-height: 250px;
-  padding-left: 20px;
+  padding-left: 40px;
   .text-readonly {
     width: 90%;
     min-height: 205px;
+  }
+  @media (max-width: 768px) {
+    .text-readonly {
+      width: 100%;
+    }
   }
 }
 </style>

@@ -368,7 +368,6 @@ export default class StepContactInfo extends Vue {
   public async created() {
     this.$root.$on('validate-step-3', await this.validateForm);
     this.$root.$on('commit-step-3', await this.commitStep);
-    console.log('photo: ', this.model.stonePhotos);
   }
 
   public async mounted() {
@@ -419,6 +418,6 @@ section {
     width: 95%;
   }
   min-height: 250px;
-  padding-left: 20px;
+  padding-left: 40px;
 }
 </style>

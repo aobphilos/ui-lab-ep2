@@ -252,20 +252,20 @@
   <!-- Stepper Container End -->
 </template>
 <script lang="ts">
-import { getModule } from "vuex-module-decorators";
-import SubmitGem from "@/store/modules/submit-gem";
-import { Component, Vue, Watch } from "vue-property-decorator";
+import { getModule } from 'vuex-module-decorators';
+import SubmitGem from '@/store/modules/submit-gem';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 import {
   MountingType,
   ReportType,
   StonePhoto,
   Report,
-  SubmitGemModel
-} from "@/models/submit-gem";
-import FileUpload from "@/components/FileUpload.vue";
+  SubmitGemModel,
+} from '@/models/submit-gem';
+import FileUpload from '@/components/FileUpload.vue';
 
 @Component({
-  components: { FileUpload }
+  components: { FileUpload },
 })
 export default class StepReportService extends Vue {
   public submitGem = getModule(SubmitGem);
@@ -296,28 +296,28 @@ export default class StepReportService extends Vue {
     PREMIUM_REPORT: {
       isIncludeSealingCard: false,
       isIncludeSealingBox: false,
-      isIncludeOriginalReport: false
+      isIncludeOriginalReport: false,
     },
     REGULAR_REPORT: {
       isIncludeSealingCard: false,
-      isIncludeSealingBox: false
+      isIncludeSealingBox: false,
     },
     SMALL_REPORT: {
       isIncludeSealingCard: false,
-      isIncludeSealingBox: false
-    }
+      isIncludeSealingBox: false,
+    },
   };
 
   public form = {
     mountingType: MountingType.LOOSE,
     stonePhotos: [] as StonePhoto[],
-    report: new Report()
+    report: new Report(),
   };
 
   public async created() {
-    this.$root.$on("validate-step-2", await this.validateForm);
-    this.$root.$on("commit-step-2", await this.commitStep);
-    this.$root.$on("refresh-photos", this.refreshStonePhotos);
+    this.$root.$on('validate-step-2', await this.validateForm);
+    this.$root.$on('commit-step-2', await this.commitStep);
+    this.$root.$on('refresh-photos', this.refreshStonePhotos);
   }
 
   public async mounted() {
@@ -331,7 +331,7 @@ export default class StepReportService extends Vue {
       this.submitGem.setStep2({
         mountingType: this.form.mountingType,
         stonePhotos: this.form.stonePhotos,
-        report: this.form.report
+        report: this.form.report,
       });
       await this.$nextTick();
       next();
@@ -375,12 +375,12 @@ export default class StepReportService extends Vue {
     this.form.stonePhotos = [...this.submitGem.stonePhotos];
   }
 
-  @Watch("form", { deep: true })
+  @Watch('form', { deep: true })
   private async validateForm() {
     if (await this.$validator.validate()) {
-      this.$emit("can-continue", { value: true });
+      this.$emit('can-continue', { value: true });
     } else {
-      this.$emit("can-continue", { value: false });
+      this.$emit('can-continue', { value: false });
     }
   }
 }
@@ -391,7 +391,7 @@ section {
     width: 95%;
   }
   min-height: 250px;
-  padding-left: 20px;
+  padding-left: 40px;
   .row.report-type {
     width: 93%;
   }

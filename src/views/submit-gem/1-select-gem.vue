@@ -66,10 +66,10 @@
   <!-- Stepper Container End -->
 </template>
 <script lang="ts">
-import { Component, Vue, Watch } from "vue-property-decorator";
-import { getModule } from "vuex-module-decorators";
-import SubmitGem from "@/store/modules/submit-gem";
-import { StoneType } from "@/models/submit-gem";
+import { Component, Vue, Watch } from 'vue-property-decorator';
+import { getModule } from 'vuex-module-decorators';
+import SubmitGem from '@/store/modules/submit-gem';
+import { StoneType } from '@/models/submit-gem';
 
 @Component
 export default class StepSelectGem extends Vue {
@@ -86,14 +86,14 @@ export default class StepSelectGem extends Vue {
 
   public form = {
     stoneType: StoneType.DIAMOND,
-    stoneCount: 1
+    stoneCount: 1,
   };
 
   public async created() {
     // reset page
     this.submitGem.reset();
-    this.$root.$on("validate-step-1", await this.validateForm);
-    this.$root.$on("commit-step-1", await this.commitStep);
+    this.$root.$on('validate-step-1', await this.validateForm);
+    this.$root.$on('commit-step-1', await this.commitStep);
   }
 
   public async mounted() {
@@ -104,20 +104,20 @@ export default class StepSelectGem extends Vue {
     if (await this.$validator.validate()) {
       this.submitGem.setStep1({
         stoneType: this.form.stoneType,
-        stoneCount: this.form.stoneCount
+        stoneCount: this.form.stoneCount,
       });
       await this.$nextTick();
       next();
-      this.$root.$emit("refresh-photos");
+      this.$root.$emit('refresh-photos');
     }
   }
 
-  @Watch("form", { deep: true })
+  @Watch('form', { deep: true })
   private async validateForm() {
     if (await this.$validator.validate()) {
-      this.$emit("can-continue", { value: true });
+      this.$emit('can-continue', { value: true });
     } else {
-      this.$emit("can-continue", { value: false });
+      this.$emit('can-continue', { value: false });
     }
   }
 }
@@ -130,6 +130,6 @@ section {
     width: 95%;
   }
   min-height: 250px;
-  padding-left: 20px;
+  padding-left: 40px;
 }
 </style>
