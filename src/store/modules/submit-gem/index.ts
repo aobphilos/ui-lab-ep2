@@ -8,6 +8,7 @@ import {
   ReturnAddress,
   ReturnInstruction,
   Report,
+  ReportType,
 } from '@/models/submit-gem';
 import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators';
 import store from '@/store';
@@ -15,6 +16,15 @@ import store from '@/store';
 
 @Module({ namespaced: true, dynamic: true, store, name: 'submitGem' })
 export default class SubmitGem extends VuexModule {
+  private model: SubmitGemModel;
+
+  public get modelToDb() {
+    return { ...this.model };
+  }
+  public get jsonSummary() {
+    return JSON.stringify(this.model);
+  }
+
   public get refId() {
     return this.model.refId;
   }
@@ -30,13 +40,70 @@ export default class SubmitGem extends VuexModule {
   public get stoneType() {
     return this.model.stoneType;
   }
+  public get stoneTypeText() {
+    let typeText = 'None';
+    switch (this.model.stoneType) {
+      case StoneType.DIAMOND:
+        typeText = 'Diamond';
+        break;
+      case StoneType.COLORED_STONE:
+        typeText = 'Colored Stone';
+        break;
+      case StoneType.UNKNOWN:
+        typeText = 'Unknow';
+        break;
+    }
+    return typeText;
+  }
 
   public get mountingType() {
     return this.model.mountingType;
   }
 
+  public get mountingTypeText() {
+    let typeText = 'None';
+    switch (this.model.mountingType) {
+      case MountingType.LOOSE:
+        typeText = 'Loose';
+        break;
+      case MountingType.MOUNTED:
+        typeText = 'Mounted';
+        break;
+    }
+    return typeText;
+  }
+
   public get report() {
     return this.model.report;
+  }
+  public get reportTypeText() {
+    let typeText = 'None';
+    switch (this.model.report.reportType) {
+      case ReportType.PREMIUM_REPORT:
+        typeText = 'Premium Report';
+        break;
+      case ReportType.REGULAR_REPORT:
+        typeText = 'Regular Report';
+        break;
+      case ReportType.SMALL_REPORT:
+        typeText = 'Small Report';
+        break;
+      case ReportType.SEALING_CARD:
+        typeText = 'Sealing Card';
+        break;
+      case ReportType.SEALING_BOX:
+        typeText = 'Sealing Box';
+        break;
+    }
+    return typeText;
+  }
+
+  public get isIncludeSealingCard() {
+    return this.model.report.isIncludeSealingCard;
+  }
+
+  public get isIncludeOriginalReport() {
+    return this.model.report.isIncludeOriginalReport;
   }
 
   public get contact() {
@@ -54,7 +121,6 @@ export default class SubmitGem extends VuexModule {
   public get returnInstruction() {
     return this.model.returnInstruction;
   }
-  public model: SubmitGemModel;
 
   @Mutation
   public RESET_MODEL(model: SubmitGemModel) {

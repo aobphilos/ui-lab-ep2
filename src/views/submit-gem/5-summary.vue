@@ -1,26 +1,118 @@
 <template>
   <!-- Stepper Container Start -->
-  <section id="step_summary" class>
+  <section id="step_summary" ref="content">
     <div class="container">
       <div class="row margin-t20">
-        <div style="columns">
-          <h4 class="h4-type1">{{ $t('content.submitGem.stepper.stepFive.set1.subject') }}</h4>
-          <p
-            class="p-type-5 color-grey margin-t10"
-          >Vestibulum facilisis accumsan ante, vitae bibendum sem ornare sed. Nulla vitae maximus odio. Donec sed turpis ex. Fusce eget arcu tincidunt, porta leo et, pulvinar odio. Donec tincidunt odio tellus, a maximus felis faucibus in. Vestibulum vitae ante et ex sagittis cursus. Duis ullamcorper lobortis molestie.</p>
-          <p
-            class="p-type-5 color-grey margin-t10"
-          >Sed ornare ligula eu diam maximus vehicula. Sed vel venenatis tortor. Morbi sed nulla mi. Nam dapibus ante vitae risus tincidunt, id rhoncus metus bibendum. Aenean vitae turpis eleifend velit scelerisque egestas a aliquam ante. In nulla mi, efficitur ac ex et, consectetur fermentum purus. Cras blandit augue ante, non sodales justo ultrices vitae. Nulla placerat, lacus id ultrices facilisis, nulla mauris accumsan ante, eget scelerisque augue lectus ac nunc.</p>
-          <p
-            class="p-type-5 color-grey margin-t10"
-          >In ac tortor et urna molestie porta. Nunc volutpat gravida cursus. Nullam vitae felis non erat venenatis elementum. Praesent vulputate vitae justo dapibus vulputate. Praesent et ornare purus. In hac habitasse platea dictumst. Vestibulum egestas dui vel orci posuere efficitur. Vestibulum dui diam, mattis in justo quis, mollis imperdiet ante.</p>
-          <p
-            class="p-type-5 color-grey margin-t10"
-          >Mauris lacinia odio ut aliquet feugiat. Mauris velit massa, placerat a tellus non, tempus dictum purus. Morbi id urna at mi feugiat dignissim. In nec mollis est. Sed tempor at odio scelerisque maximus. Curabitur id ornare quam. Etiam tincidunt erat ut posuere finibus.</p>
+        <div style="col-xs-12">
+          <div class="row">
+            <div class="col-sm-10 col-xs-9">
+              <h4 class="h4-type1">{{ $t('content.submitGem.stepper.stepFive.set1.subject') }}</h4>
+            </div>
+            <div class="col-sm-2 col-xs-3 text-center">
+              <button class="btn btn-primary" @click="printSummary">Export PDF</button>
+            </div>
+          </div>
+          <div id="content_export" class="row">
+            <div class="col-xs-10">
+              <ol type="I">
+                <li class="margin-t20">
+                  {{$t('content.submitGem.stepper.stepOne.title')}}
+                  <ul class="question">
+                    <li>
+                      <span
+                        class="p-type-5"
+                      >{{ $t('content.submitGem.stepper.stepOne.set1.subject') }}</span>
+                      <span class="answer">-</span>
+                      <span class="answer">{{ submitGem.stoneTypeText }}</span>
+                    </li>
+                    <li>
+                      <span
+                        class="p-type-5"
+                      >{{ $t('content.submitGem.stepper.stepOne.set2.subject') }}</span>
+                      <span class="answer">-</span>
+                      <span class="answer">{{ submitGem.stoneCount }}</span>
+                    </li>
+                  </ul>
+                </li>
+                <li class="margin-t20">
+                  {{$t('content.submitGem.stepper.stepTwo.title')}}
+                  <ul class="question">
+                    <li>
+                      <span
+                        class="p-type-5"
+                      >{{ $t('content.submitGem.stepper.stepTwo.set1.subject') }}</span>
+                      <span class="answer">-</span>
+                      <span class="answer">{{ submitGem.mountingTypeText }}</span>
+                    </li>
+                    <li>
+                      <span
+                        class="p-type-5"
+                      >{{ $t('content.submitGem.stepper.stepTwo.set2.subject') }}</span>
 
-          <p
-            class="p-type-5 color-grey margin-t10"
-          >Quisque tincidunt sapien nec turpis fermentum, eget consectetur diam volutpat. Nam sodales urna ut lectus lobortis placerat. In suscipit in eros ut pulvinar. Aliquam sagittis, justo id ultrices suscipit, nunc lacus fermentum nibh, sit amet semper metus eros vel ante. Sed facilisis tellus lacus, quis dignissim nulla dignissim eu. Integer dapibus quam sed blandit faucibus. Integer tortor neque, luctus sed orci vel, convallis efficitur augue. Pellentesque vitae malesuada tellus, a maximus nibh. Aenean lacinia commodo elit, nec hendrerit felis consectetur commodo. Nunc at ligula nibh. In ac ante vestibulum, viverra odio vitae, malesuada metus. Integer sed libero id sapien consequat vulputate.</p>
+                      <div
+                        class="row margin-t10"
+                        v-for="(photo, idx) in submitGem.stonePhotos"
+                        :key="idx"
+                      >
+                        <div class="col-xs-12">
+                          <p class="answer">url: {{ photo.path }}</p>
+                          <p class="answer">detail: {{ photo.description }}</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <span
+                        class="p-type-5"
+                      >{{ $t('content.submitGem.stepper.stepTwo.set3.subject') }}</span>
+                      <span class="answer">-</span>
+                      <span class="answer">{{ submitGem.reportTypeText }}</span>
+                      <div v-show="form.isIncludeSealingCard">
+                        <span class="answer">+</span>
+                        <span
+                          class="answer"
+                        >{{ $t('content.submitGem.stepper.stepTwo.set3.extra1') }}</span>
+                      </div>
+                      <div v-show="form.isIncludeOriginalReport">
+                        <span class="answer">+</span>
+                        <span
+                          class="answer"
+                        >{{ $t('content.submitGem.stepper.stepTwo.set3.extra3') }}</span>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li class="margin-t20">
+                  {{$t('content.submitGem.stepper.stepThree.title')}}
+                  <ul class="question">
+                    <li>
+                      <span
+                        class="p-type-5"
+                      >{{ $t('content.submitGem.stepper.stepThree.set1.subject') }}</span>
+                      <div>
+                        <span class="answer">{{ form.contact }}</span>
+                      </div>
+                    </li>
+                    <li>
+                      <span
+                        class="p-type-5"
+                      >{{ $t('content.submitGem.stepper.stepThree.set2.subject') }}</span>
+                      <div>
+                        <span class="answer">{{ form.address }}</span>
+                      </div>
+                    </li>
+                    <li>
+                      <span
+                        class="p-type-5"
+                      >{{ $t('content.submitGem.stepper.stepThree.set3.subject') }}</span>
+                      <div>
+                        <span class="answer">{{ form.returnAddress }}</span>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -31,13 +123,54 @@
 import { getModule } from 'vuex-module-decorators';
 import SubmitGem from '@/store/modules/submit-gem';
 import { Component, Vue, Watch } from 'vue-property-decorator';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component
 export default class StepSummary extends Vue {
   public submitGem = getModule(SubmitGem);
 
+  public form = {
+    isIncludeSealingCard: false,
+    isIncludeOriginalReport: false,
+    contact: '',
+    address: '',
+    returnAddress: '',
+  };
+
+  public created() {
+    this.$root.$on('refresh-report', this.refreshReport);
+  }
+
+  public get model() {
+    return this.$store.state.submitGem.model;
+  }
+
+  public refreshReport() {
+    this.form = {
+      isIncludeSealingCard: this.model.report.isIncludeSealingCard,
+      isIncludeOriginalReport: this.model.report.isIncludeOriginalReport,
+      contact: JSON.stringify(this.model.contact, null, 2),
+      address: JSON.stringify(this.model.address, null, 2),
+      returnAddress: JSON.stringify(this.model.returnAddress, null, 2),
+    };
+  }
+
   public mounted() {
+    this.refreshReport();
     this.$emit('can-continue', { value: true });
+  }
+
+  public printSummary() {
+    const doc = new jsPDF();
+    /** WITH CSS */
+    const canvasElement = document.createElement('canvas');
+    const htmlContent = $('#content_export')[0];
+    html2canvas(htmlContent, { canvas: canvasElement }).then((canvas: any) => {
+      const img = canvas.toDataURL('image/png');
+      doc.addImage(img, 'JPEG', 20, 20);
+      doc.save('submit-gem.pdf');
+    });
   }
 }
 </script>
@@ -50,5 +183,20 @@ section {
   }
   min-height: 250px;
   padding-left: 40px;
+
+  ol {
+    list-style: upper-roman;
+    ul.question {
+      padding-left: 18px;
+      list-style: disc;
+      li {
+        padding-top: 10px;
+      }
+      .answer {
+        padding-left: 10px;
+        font-weight: bolder;
+      }
+    }
+  }
 }
 </style>

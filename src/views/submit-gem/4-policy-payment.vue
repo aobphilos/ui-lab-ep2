@@ -60,6 +60,15 @@ export default class StepPolicyPayment extends Vue {
 
   public created() {
     this.$root.$on('validate-step-4', this.validateForm);
+    this.$root.$on('commit-step-4', this.commitStep);
+  }
+
+  private async commitStep(next: any) {
+    if (this.form.acceptTerms) {
+      await this.$nextTick();
+      next();
+      this.$root.$emit('refresh-report');
+    }
   }
 
   @Watch('form', { deep: true })

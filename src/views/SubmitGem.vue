@@ -104,8 +104,6 @@ export default class PageSubmitGem extends Vue {
     },
   ];
 
-  private db = firebase.firestore();
-
   @Watch('$i18n.locale')
   public onLocaleChange(val: any) {
     this.getStepperTitle();
@@ -134,11 +132,13 @@ export default class PageSubmitGem extends Vue {
   public beforeNextStep({ currentStep }: any, next: any) {
     this.submitSteps.forEach((step, idx) => {
       if (step.name === currentStep.name) {
-        if (step.name === 'step_policy_payment') {
-          this.sumbitForm(next);
-        } else {
-          this.$root.$emit(`commit-step-${idx + 1}`, next);
-        }
+        // if (step.name === 'step_policy_payment') {
+        //   // this.sumbitForm(next);
+        //   this.$nextTick().then(() => next(true));
+        // } else {
+        //   this.$root.$emit(`commit-step-${idx + 1}`, next);
+        // }
+        this.$root.$emit(`commit-step-${idx + 1}`, next);
       }
     });
   }
@@ -158,9 +158,10 @@ export default class PageSubmitGem extends Vue {
   }
 
   private sumbitForm(next: any) {
-    this.db
+    firebase
+      .firestore()
       .collection('submit-gem')
-      .add(this.submitGem.model)
+      .add(this.submitGem.modelToDb)
       .then((docRef) => {
         console.log('Document written with ID: ', docRef.id);
       })

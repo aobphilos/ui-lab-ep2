@@ -3,7 +3,7 @@
   <section id="step_report_service">
     <div class="container">
       <div class="row margin-t20">
-        <div class="columns">
+        <div class="col-sm-12">
           <h4 class="h4-type1">{{ $t('content.submitGem.stepper.stepTwo.set1.subject') }}</h4>
           <div class="margin-t10">
             <input
@@ -59,8 +59,8 @@
           <h4 class="h4-type1">{{ $t('content.submitGem.stepper.stepTwo.set3.subject') }}</h4>
           <div class="margin-t10">
             <div class="row report-type">
-              <div class="col-sm-2 col-xs-3">
-                <div class="img-report">
+              <div class="col-xs-3">
+                <div class="img-report" @click="form.report.reportType = PREMIUM_REPORT">
                   <input
                     type="radio"
                     name="reportType"
@@ -69,17 +69,17 @@
                   >
                 </div>
               </div>
-              <div class="col-sm-10 col-xs-9">
-                <div class="col-sm-6">
+              <div class="col-xs-9">
+                <div class="col-xs-6">
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.caption1') }}</p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-xs-6">
                   <a href="#">View Sample</a>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-xs-12">
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.detail') }}</p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-xs-6">
                   <input
                     type="checkbox"
                     name="optPremiumSealingCard"
@@ -91,19 +91,8 @@
                     class="padding-l10 p-type-5"
                   >{{ $t('content.submitGem.stepper.stepTwo.set3.extra1') }}</label>
                 </div>
-                <div class="col-sm-6">
-                  <input
-                    type="checkbox"
-                    name="optPremiumSealingBox"
-                    id="optPremiumSealingBox"
-                    v-model="reportOptions.PREMIUM_REPORT.isIncludeSealingBox"
-                  >
-                  <label
-                    for="optPremiumSealingBox"
-                    class="padding-l10 p-type-5"
-                  >{{ $t('content.submitGem.stepper.stepTwo.set3.extra2') }}</label>
-                </div>
-                <div class="col-sm-12">
+                <div class="col-xs-6"></div>
+                <div class="col-xs-12">
                   <input
                     type="checkbox"
                     name="optPremiumOriginal"
@@ -120,8 +109,8 @@
           </div>
           <div class="margin-t10">
             <div class="row report-type">
-              <div class="col-sm-2 col-xs-3">
-                <div class="img-report">
+              <div class="col-xs-3">
+                <div class="img-report" @click="form.report.reportType = REGULAR_REPORT">
                   <input
                     type="radio"
                     name="reportType"
@@ -130,17 +119,17 @@
                   >
                 </div>
               </div>
-              <div class="col-sm-10 col-xs-9">
-                <div class="col-sm-6">
+              <div class="col-xs-9">
+                <div class="col-xs-6">
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.caption2') }}</p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-xs-6">
                   <a href="#">View Sample</a>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-xs-12">
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.detail') }}</p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-xs-6">
                   <input
                     type="checkbox"
                     name="optRegularSealingCard"
@@ -152,25 +141,14 @@
                     class="padding-l10 p-type-5"
                   >{{ $t('content.submitGem.stepper.stepTwo.set3.extra1') }}</label>
                 </div>
-                <div class="col-sm-6">
-                  <input
-                    type="checkbox"
-                    name="optRegularSealingBox"
-                    id="optRegularSealingBox"
-                    v-model="reportOptions.REGULAR_REPORT.isIncludeSealingBox"
-                  >
-                  <label
-                    for="optRegularSealingBox"
-                    class="padding-l10 p-type-5"
-                  >{{ $t('content.submitGem.stepper.stepTwo.set3.extra2') }}</label>
-                </div>
+                <div class="col-xs-6"></div>
               </div>
             </div>
           </div>
           <div class="margin-t10">
             <div class="row report-type">
-              <div class="col-sm-2 col-xs-3">
-                <div class="img-report">
+              <div class="col-xs-3">
+                <div class="img-report" @click="form.report.reportType = SMALL_REPORT">
                   <input
                     type="radio"
                     name="reportType"
@@ -180,17 +158,17 @@
                   >
                 </div>
               </div>
-              <div class="col-sm-10 col-xs-9">
-                <div class="col-sm-6">
+              <div class="col-xs-9">
+                <div class="col-xs-6">
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.caption3') }}</p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-xs-6">
                   <a href="#">View Sample</a>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-xs-12">
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.detail') }}</p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-xs-6">
                   <input
                     type="checkbox"
                     name="optSmallSealingCard"
@@ -202,25 +180,14 @@
                     class="padding-l10 p-type-5"
                   >{{ $t('content.submitGem.stepper.stepTwo.set3.extra1') }}</label>
                 </div>
-                <div class="col-sm-6">
-                  <input
-                    type="checkbox"
-                    name="optSmallSealingBox"
-                    id="optSmallSealingBox"
-                    v-model="reportOptions.SMALL_REPORT.isIncludeSealingBox"
-                  >
-                  <label
-                    for="optSmallSealingBox"
-                    class="padding-l10 p-type-5"
-                  >{{ $t('content.submitGem.stepper.stepTwo.set3.extra2') }}</label>
-                </div>
+                <div class="col-xs-6"></div>
               </div>
             </div>
           </div>
           <div class="margin-t10">
             <div class="row report-type">
-              <div class="col-sm-2 col-xs-3">
-                <div class="img-report">
+              <div class="col-xs-3">
+                <div class="img-report" @click="form.report.reportType = SEALING_CARD">
                   <input
                     type="radio"
                     name="reportType"
@@ -229,17 +196,17 @@
                   >
                 </div>
               </div>
-              <div class="col-sm-10 col-xs-9">
-                <div class="col-sm-6">
+              <div class="col-xs-9">
+                <div class="col-xs-6">
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.caption4') }}</p>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-xs-6">
                   <a href="#">View Sample</a>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-xs-12">
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.detail') }}</p>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-xs-12">
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.noPicture') }}</p>
                 </div>
               </div>
@@ -393,18 +360,30 @@ section {
   min-height: 250px;
   padding-left: 40px;
   .row.report-type {
-    width: 93%;
+    width: 98%;
   }
   .img-report {
     height: 110px;
     padding-top: 25%;
-    background: url("/img/submit-gem/outline-panorama-24px.svg") no-repeat right;
+    background: url("/img/submit-gem/outline-panorama-24px.svg") no-repeat top
+      center;
     background-size: contain;
+    cursor: pointer;
   }
   .text-desc {
     width: 100%;
     max-height: 90px;
     min-height: 90px;
+  }
+  @media (max-width: 768px) {
+    .img-report {
+      height: 98px;
+      padding-top: 30%;
+      background: url("/img/submit-gem/outline-panorama-24px.svg") no-repeat top
+        right;
+      background-size: contain;
+      cursor: pointer;
+    }
   }
 }
 </style>
