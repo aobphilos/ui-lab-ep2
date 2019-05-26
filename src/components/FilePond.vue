@@ -1,4 +1,5 @@
 <script lang="ts">
+import 'filepond-polyfill';
 import * as FilePond from 'filepond';
 
 // Import Vue FilePond

@@ -7,7 +7,9 @@ module.exports = {
       enableInSFC: false
     }
   },
-
   transpileDependencies: ['vuex-module-decorators'],
-  assetsDir: 'public'
+  assetsDir: 'public',
+  configureWebpack: {
+    devtool: 'source-map'
+  }
 };

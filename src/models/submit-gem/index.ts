@@ -9,8 +9,11 @@ import { StonePhoto } from './class/stone-photo';
 import { Report } from './class/report';
 export { Address, Contact, ReturnAddress, ReturnInstruction, StonePhoto, Report };
 
+import { v4 as uuid } from 'uuid';
+
 export class SubmitGemModel {
   constructor(
+    public refId: string = uuid(),
     public stoneType: StoneType = StoneType.DIAMOND,
     public stoneCount: number = 1,
     public mountingType: MountingType = MountingType.LOOSE,

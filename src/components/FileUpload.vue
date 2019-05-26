@@ -10,33 +10,25 @@
       accepted-file-types="image/jpeg, image/png"
       v-bind:server="hookServer"
       v-bind:files="pickFiles"
-      v-on:init="handleFilePondInit"
     />
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue, Watch, Prop } from "vue-property-decorator";
-import customFilePond from "./FilePond.vue";
-import * as firebase from "firebase/app";
-import "firebase/storage";
-import uuid from "uuid/v4";
+import { Component, Vue, Watch, Prop, Model } from 'vue-property-decorator';
+import customFilePond from './FilePond.vue';
+import * as firebase from 'firebase/app';
+import 'firebase/storage';
 
 @Component({
   components: {
-    customFilePond
-  }
+    customFilePond,
+  },
 })
 export default class FileUpload extends Vue {
-  // private pickFiles = [
-  //   {
-  //     source: "img/contact/contact.jpg",
-  //     options: {
-  //       type: "local"
-  //     }
-  //   }
-  // ];
   private static MAX_FILE_SIZE = 2048 * 1000;
   private pickFiles = [];
+  private currentFilePath = '';
+
   private get hookServer() {
     return {
       process: (
@@ -45,56 +37,84 @@ export default class FileUpload extends Vue {
         metadata: any,
         load: any,
         forceLoad: any,
-        err: any
+        err: any,
       ) => {
         // simulates uploading a file
-        console.log(file, this.pond);
-        const img = firebase
+        firebase
           .storage()
-          .ref(`submit-gem/${this.uuid}/${file.name}`);
-        const fullPath = img.put(file).then(snap => {
-          console.log("snap: ", snap);
-          load();
-        });   
+          .ref(`submit-gem/${this.rootPath}/${file.name}`)
+          .put(file)
+          .then((snap) => {
+            this.currentFilePath = snap.metadata.fullPath;
+            this.$emit('change', this.currentFilePath);
+            load();
+          });
       },
       load: (source: any, load: any) => {
         fetch(source)
-          .then(res => res.blob())
+          .then((res) => res.blob())
           .then(load);
       },
       revert: (sid: any, doRemove: any, forceRemove: any) => {
-        doRemove();
-      }
+        if (!this.currentFilePath) {
+          forceRemove();
+          return;
+        }
+        firebase
+          .storage()
+          .ref(this.currentFilePath)
+          .delete()
+          .then((snap) => {
+            this.currentFilePath = '';
+            this.$emit('change', '');
+            doRemove();
+          })
+          .catch((err) => forceRemove(err));
+      },
     };
   }
 
-  private get uuid() {
-    return uuid();
-  }
+  @Prop()
+  private rootPath: string;
 
   @Prop()
   private name: string;
+
+  @Model('change')
+  private path: string;
 
   private get pond(): any {
     return this.$refs.pond;
   }
 
-  public handleFilePondInit() {
-    // const img = firebase.storage().ref("submit-gem/cpu-z-20190502.PNG");
-    // const fullPath = img.fullPath;
-    // img.getDownloadURL().then(e => console.log("download: ", e));
-    // console.log("path: ", fullPath);
-  }
 }
 </script>
 <style lang="less">
 .upload-box {
-  max-width: 238px;
+  max-width: 256px;
   max-height: 150px;
   min-height: 150px;
-  .filepond--drop-label {
-    max-height: 40px;
-    min-height: 40px;
+  .filepond--list-scroller {
+    margin: 0;
+    &[data-state="overflow"] {
+      overflow: hidden;
+      .filepond--list {
+        left: 0;
+        bottom: 0;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+
+  .filepond--file-wrapper,
+  .filepond--root,
+  .filepond--item,
+  .filepond--image-preview,
+  .filepond--image-preview-overlay,
+  .filepond--panel,
+  .filepond--panel-center {
+    max-height: 150px;
   }
 }
 </style>

@@ -35,24 +35,9 @@ import { Component, Vue, Watch } from 'vue-property-decorator';
 @Component
 export default class StepSummary extends Vue {
   public submitGem = getModule(SubmitGem);
-  public form = {
-    acceptTerms: true,
-  };
 
-  public created() {
-    this.$root.$on('validate-step-5', this.validateForm);
-  }
   public mounted() {
-    this.validateForm();
-  }
-
-  @Watch('form', { deep: true })
-  private validateForm() {
-    if (this.form.acceptTerms) {
-      this.$emit('can-continue', { value: true});
-    } else {
-      this.$emit('can-continue', { value: false });
-    }
+    this.$emit('can-continue', { value: true });
   }
 }
 </script>
@@ -60,7 +45,10 @@ export default class StepSummary extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 section {
+  .container {
+    width: 95%;
+  }
   min-height: 250px;
-  padding-left: 40px;
+  padding-left: 20px;
 }
 </style>

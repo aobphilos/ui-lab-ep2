@@ -36,15 +36,21 @@
       <div class="row margin-t40">
         <div class="columns">
           <h4 class="h4-type1">{{ $t('content.submitGem.stepper.stepTwo.set2.subject') }}</h4>
-          <div class="margin-t10">
-            <input type="checkbox" name="isSelectAll" id="isSelectAll" v-model="isSelectAll">
-            <label
-              for="isSelectAll"
-              class="padding-l10 p-type-5"
-            >{{ $t('content.submitGem.stepper.stepTwo.set2.selectAll') }}</label>
-          </div>
-          <div class="margin-t10">
-            <file-upload name="filex1"></file-upload>
+          <div v-for="(photo, idx) in form.stonePhotos" :key="idx" class="row margin-t10">
+            <file-upload
+              class="col-md-4 col-xs-5"
+              :name="'photo-'+(idx+1)"
+              :root-path="submitGem.refId"
+              v-model="photo.path"
+            ></file-upload>
+            <div class="col-md-8 col-xs-7">
+              <textarea
+                class="text-desc"
+                :name="'photo-desc-'+(idx+1)"
+                :id="'photo-desc-'+(idx+1)"
+                v-model="photo.description"
+              ></textarea>
+            </div>
           </div>
         </div>
       </div>
@@ -241,7 +247,7 @@
           </div>
         </div>
       </div>
-    </div>    
+    </div>
   </section>
   <!-- Stepper Container End -->
 </template>
@@ -253,7 +259,8 @@ import {
   MountingType,
   ReportType,
   StonePhoto,
-  Report
+  Report,
+  SubmitGemModel
 } from "@/models/submit-gem";
 import FileUpload from "@/components/FileUpload.vue";
 
@@ -262,29 +269,6 @@ import FileUpload from "@/components/FileUpload.vue";
 })
 export default class StepReportService extends Vue {
   public submitGem = getModule(SubmitGem);
-  public isSelectAll = false;
-
-  public reportOptions = {
-    PREMIUM_REPORT: {
-      isIncludeSealingCard: false,
-      isIncludeSealingBox: false,
-      isIncludeOriginalReport: false
-    },
-    REGULAR_REPORT: {
-      isIncludeSealingCard: false,
-      isIncludeSealingBox: false
-    },
-    SMALL_REPORT: {
-      isIncludeSealingCard: false,
-      isIncludeSealingBox: false
-    }
-  };
-
-  public form = {
-    mountingType: MountingType.LOOSE,
-    stonePhotos: [] as StonePhoto[],
-    report: new Report()
-  };
 
   private get LOOSE() {
     return MountingType.LOOSE;
@@ -308,26 +292,50 @@ export default class StepReportService extends Vue {
     return ReportType.SEALING_BOX;
   }
 
-  public setStonePhoto() {
-    const photos: StonePhoto[] = [
-      {
-        path: "Jame Barn",
-        description: "Jick Kick"
-      },
-      {
-        path: "Abbot Sammual",
-        description: "Jim Tonic"
-      }
-    ];
-    this.form.stonePhotos = photos;
+  public reportOptions = {
+    PREMIUM_REPORT: {
+      isIncludeSealingCard: false,
+      isIncludeSealingBox: false,
+      isIncludeOriginalReport: false
+    },
+    REGULAR_REPORT: {
+      isIncludeSealingCard: false,
+      isIncludeSealingBox: false
+    },
+    SMALL_REPORT: {
+      isIncludeSealingCard: false,
+      isIncludeSealingBox: false
+    }
+  };
+
+  public form = {
+    mountingType: MountingType.LOOSE,
+    stonePhotos: [] as StonePhoto[],
+    report: new Report()
+  };
+
+  public async created() {
+    this.$root.$on("validate-step-2", await this.validateForm);
+    this.$root.$on("commit-step-2", await this.commitStep);
+    this.$root.$on("refresh-photos", this.refreshStonePhotos);
   }
-  
-  public created() {
-    this.setStonePhoto();
-    this.$root.$on("validate-step-2", this.validateForm);
+
+  public async mounted() {
+    this.refreshStonePhotos();
+    await this.validateForm();
   }
-  public mounted() {
-    this.validateForm();
+
+  private async commitStep(next: any) {
+    if (await this.$validator.validate()) {
+      this.updateReportOption();
+      this.submitGem.setStep2({
+        mountingType: this.form.mountingType,
+        stonePhotos: this.form.stonePhotos,
+        report: this.form.report
+      });
+      await this.$nextTick();
+      next();
+    }
   }
 
   private updateReportOption() {
@@ -363,21 +371,13 @@ export default class StepReportService extends Vue {
     this.form.report.isIncludeOriginalReport = isIncludeOriginalReport;
   }
 
-  @Watch("isSelectAll")
-  private isSelectAllChange(val: any) {
-    console.log("is select all: ", val);
+  private refreshStonePhotos() {
+    this.form.stonePhotos = [...this.submitGem.stonePhotos];
   }
 
   @Watch("form", { deep: true })
   private async validateForm() {
-    await this.$validator.validate();
-    if (this.form.stonePhotos && this.form.stonePhotos.length > 0) {
-      this.updateReportOption();
-      this.submitGem.setStep2(
-        this.form.mountingType,
-        this.form.stonePhotos,
-        this.form.report
-      );
+    if (await this.$validator.validate()) {
       this.$emit("can-continue", { value: true });
     } else {
       this.$emit("can-continue", { value: false });
@@ -387,8 +387,11 @@ export default class StepReportService extends Vue {
 </script>
 <style scoped lang="less">
 section {
+  .container {
+    width: 95%;
+  }
   min-height: 250px;
-  padding-left: 40px;
+  padding-left: 20px;
   .row.report-type {
     width: 93%;
   }
@@ -397,6 +400,11 @@ section {
     padding-top: 25%;
     background: url("/img/submit-gem/outline-panorama-24px.svg") no-repeat right;
     background-size: contain;
+  }
+  .text-desc {
+    width: 100%;
+    max-height: 90px;
+    min-height: 90px;
   }
 }
 </style>

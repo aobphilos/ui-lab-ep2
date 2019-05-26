@@ -24,6 +24,7 @@
               :steps="submitSteps"
               @completed-step="completeStep"
               @active-step="isStepActive"
+              @before-next-step="beforeNextStep"
               @stepper-finished="sendForm"
             ></horizontal-stepper>
           </div>
@@ -50,6 +51,7 @@ import Step5 from "@/views/submit-gem/5-summary.vue";
 
 import * as firebase from "firebase/app";
 import "firebase/firestore";
+import FirebaseApp from "../plugins/firebase";
 
 @Component({
   components: {
@@ -59,7 +61,6 @@ import "firebase/firestore";
 })
 export default class PageSubmitGem extends Vue {
   public submitGem = getModule(SubmitGem);
-  private db = firebase.firestore();
   public submitSteps = [
     {
       icon: "select_all",
@@ -103,6 +104,8 @@ export default class PageSubmitGem extends Vue {
     }
   ];
 
+  private db = firebase.firestore();
+
   @Watch("$i18n.locale")
   public onLocaleChange(val: any) {
     this.getStepperTitle();
@@ -110,7 +113,7 @@ export default class PageSubmitGem extends Vue {
 
   // Executed when @completed-step event is triggered
   public completeStep(payload: any) {
-    this.submitSteps.forEach(step => {
+    this.submitSteps.forEach((step, idx) => {
       if (step.name === payload.name) {
         step.completed = true;
       }
@@ -128,31 +131,45 @@ export default class PageSubmitGem extends Vue {
     });
   }
 
+  public beforeNextStep({ currentStep }: any, next: any) {
+    this.submitSteps.forEach((step, idx) => {
+      if (step.name === currentStep.name) {
+        if (step.name === "step_policy_payment") {
+          this.sumbitForm(next);
+        } else {
+          this.$root.$emit(`commit-step-${idx + 1}`, next);
+        }
+      }
+    });
+  }
+
   // Executed when @stepper-finished event is triggered
   public sendForm(payload: any) {
     alert(" Success ");
     this.$router.push("/");
   }
 
-  private sumbitForm() {
-    this.db
-      .collection("submit-gem")
-      .add(this.submitGem.model)
-      .then(function(docRef) {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch(function(error) {
-        console.error("Error adding document: ", error);
-      });
-  }
-
   public created() {
     this.getStepperTitle();
-    this.$root.$on('submit-form', this.sumbitForm);
   }
 
   public mounted() {
     $(".parallax-mirror").hide();
+  }
+
+  private sumbitForm(next: any) {
+    this.db
+      .collection("submit-gem")
+      .add(this.submitGem.model)
+      .then(docRef => {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(error => {
+        console.error("Error adding document: ", error);
+      })
+      .finally(() => {
+        this.$nextTick().then(() => next(true));
+      });
   }
 
   private getStepperTitle() {

@@ -55,7 +55,7 @@
               v-model.number="form.stoneCount"
               type="number"
               min="1"
-              max="1000"
+              max="100"
               v-validate="'required'"
             >
           </div>
@@ -68,18 +68,12 @@
 <script lang="ts">
 import { Component, Vue, Watch } from "vue-property-decorator";
 import { getModule } from "vuex-module-decorators";
-import { StoneType } from "@/models/submit-gem";
 import SubmitGem from "@/store/modules/submit-gem";
+import { StoneType } from "@/models/submit-gem";
 
 @Component
 export default class StepSelectGem extends Vue {
   public submitGem = getModule(SubmitGem);
-
-  public form = {
-    stoneType: StoneType.DIAMOND,
-    stoneCount: 1
-  };
-
   private get DIAMOND() {
     return StoneType.DIAMOND;
   }
@@ -90,20 +84,37 @@ export default class StepSelectGem extends Vue {
     return StoneType.UNKNOWN;
   }
 
+  public form = {
+    stoneType: StoneType.DIAMOND,
+    stoneCount: 1
+  };
+
   public async created() {
-    await this.submitGem.reset();
-    this.$root.$on("validate-step-1", this.validateForm);
+    // reset page
+    this.submitGem.reset();
+    this.$root.$on("validate-step-1", await this.validateForm);
+    this.$root.$on("commit-step-1", await this.commitStep);
   }
 
-  public mounted() {
-    this.validateForm();
+  public async mounted() {
+    await this.validateForm();
+  }
+
+  private async commitStep(next: any) {
+    if (await this.$validator.validate()) {
+      this.submitGem.setStep1({
+        stoneType: this.form.stoneType,
+        stoneCount: this.form.stoneCount
+      });
+      await this.$nextTick();
+      next();
+      this.$root.$emit("refresh-photos");
+    }
   }
 
   @Watch("form", { deep: true })
   private async validateForm() {
-    await this.$validator.validate();
-    if (this.form.stoneCount && this.form.stoneCount > 0) {
-      this.submitGem.setStep1(this.form.stoneType, this.form.stoneCount);
+    if (await this.$validator.validate()) {
       this.$emit("can-continue", { value: true });
     } else {
       this.$emit("can-continue", { value: false });
@@ -115,7 +126,10 @@ export default class StepSelectGem extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 section {
+  .container {
+    width: 95%;
+  }
   min-height: 250px;
-  padding-left: 40px;
+  padding-left: 20px;
 }
 </style>

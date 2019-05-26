@@ -38,6 +38,7 @@
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-typescript": "^3.5.0",
     "@vue/cli-service": "^3.5.0",
+    "filepond-polyfill": "^1.0.4",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "node-sass": "^4.12.0",

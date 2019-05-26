@@ -19,7 +19,10 @@ Morbi mi sapien, suscipit ut aliquam eget, vehicula vitae odio. Ut suscipit non 
           <div class="margin-t10">
             <div id="example-3">
               <input type="checkbox" id="acceptTerms" v-model="form.acceptTerms">
-              <label for="acceptTerms" class="padding-l10 p-type-5">{{ $t('content.submitGem.stepper.stepFour.set1.accept') }}</label>
+              <label
+                for="acceptTerms"
+                class="padding-l10 p-type-5"
+              >{{ $t('content.submitGem.stepper.stepFour.set1.accept') }}</label>
             </div>
           </div>
         </div>
@@ -58,9 +61,6 @@ export default class StepPolicyPayment extends Vue {
   public created() {
     this.$root.$on('validate-step-4', this.validateForm);
   }
-  public mounted() {
-    this.validateForm();
-  }
 
   @Watch('form', { deep: true })
   private validateForm() {
@@ -76,8 +76,11 @@ export default class StepPolicyPayment extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 section {
+  .container {
+    width: 95%;
+  }
   min-height: 250px;
-  padding-left: 40px;
+  padding-left: 20px;
   .text-readonly {
     width: 90%;
     min-height: 205px;

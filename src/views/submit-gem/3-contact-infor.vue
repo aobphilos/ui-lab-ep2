@@ -257,7 +257,11 @@
                 >{{ $t('content.submitGem.stepper.stepThree.set3.address2') }}</label>
               </div>
               <div>
-                <input id="returnAddressAddress2" name="returnAddressAddress2" v-model="form.returnAddress.address2">
+                <input
+                  id="returnAddressAddress2"
+                  name="returnAddressAddress2"
+                  v-model="form.returnAddress.address2"
+                >
               </div>
             </div>
           </div>
@@ -270,7 +274,12 @@
                 >{{ $t('content.submitGem.stepper.stepThree.set2.city') }}</label>
               </div>
               <div>
-                <input id="returnAddressCity" name="returnAddressCity" v-model="form.returnAddress.city" v-validate="'required'">
+                <input
+                  id="returnAddressCity"
+                  name="returnAddressCity"
+                  v-model="form.returnAddress.city"
+                  v-validate="'required'"
+                >
               </div>
             </div>
             <div class="col-sm-6 col-12">
@@ -281,7 +290,12 @@
                 >{{ $t('content.submitGem.stepper.stepThree.set2.state') }}</label>
               </div>
               <div>
-                <input id="returnAddressState" name="returnAddressState" v-model="form.returnAddress.state" v-validate="'required'">
+                <input
+                  id="returnAddressState"
+                  name="returnAddressState"
+                  v-model="form.returnAddress.state"
+                  v-validate="'required'"
+                >
               </div>
             </div>
           </div>
@@ -334,6 +348,7 @@ import {
   Address,
   ReturnAddress,
   ReturnInstruction,
+  SubmitGemModel,
 } from '@/models/submit-gem';
 
 @Component
@@ -346,11 +361,31 @@ export default class StepContactInfo extends Vue {
     returnAddress: new ReturnAddress(),
     returnInstruction: new ReturnInstruction(),
   };
-  public created() {
-    this.$root.$on('validate-step-3', this.validateForm);
+  private get model(): SubmitGemModel {
+    return this.$store.state.submitGem.model;
   }
-  public mounted() {
-    this.validateForm();
+
+  public async created() {
+    this.$root.$on('validate-step-3', await this.validateForm);
+    this.$root.$on('commit-step-3', await this.commitStep);
+    console.log('photo: ', this.model.stonePhotos);
+  }
+
+  public async mounted() {
+    await this.validateForm();
+  }
+
+  private async commitStep(next: any) {
+    if (await this.$validator.validate()) {
+      this.submitGem.setStep3({
+        contact: this.form.contact,
+        address: this.form.address,
+        returnAddress: this.form.returnAddress,
+        returnInstruction: this.form.returnInstruction,
+      });
+      await this.$nextTick();
+      next();
+    }
   }
 
   @Watch('isSameAddress')
@@ -368,30 +403,7 @@ export default class StepContactInfo extends Vue {
 
   @Watch('form', { deep: true })
   private async validateForm() {
-    await this.$validator.validate();
-    if (
-      this.form.contact.firstName &&
-      this.form.contact.lastName &&
-      this.form.contact.email &&
-      this.form.address.address1 &&
-      this.form.address.city &&
-      this.form.address.state &&
-      this.form.address.country &&
-      this.form.address.zipCode &&
-      this.form.returnAddress.firstName &&
-      this.form.returnAddress.lastName &&
-      this.form.returnAddress.address1 &&
-      this.form.returnAddress.city &&
-      this.form.returnAddress.state &&
-      this.form.returnAddress.country &&
-      this.form.returnAddress.zipCode
-    ) {
-      this.submitGem.setStep3(
-        this.form.contact,
-        this.form.address,
-        this.form.returnAddress,
-        this.form.returnInstruction,
-      );
+    if (await this.$validator.validate()) {
       this.$emit('can-continue', { value: true });
     } else {
       this.$emit('can-continue', { value: false });
@@ -403,7 +415,10 @@ export default class StepContactInfo extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 section {
+  .container {
+    width: 95%;
+  }
   min-height: 250px;
-  padding-left: 40px;
+  padding-left: 20px;
 }
 </style>

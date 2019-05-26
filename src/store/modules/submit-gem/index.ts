@@ -15,7 +15,9 @@ import store from '@/store';
 
 @Module({ namespaced: true, dynamic: true, store, name: 'submitGem' })
 export default class SubmitGem extends VuexModule {
-  public model = new SubmitGemModel();
+  public get refId() {
+    return this.model.refId;
+  }
 
   public get stonePhotos() {
     return this.model.stonePhotos;
@@ -52,6 +54,7 @@ export default class SubmitGem extends VuexModule {
   public get returnInstruction() {
     return this.model.returnInstruction;
   }
+  public model: SubmitGemModel;
 
   @Mutation
   public RESET_MODEL(model: SubmitGemModel) {
@@ -62,12 +65,21 @@ export default class SubmitGem extends VuexModule {
   public SET_STEP_1(payload: any) {
     this.model.stoneType = payload.stoneType;
     this.model.stoneCount = payload.stoneCount;
+
+    const count = payload.stoneCount;
+    if (count > this.model.stonePhotos.length) {
+      for (let index = this.model.stonePhotos.length; index < count; index++) {
+        this.model.stonePhotos.push(new StonePhoto());
+      }
+    } else if (count < this.model.stonePhotos.length) {
+      this.model.stonePhotos.splice(count);
+    }
   }
 
   @Mutation
   public SET_STEP_2(payload: any) {
     this.model.mountingType = payload.mountingType;
-    this.model.stonePhotos = payload.stonePhotos;
+    this.model.stonePhotos = [...payload.stonePhotos];
     this.model.report = payload.report;
   }
 
@@ -80,31 +92,22 @@ export default class SubmitGem extends VuexModule {
   }
 
   @Action({ commit: 'RESET_MODEL' })
-  public async reset() {
+  public reset() {
     return new SubmitGemModel();
   }
 
   @Action({ commit: 'SET_STEP_1' })
-  public setStep1(stone: StoneType, count: number) {
-    return { stoneType: stone, stoneCount: count };
+  public setStep1(payload: any) {
+    return payload;
   }
 
   @Action({ commit: 'SET_STEP_2' })
-  public setStep2(
-    mount: MountingType,
-    photos: StonePhoto[],
-    report: Report,
-  ) {
-    return { mountingType: mount, stonePhotos: photos, report };
+  public setStep2(payload: any) {
+    return payload;
   }
 
   @Action({ commit: 'SET_STEP_3' })
-  public setStep3(
-    contact: Contact,
-    address: Address,
-    returnAddress: ReturnAddress,
-    returnInstruction: ReturnInstruction,
-  ) {
-    return { contact, address, returnAddress, returnInstruction };
+  public setStep3(payload: any) {
+    return payload;
   }
 }
