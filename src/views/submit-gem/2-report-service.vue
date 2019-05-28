@@ -38,14 +38,14 @@
           <h4 class="h4-type1">{{ $t('content.submitGem.stepper.stepTwo.set2.subject') }}</h4>
           <div v-for="(photo, idx) in form.stonePhotos" :key="idx" class="row margin-t10">
             <file-upload
-              class="col-md-4 col-xs-5"
+              :class="{'col-md-4':true, 'col-xs-5': true}"
               :name="'photo-'+(idx+1)"
               :root-path="submitGem.refId"
               v-model="photo.path"
             ></file-upload>
             <div class="col-md-8 col-xs-7">
               <textarea
-                class="text-desc"
+                :class="{'text-desc':true, 'has-error':!isValidPhoto}"
                 :name="'photo-desc-'+(idx+1)"
                 :id="'photo-desc-'+(idx+1)"
                 v-model="photo.description"
@@ -67,6 +67,13 @@
                     :value="PREMIUM_REPORT"
                     v-model="form.report.reportType"
                   >
+                  <a
+                    ref="premium-report"
+                    href="/img/submit-gem/full/premium-report.jpg"
+                    data-lightbox="service-lightbox"
+                  >
+                    <img src="/img/submit-gem/full/premium-report.jpg" alt="Premium Report">
+                  </a>
                 </div>
               </div>
               <div class="col-xs-9">
@@ -74,7 +81,7 @@
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.caption1') }}</p>
                 </div>
                 <div class="col-xs-6">
-                  <a href="#">View Sample</a>
+                  <a class="link" @click.prevent="viewImage('premium-report')">View Sample</a>
                 </div>
                 <div class="col-xs-12">
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.detail') }}</p>
@@ -117,6 +124,13 @@
                     :value="REGULAR_REPORT"
                     v-model="form.report.reportType"
                   >
+                  <a
+                    ref="regular-report"
+                    href="/img/submit-gem/full/regular-report.jpg"
+                    data-lightbox="service-lightbox"
+                  >
+                    <img src="/img/submit-gem/full/regular-report.jpg" alt="Regular Report">
+                  </a>
                 </div>
               </div>
               <div class="col-xs-9">
@@ -124,7 +138,7 @@
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.caption2') }}</p>
                 </div>
                 <div class="col-xs-6">
-                  <a href="#">View Sample</a>
+                  <a class="link" @click.prevent="viewImage('regular-report')">View Sample</a>
                 </div>
                 <div class="col-xs-12">
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.detail') }}</p>
@@ -156,6 +170,13 @@
                     :value="SMALL_REPORT"
                     v-model="form.report.reportType"
                   >
+                  <a
+                    ref="small-report"
+                    href="/img/submit-gem/full/small-report.jpg"
+                    data-lightbox="service-lightbox"
+                  >
+                    <img src="/img/submit-gem/full/small-report.jpg" alt="Small Report">
+                  </a>
                 </div>
               </div>
               <div class="col-xs-9">
@@ -163,7 +184,7 @@
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.caption3') }}</p>
                 </div>
                 <div class="col-xs-6">
-                  <a href="#">View Sample</a>
+                  <a class="link" @click.prevent="viewImage('small-report')">View Sample</a>
                 </div>
                 <div class="col-xs-12">
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.detail') }}</p>
@@ -194,6 +215,13 @@
                     :value="SEALING_CARD"
                     v-model="form.report.reportType"
                   >
+                  <a
+                    ref="sealing-card"
+                    href="/img/submit-gem/full/sealing-card.jpg"
+                    data-lightbox="service-lightbox"
+                  >
+                    <img src="/img/submit-gem/full/sealing-card.jpg" alt="Sealing Card">
+                  </a>
                 </div>
               </div>
               <div class="col-xs-9">
@@ -201,7 +229,7 @@
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.caption4') }}</p>
                 </div>
                 <div class="col-xs-6">
-                  <a href="#">View Sample</a>
+                  <a class="link" @click.prevent="viewImage('sealing-card')">View Sample</a>
                 </div>
                 <div class="col-xs-12">
                   <p class="p-type-5">{{ $t('content.submitGem.stepper.stepTwo.set3.detail') }}</p>
@@ -281,6 +309,8 @@ export default class StepReportService extends Vue {
     report: new Report(),
   };
 
+  private isValidPhoto = false;
+
   public async created() {
     this.$root.$on('validate-step-2', await this.validateForm);
     this.$root.$on('commit-step-2', await this.commitStep);
@@ -289,7 +319,7 @@ export default class StepReportService extends Vue {
 
   public async mounted() {
     this.refreshStonePhotos();
-    await this.validateForm();
+    await this.validateForm(true);
   }
 
   private async commitStep(next: any) {
@@ -342,9 +372,28 @@ export default class StepReportService extends Vue {
     this.form.stonePhotos = [...this.submitGem.stonePhotos];
   }
 
+  private viewImage(imageName: string) {
+    if (this.$refs[imageName]) {
+      (this.$refs[imageName] as HTMLElement).click();
+    }
+  }
+
   @Watch('form', { deep: true })
-  private async validateForm() {
-    if (await this.$validator.validate()) {
+  private async validateForm(isByPass = false) {
+    const isValidForm = await this.$validator.validate();
+    this.isValidPhoto = this.form.stonePhotos.every((item) => {
+      if (
+        item.path &&
+        item.path !== '' &&
+        (item.description && item.description !== '')
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    if (isValidForm && this.isValidPhoto) {
       this.$emit('can-continue', { value: true });
     } else {
       this.$emit('can-continue', { value: false });
@@ -361,28 +410,37 @@ section {
   padding-left: 40px;
   .row.report-type {
     width: 98%;
+    a.link {
+      cursor: pointer;
+    }
   }
   .img-report {
     height: 110px;
-    padding-top: 25%;
-    background: url("/img/submit-gem/outline-panorama-24px.svg") no-repeat top
-      center;
-    background-size: contain;
-    cursor: pointer;
+    padding-top: 22%;
+    a {
+      position: absolute;
+      top: 6%;
+      padding: 0 12%;
+      img {
+        width: 128px;
+      }
+    }
   }
   .text-desc {
     width: 100%;
     max-height: 90px;
     min-height: 90px;
   }
+  .has-error {
+    border: 1px solid red;
+  }
   @media (max-width: 768px) {
     .img-report {
-      height: 98px;
+      height: 100px;
       padding-top: 30%;
-      background: url("/img/submit-gem/outline-panorama-24px.svg") no-repeat top
-        right;
-      background-size: contain;
-      cursor: pointer;
+      img {
+        width: 100px;
+      }
     }
   }
 }
