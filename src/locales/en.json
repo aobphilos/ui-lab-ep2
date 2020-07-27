@@ -114,6 +114,12 @@
           "lines": [
             "100 BAHT/STONE (WITH NO REPORT ISSUED)"
           ]
+        },
+        "notice": {
+          "lines": [
+            "All prices are NOT included 7% VAT.",
+            "This will be effective on December 1st, 2019."
+          ]
         }
       }
     },
