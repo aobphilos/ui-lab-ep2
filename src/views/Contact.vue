@@ -48,16 +48,15 @@
               </div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12 contact_detail">
-              <div class="col-md-1 col-xs-2">
-                <img
-                  src="/img/social/line.svg"
-                  class="logo"
-                  title="Line"
-                  alt="LINE"
-                />
-              </div>
-              <div class="col-md-7 col-xs-6">
-                <p class="logo">Line ID : gcilab</p>
+              <div class="col-md-8 col-xs-8">
+                <a href="https://lin.ee/wpqtndi"
+                  ><img
+                    src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png"
+                    alt="Add Friend"
+                    height="36"
+                    border="0"
+                    style="margin: 11% 0px"
+                /></a>
               </div>
               <div class="col-md-4 col-xs-4">
                 <a
