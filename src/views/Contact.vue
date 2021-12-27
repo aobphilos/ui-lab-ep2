@@ -48,15 +48,21 @@
               </div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12 contact_detail">
-              <div class="col-md-8 col-xs-8">
-                <a href="https://lin.ee/wpqtndi"
-                  ><img
-                    src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png"
-                    alt="Add Friend"
-                    height="36"
-                    border="0"
-                    style="margin: 11% 0px"
+              <div class="col-md-1 col-xs-2">
+                <a href="https://lin.ee/wpqtndi" target="_blank" class="link">
+                  <img
+                    src="/img/social/line.jpg"
+                    class="logo webp"
+                    title="Line"
+                    alt="LINE"
                 /></a>
+              </div>
+              <div class="col-md-7 col-xs-6">
+                <p class="logo">
+                  <a href="https://lin.ee/wpqtndi" target="_blank" class="link"
+                    >Line ID : gcilab</a
+                  >
+                </p>
               </div>
               <div class="col-md-4 col-xs-4">
                 <a
@@ -101,15 +107,27 @@
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12 contact_detail">
               <div class="col-md-1 col-xs-2">
-                <img
-                  src="/img/social/facebook.svg"
-                  class="logo"
-                  title="Facebook"
-                  alt="Facebook"
-                />
+                <a
+                  href="https://www.facebook.com/GCILAB"
+                  target="_blank"
+                  class="link"
+                >
+                  <img
+                    src="/img/social/facebook.svg"
+                    class="logo"
+                    title="Facebook"
+                    alt="Facebook"
+                /></a>
               </div>
               <div class="col-md-7 col-xs-6">
-                <p class="logo">Facebook : gcilab</p>
+                <p class="logo">
+                  <a
+                    href="https://www.facebook.com/GCILAB"
+                    target="_blank"
+                    class="link"
+                    >Facebook : gcilab</a
+                  >
+                </p>
               </div>
               <div class="col-md-4 col-xs-4">&nbsp;</div>
             </div>
@@ -182,6 +200,7 @@ export default class PageContact extends Vue {
       text-align: left;
       &.logo {
         margin-top: 16px;
+        padding-left: 7%;
       }
     }
     img {
@@ -189,9 +208,30 @@ export default class PageContact extends Vue {
       &.logo {
         width: 48px;
         margin-top: 14px;
+        &.webp {
+          width: 38px;
+          margin-top: 16px;
+          margin-left: 3px;
+        }
       }
       &.qrcode {
         width: 96px;
+      }
+    }
+    a {
+      &.link {
+        text-decoration: none;
+        color: #424242;
+        font-size: 14px;
+        letter-spacing: 1px;
+        font-weight: 700;
+        padding: 6px 0px;
+        display: inline-block;
+        transition: all 0.5s ease;
+        font-family: 'Gothic', sans-serif;
+        &:hover {
+          color: #dea700;
+        }
       }
     }
   }
