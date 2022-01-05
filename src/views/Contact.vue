@@ -60,7 +60,7 @@
               <div class="col-md-7 col-xs-6">
                 <p class="logo">
                   <a href="https://lin.ee/wpqtndi" target="_blank" class="link"
-                    >Line ID : gcilab</a
+                    >Line official : gcilab</a
                   >
                 </p>
               </div>

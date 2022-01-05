@@ -99,8 +99,16 @@
                   href="https://lin.ee/wpqtndi"
                   target="_blank"
                   class="link text webp"
-                  >Line ID : gcilab</a
+                  >Line official : gcilab</a
                 >
+                <a href="https://lin.ee/wpqtndi" target="_blank"
+                  ><img
+                    src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png"
+                    alt="Add Friend"
+                    height="36"
+                    border="0"
+                    style="height: 29px"
+                /></a>
               </div>
               <div>
                 <img
