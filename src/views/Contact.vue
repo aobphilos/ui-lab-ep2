@@ -129,7 +129,21 @@
                   >
                 </p>
               </div>
-              <div class="col-md-4 col-xs-4">&nbsp;</div>
+
+              <div class="col-md-4 col-xs-4">
+                <a
+                  href="/img/contact/full/qr-facebook-360.png"
+                  data-lightbox="qr-facebook-lightbox"
+                  data-alt="QR Facebook"
+                >
+                  <img
+                    src="/img/contact/qr-facebook.png"
+                    class="qrcode"
+                    title="Facebook"
+                    alt="QR-Facebook"
+                  />
+                </a>
+              </div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12 contact_detail">
               <h4 class="h4-type1"></h4>
