@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <h4 class="h4-type3">{{ $t('menu.contact') }}</h4>
+            <h4 class="h4-type3">{{ $t("menu.contact") }}</h4>
             <div class="border-bar4 margin-t20"></div>
           </div>
         </div>
@@ -26,24 +26,26 @@
           </div>
           <div class="col-md-5 col-sm-5 col-xs-12">
             <div class="col-md-12 col-sm-12 col-xs-12 contact_detail">
-              <h4 class="h4-type1">{{ $t('address[0].name') }}</h4>
+              <h4 class="h4-type1">{{ $t("address[0].name") }}</h4>
               <div>
                 <p class="p-type-3">
-                  {{ $t('address[0].lines[0]') }}
+                  {{ $t("address[0].lines[0]") }}
                   <br />
-                  {{ $t('address[0].lines[1]') }}
+                  {{ $t("address[0].lines[1]") }}
                   <br />
-                  {{ $t('address[0].lines[2]') }}
+                  {{ $t("address[0].lines[2]") }}
                 </p>
               </div>
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12 contact_detail">
-              <h4 class="h4-type1">{{ $t('address[1].name') }}</h4>
+              <h4 class="h4-type1">{{ $t("address[1].name") }}</h4>
               <div>
                 <p class="p-type-3">
-                  {{ $t('address[1].lines[0]') }}
+                  {{ $t("address[1].lines[0]") }}
                   <br />
-                  {{ $t('address[1].lines[1]') }}
+                  {{ $t("address[1].lines[1]") }}
+                  <br />
+                  {{ $t("address[1].lines[2]") }}
                 </p>
               </div>
             </div>
@@ -66,12 +68,12 @@
               </div>
               <div class="col-md-4 col-xs-4">
                 <a
-                  href="/img/contact/full/qr-line-360.png"
+                  href="/img/contact/full/qr-line-540.jpg"
                   data-lightbox="qr-line-lightbox"
                   data-alt="QR Line"
                 >
                   <img
-                    src="/img/contact/qr-line.png"
+                    src="/img/contact/qr-line.jpg"
                     class="qrcode"
                     alt="QR-LINE"
                   />
@@ -242,7 +244,7 @@ export default class PageContact extends Vue {
         padding: 6px 0px;
         display: inline-block;
         transition: all 0.5s ease;
-        font-family: 'Gothic', sans-serif;
+        font-family: "Gothic", sans-serif;
         &:hover {
           color: #dea700;
         }

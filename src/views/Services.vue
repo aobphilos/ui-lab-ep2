@@ -75,6 +75,52 @@
                     }}
                   </p>
                 </div>
+                <div class="margin-t50">
+                  <p class="p-type-3 color-black">
+                    {{ $t("content.services.section.verbal.gems[0].subject") }}
+                  </p>
+                  <ul>
+                    <li>
+                      <span class="color-red">
+                        {{
+                          $t("content.services.section.verbal.gems[0].price")
+                        }}
+                      </span>
+                      <span>
+                        {{ $t("content.services.section.verbal.gems[0].unit") }}
+                      </span>
+                      <br />
+                      <p class="p-type-3 color-black">
+                        {{
+                          $t("content.services.section.verbal.gems[0].noted")
+                        }}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="margin-t50">
+                  <p class="p-type-3 color-black">
+                    {{ $t("content.services.section.verbal.ruby[0].subject") }}
+                  </p>
+                  <ul>
+                    <li>
+                      <span class="color-red">
+                        {{
+                          $t("content.services.section.verbal.ruby[0].price")
+                        }}
+                      </span>
+                      <span>
+                        {{ $t("content.services.section.verbal.ruby[0].unit") }}
+                      </span>
+                      <br />
+                      <p class="p-type-3 color-black">
+                        {{
+                          $t("content.services.section.verbal.ruby[0].noted")
+                        }}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -164,6 +210,10 @@ export default class PageServices extends Vue {
   font-family: Gothic, sans-serif;
   line-height: 1.6;
   font-size: 18px;
+  .color-red {
+    font-weight: 600;
+    color: #b11f35;
+  }
 
   .image-box {
     .padding-tb25 {

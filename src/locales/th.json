@@ -15,8 +15,9 @@
     {
       "name": "จันทบุรี",
       "lines": [
-        "ห้อง D202/1 ชั้น 2 อาคารจันท์เจมส์",
-        "เลขที่ 189 ถนนศรีจันทร์ ต.วัดใหม่ อ.เมือง จ.จันทบุรี 22000"
+        "อาคารสวัสดิแสง S.W.D. ชั้น 2 ",
+        "(หน้าปากซอยกระจ่าง5) ",
+        "33 ซ.กระจ่าง ถ.ศรีจันทร์ ต.วัดใหม่ อ.เมือง จ.จันทบุรี 22000"
       ]
     }
   ],
@@ -52,8 +53,9 @@
       "section": {
         "overview": {
           "lines": [
-            "OVER 15 YEARS OF EXPERIENCES AS INSTRUCTORS AT GIA AND AIGS, WE WOULD LOVE TO SHARE OUR KNOWLEDGE AND ENSURE THE TRUST IN GEMS TO THE BUSINESS.",
-            "WE ARE WELCOME TO DO THE GEMOLOGICAL CONSULTANCY SERVICE BY THE EXPERT GEMOLOGISTS OF GCILAB."
+            "OVER 15 YEARS OF EXPERIENCE AS INSTRUCTORS AT GIA AND AIGS, WE WOULD LOVE TO SHARE OUR KNOWLEDGE AND ENSURE THE TRUST IN GEMS TO THE BUSINESS.",
+            "WE ARE WELCOME TO DO THE GEMOLOGICAL CONSULTANCY SERVICE BY THE EXPERT GEMOLOGISTS OF GCi LAB.",
+            "Since 2012"
           ]
         },
         "diploma": [
@@ -68,12 +70,10 @@
               "Accredited Jewelry Professional (A.J.P.), GIA",
               "Graduate Pearls Diploma, GIA",
               "Manager of Gemology Education (School’s Principal), GIA Thailand Apr 2000—Jan 2011",
-              "Director of English Academic, AIGS Feb 2011—Apr 2012",
-              "Owner and Gemologist of Gemological Consultancy (GC Lab)",
-              "Over 10 years of teaching experiences for Graduate Gemologist Program (G.G.), GIA",
-              "Instructor for cooperate class Accredited Jewelry Professional(A.J.P.) with Christie’s,",
-              "Pearl Grading course in Singapore and Sri Lanka",
-              "Gemologist of GCI Lab (Gemological Consultancy)"
+              "Director of English Academics, AIGS Feb 2011—Apr 2012",
+              "Over 10 years of teaching experience for the Graduate Gemologist Program (G.G.), GIA",
+              "Instructor for corporate class Accredited Jewelry Professional(A.J.P.) with Christie’s",
+              "Pearl Grading course in Singapore and Sri Lanka"
             ]
           },
           {
@@ -86,9 +86,9 @@
               "Graduate Gemologist (G.G.), GIA",
               "Accredited Jewelry Professional (A.J.P.), GIA",
               "Graduate Pearls Diploma, GIA",
-              "Instructor of Graduate Gemologist Program (G.G.), GIA",
+              "Instructor of the Graduate Gemologist Program (G.G.), GIA",
               "Manager of Marketing Laboratory Development, AIGS",
-              "Instructor for cooperate class “Diamond Grading” with Debswana (De Beers), Botswana",
+              "Instructor for corporate class “Diamond Grading” with Debswana (De Beers), Botswana",
               "Marketing Executive, Regal Jewelry"
             ]
           }
@@ -114,8 +114,22 @@
           }
         },
         "verbal": {
-          "subject": "การทดสอบแบบไม่ออกใบรับรองผล",
-          "lines": ["100 บาท/ชิ้น (โดยไม่ออกรับใบรับรอง)"]
+          "gems": [
+            {
+              "subject": "Verbal gems testing (except ruby/sapphire)",
+              "price": "120",
+              "unit": "baht / stone",
+              "noted": "(without any printing paper)"
+            }
+          ],
+          "ruby": [
+            {
+              "subject": "Verbal ruby/sapphire Testing",
+              "price": "150",
+              "unit": "baht / stone",
+              "noted": "(without any printing paper)"
+            }
+          ]
         },
         "notice": {
           "subject": "ONLINE GEM CONSULTANCY",
