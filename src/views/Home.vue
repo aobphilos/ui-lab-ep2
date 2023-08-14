@@ -126,9 +126,9 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import LoaderFadeOut from '@/components/LoaderFadeOut.vue';
-import ItemSlider from '@/components/ItemSlider.vue';
+import { Component, Vue } from "vue-property-decorator";
+import LoaderFadeOut from "@/components/LoaderFadeOut.vue";
+import ItemSlider from "@/components/ItemSlider.vue";
 
 @Component({
   components: {
@@ -138,13 +138,13 @@ import ItemSlider from '@/components/ItemSlider.vue';
 })
 export default class PageHome extends Vue {
   public mounted() {
-    $('.parallax-mirror').show();
-    $('.parallax-window').parallax();
+    $(".parallax-mirror").show();
+    $(".parallax-window").parallax();
   }
 
   public destroyed() {
-    $('.parallax-mirror').hide();
-    $('.parallax-window').parallax('destroy');
+    $(".parallax-mirror").hide();
+    $(".parallax-window").parallax("destroy");
   }
 }
 </script>

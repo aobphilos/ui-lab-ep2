@@ -101,8 +101,8 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import LoaderFadeOut from '@/components/LoaderFadeOut.vue';
+import { Component, Vue } from "vue-property-decorator";
+import LoaderFadeOut from "@/components/LoaderFadeOut.vue";
 
 @Component({
   components: {
@@ -110,23 +110,23 @@ import LoaderFadeOut from '@/components/LoaderFadeOut.vue';
   },
 })
 export default class PageVerifyReport extends Vue {
-  private reportId: string = '';
+  private reportId: string = "";
   private isLoading: boolean = false;
   private hasError: boolean = false;
-  private currentUrl: string = '';
+  private currentUrl: string = "";
   private isPass: boolean = false;
 
   public async getReport() {
     const vm = this;
 
-    if (vm.reportId.trim() === '') {
+    if (vm.reportId.trim() === "") {
       return;
     }
 
     vm.hasError = false;
     vm.isLoading = true;
     vm.isPass = false;
-    vm.currentUrl = '';
+    vm.currentUrl = "";
 
     const reportName = `${vm.reportId}.pdf`;
     const localUrl = `/certificates/${vm.reportId}.pdf`;
@@ -166,30 +166,30 @@ export default class PageVerifyReport extends Vue {
       return;
     } catch {
       vm.isLoading = false;
-      vm.reportId = '';
+      vm.reportId = "";
       vm.hasError = true;
     }
   }
 
   public mounted() {
-    $('.parallax-mirror').hide();
+    $(".parallax-mirror").hide();
   }
 
   private renderDocument(url: string) {
     this.isPass = true;
     this.currentUrl = url;
     this.isLoading = false;
-    this.reportId = '';
+    this.reportId = "";
   }
 
   private getReportServer(url: string) {
     // id: 1803SNV0075
     return $.ajax({
-      method: 'GET',
+      method: "GET",
       url,
       crossDomain: true,
       xhrFields: {
-        responseType: 'blob',
+        responseType: "blob",
         withCredentials: true,
       },
     });
@@ -200,10 +200,10 @@ export default class PageVerifyReport extends Vue {
     // id: 1206_CDS0001 -> outter
     // id: 1206_CDR0001 -> inner
     return $.ajax({
-      method: 'GET',
+      method: "GET",
       url,
       xhrFields: {
-        responseType: 'blob',
+        responseType: "blob",
         withCredentials: true,
       },
     });
