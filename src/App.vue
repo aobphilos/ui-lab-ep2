@@ -6,10 +6,10 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from "vue-property-decorator";
 
-import SectionHeader from '@/components/SectionHeader.vue';
-import SectionFooter from '@/components/SectionFooter.vue';
+import SectionHeader from "@/components/SectionHeader.vue";
+import SectionFooter from "@/components/SectionFooter.vue";
 
 @Component({
   components: {

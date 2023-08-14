@@ -1,4 +1,4 @@
-import { FlexSlider } from './flexslider';
+import { FlexSlider } from "./flexslider";
 
 const invokePlugins = () => {
   return [$, $.fn.flexslider, $.fn.parallax];

@@ -40,24 +40,24 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import LocaleChanger from '@/components/LocaleChanger.vue';
+import { Component, Vue } from "vue-property-decorator";
+import LocaleChanger from "@/components/LocaleChanger.vue";
 
 @Component({
   components: { LocaleChanger },
 })
 export default class SectionHeader extends Vue {
   public mounted() {
-    const navigation = $('#navigation');
-    const navigationButton = navigation.find('.nav-btn-open');
-    navigationButton.off('click').on('click', (e) => {
+    const navigation = $("#navigation");
+    const navigationButton = navigation.find(".nav-btn-open");
+    navigationButton.off("click").on("click", (e) => {
       const $el = $(e.currentTarget);
-      if ($el.hasClass('ti-menu')) {
-        navigation.css('height', '100%');
-        $el.removeClass('ti-menu').addClass('ti-close');
+      if ($el.hasClass("ti-menu")) {
+        navigation.css("height", "100%");
+        $el.removeClass("ti-menu").addClass("ti-close");
       } else {
-        navigation.css('height', '75px');
-        $el.removeClass('ti-close').addClass('ti-menu');
+        navigation.css("height", "75px");
+        $el.removeClass("ti-close").addClass("ti-menu");
       }
     });
   }

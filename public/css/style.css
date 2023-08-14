@@ -5,7 +5,7 @@ Global style
 
 ----------------------------------------------------------------------------------------------
 
-    Fonts Available : 
+    Fonts Available :
         open sans               :: font-family: 'Open Sans', sans-serif;
         Poppins                 :: font-family: 'Poppins', sans-serif;
         Gothic                  :: font-family: 'Gothic', sans-serif;
@@ -25,7 +25,7 @@ CONTENTS :
 
 /**********************************************************************************************
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-                                            1. General 
+                                            1. General
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ***********************************************************************************************/
 
@@ -34,18 +34,18 @@ CONTENTS :
 @import url("themify-icons.css");
 
 @font-face {
-  font-family: 'Gothic';
-  src: url('../fonts/gothic_0.eot');
-  src: url('../fonts/gothic_0.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/gothic_0.woff') format('woff'),
-    url('../fonts/gothic_0.ttf') format('truetype'),
-    url('../fonts/gothic_0.svg?#CenturyGothic') format('svg');
+  font-family: "Gothic";
+  src: url("../fonts/gothic_0.eot");
+  src: url("../fonts/gothic_0.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/gothic_0.woff") format("woff"),
+    url("../fonts/gothic_0.ttf") format("truetype"),
+    url("../fonts/gothic_0.svg?#CenturyGothic") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 body {
-  font-family: 'Popins', sans-serif;
+  font-family: "Popins", sans-serif;
   overflow-x: hidden;
 }
 
@@ -71,14 +71,14 @@ body {
 }
 
 .p-type-1 {
-  font-family: 'Gothic', sans-serif;
+  font-family: "Gothic", sans-serif;
   font-size: 12px;
   font-weight: 600;
   color: #fff;
 }
 
 .p-type-2 {
-  font-family: 'Gothic', sans-serif;
+  font-family: "Gothic", sans-serif;
   font-size: 15px;
   color: #fff;
   line-height: 1.6;
@@ -86,7 +86,7 @@ body {
 }
 
 .p-type-3 {
-  font-family: 'Gothic', sans-serif;
+  font-family: "Gothic", sans-serif;
   font-size: 16px;
   color: #fff;
   line-height: 1.6;
@@ -94,14 +94,14 @@ body {
 }
 
 .h5-type-1 {
-  font-family: 'Gothic';
+  font-family: "Gothic";
   font-size: 54px;
   margin: 5px 0;
   font-weight: bolder;
 }
 
 .h3-type1 {
-  font-family: 'Gothic';
+  font-family: "Gothic";
   font-size: 34px;
   margin: 5px 0;
   color: #909090;
@@ -199,7 +199,7 @@ body {
 }
 
 .h4-type1 {
-  font-family: 'Gothic';
+  font-family: "Gothic";
   font-size: 18px;
   margin: 5px 0;
   font-weight: bolder;
@@ -207,7 +207,7 @@ body {
 }
 
 .h4-type2 {
-  font-family: 'Gothic';
+  font-family: "Gothic";
   font-size: 36px;
   margin: 5px 0;
   font-weight: bolder;
@@ -215,12 +215,15 @@ body {
 }
 
 .h4-type3 {
-  font-family: 'Gothic';
+  font-family: "Gothic";
   font-size: 36px;
   margin: 125px 0 0 2px;
   font-weight: bolder;
   color: #ffffff;
   text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.17);
+}
+
+.h5-type1 {
 }
 
 .p-type-5 {
@@ -262,7 +265,7 @@ body {
 ***********************************************************************************************/
 .section_header {
   height: 235px;
-  background-image: url('../img/cover/default.jpg');
+  background-image: url("../img/cover/default.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }

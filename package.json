@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
     "build": "npm run lint & npm run compile",
-    "lint": "vue-cli-service lint",
     "compile": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "serve": "vue-cli-service serve",
     "start": "npm run serve"
   },
   "dependencies": {
@@ -30,5 +30,9 @@
     "typescript-tslint-plugin": "^0.3.1",
     "vue-cli-plugin-i18n": "^0.5.2",
     "vue-template-compiler": "^2.5.21"
+  },
+  "engines": {
+    "node": "= 14.21.3",
+    "npm": "= 6.14.18"
   }
 }

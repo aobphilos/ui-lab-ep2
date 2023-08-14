@@ -172,8 +172,8 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import LoaderFadeOut from '@/components/LoaderFadeOut.vue';
+import { Component, Vue } from "vue-property-decorator";
+import LoaderFadeOut from "@/components/LoaderFadeOut.vue";
 
 @Component({
   components: {
@@ -182,7 +182,7 @@ import LoaderFadeOut from '@/components/LoaderFadeOut.vue';
 })
 export default class PageContact extends Vue {
   public mounted() {
-    $('.parallax-mirror').hide();
+    $(".parallax-mirror").hide();
   }
 }
 </script>

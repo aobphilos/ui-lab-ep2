@@ -1,33 +1,33 @@
-import Vue from 'vue';
+import Vue from "vue";
 
 export class FlexSlider {
   public static init(): void {
-    Vue.directive('flex-slider', (el) => {
+    Vue.directive("flex-slider", (el) => {
       $(el).flexslider({
-        animation: 'slide',
+        animation: "slide",
         controlNav: true,
-        easing: 'easeInCubic',
+        easing: "easeInCubic",
         slideshowSpeed: 5500,
         animationSpeed: 1300,
         pauseOnAction: true,
         touch: true,
         keyboard: true,
         after: () => {
-          $('.flex-active-slide')
-            .find('.flex-caption')
+          $(".flex-active-slide")
+            .find(".flex-caption")
             .hide()
             .delay(0)
             .show(0)
-            .addClass('animated');
+            .addClass("animated");
         },
         before: () => {
           $(el)
-            .find('.flex-caption')
+            .find(".flex-caption")
             .fadeOut(200)
-            .removeClass('animated');
-          $('.flex-active-slide')
-            .find('.flex-caption')
-            .css('transform', '');
+            .removeClass("animated");
+          $(".flex-active-slide")
+            .find(".flex-caption")
+            .css("transform", "");
         },
       });
     });

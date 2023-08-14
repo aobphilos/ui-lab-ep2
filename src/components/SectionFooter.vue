@@ -8,7 +8,7 @@
         >
           <div class="col-md-4 padding-tb50">
             <img src="/img/nav-logo-black.jpg" class="footerlogo" alt />
-            <p class="copyright">&copy; 2018 GCILAB.COM</p>
+            <p class="copyright">&copy; 2022 GCILAB.COM</p>
           </div>
 
           <div class="col-md-2 padding-tb50">
@@ -19,7 +19,7 @@
                   class="nav-link"
                   rel="tooltip"
                   title="GCILab"
-                  >{{ $t('menu.home') }}</router-link
+                  >{{ $t("menu.home") }}</router-link
                 >
               </li>
               <li>
@@ -28,7 +28,7 @@
                   class="nav-link"
                   rel="tooltip"
                   title="About GCILab"
-                  >{{ $t('menu.aboutUs') }}</router-link
+                  >{{ $t("menu.aboutUs") }}</router-link
                 >
               </li>
               <li>
@@ -37,7 +37,7 @@
                   class="nav-link"
                   rel="tooltip"
                   title="Services"
-                  >{{ $t('menu.services') }}</router-link
+                  >{{ $t("menu.services") }}</router-link
                 >
               </li>
               <li>
@@ -46,7 +46,7 @@
                   class="nav-link"
                   rel="tooltip"
                   title="Verify"
-                  >{{ $t('menu.verifyReport') }}</router-link
+                  >{{ $t("menu.verifyReport") }}</router-link
                 >
               </li>
               <li>
@@ -55,7 +55,7 @@
                   class="nav-link"
                   rel="tooltip"
                   title="Contact"
-                  >{{ $t('menu.contact') }}</router-link
+                  >{{ $t("menu.contact") }}</router-link
                 >
               </li>
             </ul>
@@ -66,23 +66,23 @@
           <div class="col-md-5 padding-tb50">
             <div class="contact-details">
               <div>
-                <h3 class="p-type-3">{{ $t('address[0].name') }}</h3>
+                <h3 class="p-type-3">{{ $t("address[0].name") }}</h3>
                 <div>
                   <p class="p-type-3">
-                    {{ $t('address[0].lines[0]') }}
+                    {{ $t("address[0].lines[0]") }}
                     <br />
-                    {{ $t('address[0].lines[1]') }}
+                    {{ $t("address[0].lines[1]") }}
                     <br />
-                    {{ $t('address[0].lines[2]') }}
+                    {{ $t("address[0].lines[2]") }}
                   </p>
                 </div>
                 <br />
-                <h3 class="p-type-3">{{ $t('address[1].name') }}</h3>
+                <h3 class="p-type-3">{{ $t("address[1].name") }}</h3>
                 <div>
                   <p class="p-type-3">
-                    {{ $t('address[1].lines[0]') }}
+                    {{ $t("address[1].lines[0]") }}
                     <br />
-                    {{ $t('address[1].lines[1]') }}
+                    {{ $t("address[1].lines[1]") }}
                   </p>
                 </div>
               </div>
@@ -150,7 +150,7 @@
   <!-- footer end -->
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class SectionFooter extends Vue {}
@@ -201,7 +201,7 @@ export default class SectionFooter extends Vue {}
           padding: 3px 0;
           display: inline-block;
           transition: all 0.5s ease;
-          font-family: 'Gothic', sans-serif;
+          font-family: "Gothic", sans-serif;
           &.text {
             padding-left: 6px;
             &.webp {

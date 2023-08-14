@@ -1,5 +1,5 @@
-import Vue, { VNode } from 'vue';
-import 'jquery';
+import Vue, { VNode } from "vue";
+import "jquery";
 
 declare global {
   namespace JSX {

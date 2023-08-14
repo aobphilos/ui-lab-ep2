@@ -104,9 +104,9 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import LoaderFadeOut from '@/components/LoaderFadeOut.vue';
-import { type } from 'os';
+import { Component, Vue } from "vue-property-decorator";
+import LoaderFadeOut from "@/components/LoaderFadeOut.vue";
+import { type } from "os";
 
 @Component({
   components: {
@@ -115,7 +115,7 @@ import { type } from 'os';
 })
 export default class PageAboutUs extends Vue {
   public mounted() {
-    $('.parallax-mirror').hide();
+    $(".parallax-mirror").hide();
   }
   private getDiplomaLines(index: number) {
     const locale = this.$i18n.getLocaleMessage(this.$i18n.locale);

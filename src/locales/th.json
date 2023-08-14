@@ -3,20 +3,23 @@
     "title": "GCI-Lab"
   },
   "footer": {},
-  "address": [{
-    "name": "กรุงเทพมหานคร",
-    "lines": [
-      "อาคารจิวเวลรี่เทรดเซ็นเตอร์",
-      "341A/A ชั้น 3 ถ. สีลม เขต บางรัก กรุงเทพมหานคร 10500",
-      "เบอร์โทร : +(66)2 630 0699"
-    ]
-  }, {
-    "name": "จันทบุรี",
-    "lines": [
-      "ห้อง D202/1 ชั้น 2 อาคารจันท์เจมส์",
-      "เลขที่ 189 ถนนศรีจันทร์ ต.วัดใหม่ อ.เมือง จ.จันทบุรี 22000"
-    ]
-  }],
+  "address": [
+    {
+      "name": "กรุงเทพมหานคร",
+      "lines": [
+        "อาคารจิวเวลรี่เทรดเซ็นเตอร์",
+        "341A/A ชั้น 3 ถ. สีลม เขต บางรัก กรุงเทพมหานคร 10500",
+        "เบอร์โทร : +(66)2 630 0699"
+      ]
+    },
+    {
+      "name": "จันทบุรี",
+      "lines": [
+        "ห้อง D202/1 ชั้น 2 อาคารจันท์เจมส์",
+        "เลขที่ 189 ถนนศรีจันทร์ ต.วัดใหม่ อ.เมือง จ.จันทบุรี 22000"
+      ]
+    }
+  ],
   "menu": {
     "home": "หน้าหลัก",
     "aboutUs": "เกี่ยวกับบริษัท",
@@ -53,7 +56,8 @@
             "WE ARE WELCOME TO DO THE GEMOLOGICAL CONSULTANCY SERVICE BY THE EXPERT GEMOLOGISTS OF GCILAB."
           ]
         },
-        "diploma": [{
+        "diploma": [
+          {
             "subjects": [
               "SURACHART PANJATHAMMAWIT, G.G., B.SC.",
               "GRADUATE GEMOLOGIST/GIA"
@@ -111,9 +115,28 @@
         },
         "verbal": {
           "subject": "การทดสอบแบบไม่ออกใบรับรองผล",
-          "lines": [
-            "100 บาท/ชิ้น (โดยไม่ออกรับใบรับรอง)"
-          ]
+          "lines": ["100 บาท/ชิ้น (โดยไม่ออกรับใบรับรอง)"]
+        },
+        "notice": {
+          "subject": "ONLINE GEM CONSULTANCY",
+          "content": {
+            "title": "GCi Lab provides special services",
+            "phrases": [
+              {
+                "title": "All services are applied to both loose colored stones and loose diamonds.",
+                "lines": [
+                  "Online gem consultancy (need to submit the stones).",
+                  "All types of services (Verbal, Box, Card, Small, Regular and Premium Reports)."
+                ]
+              },
+              {
+                "title": "Gems delivered to GCi Lab for checking from overseas are exempt from 7% VAT."
+              },
+              {
+                "title": "Only examining, shipping and insurance fees will be charged."
+              }
+            ]
+          }
         }
       }
     },
