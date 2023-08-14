@@ -234,6 +234,12 @@ body {
   width: 90%;
 }
 
+.p-type-6 {
+  font-size: 22px;
+  line-height: 1.6;
+  font-weight: bolder;
+}
+
 .p-type-4 {
   font-size: 13px;
   color: #2b2b2b;

@@ -8,7 +8,7 @@
         >
           <div class="col-md-4 padding-tb50">
             <img src="/img/nav-logo-black.jpg" class="footerlogo" alt />
-            <p class="copyright">&copy; 2022 GCILAB.COM</p>
+            <p class="copyright">&copy; 2023 GCILAB.COM</p>
           </div>
 
           <div class="col-md-2 padding-tb50">
