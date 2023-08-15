@@ -83,6 +83,8 @@
                     {{ $t("address[1].lines[0]") }}
                     <br />
                     {{ $t("address[1].lines[1]") }}
+                    <br />
+                    {{ $t("address[1].lines[2]") }}
                   </p>
                 </div>
               </div>
