@@ -163,11 +163,13 @@
     <!-- google map -->
     <section id="googlemap">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242.24518580092612!2d100.51996847439027!3d13.723113154212902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e298d2d351f5d1%3A0xc18202ec7d5a3d1e!2sJewelry+Trade+Center+Thailand!5e0!3m2!1sen!2sth!4v1519454169213"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.9248918511844!2d100.5174908750305!3d13.722996986665859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e298cfdc44a69b%3A0x3e2299762a7ecd46!2sGCi%20Lab!5e0!3m2!1sen!2sth!4v1692083550334!5m2!1sen!2sth"
         height="320"
-        style="border:0"
-        allowfullscreen
+        style="border:0;"
+        allowfullscreen=""
         class="map-frame"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
     </section>
     <!-- google map end -->
