@@ -1,12 +1,12 @@
 <template>
   <div>
-    <loader-fade-out/>
+    <loader-fade-out />
     <!-- Verify heading-->
     <section id="verify_header" class="section_header">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <h4 class="h4-type3">{{ $t('menu.verifyReport') }}</h4>
+            <h4 class="h4-type3">{{ $t("menu.verifyReport") }}</h4>
             <div class="border-bar4 margin-t20"></div>
           </div>
         </div>
@@ -21,17 +21,21 @@
             <div class="padding-tb25">
               <form action="#/verify">
                 <div class="form-group">
-                  <label for="verifyId">{{ $t('content.verifyReport.section.verify.subject')}}</label>
-                  <br>
-                  <br>
+                  <label for="verifyId">{{
+                    $t("content.verifyReport.section.verify.subject")
+                  }}</label>
+                  <br />
+                  <br />
                   <input
                     type="text"
                     class="input_text"
                     name="verifyId"
-                    :placeholder="$t('content.verifyReport.section.verify.input')"
+                    :placeholder="
+                      $t('content.verifyReport.section.verify.input')
+                    "
                     v-model="reportId"
                     v-bind:disabled="isLoading"
-                  >
+                  />
                 </div>
                 <button
                   name="submit"
@@ -39,32 +43,58 @@
                   @click.prevent="getReport"
                   v-bind:disabled="isLoading"
                 >
-                  {{ $t('content.verifyReport.section.verify.button')}}
+                  {{ $t("content.verifyReport.section.verify.button") }}
                   <i
                     class="glyphicon glyphicon-refresh"
-                    v-bind:class="{loader: isLoading}"
+                    v-bind:class="{ loader: isLoading }"
                   ></i>
                 </button>
-                <p class="p-type-3 color-grey margin-t20">
+                <p
+                  class="p-type-3 color-grey margin-t20"
+                  v-show="isPass || hasError"
+                >
                   <span v-show="isPass">
-                    <a :href="currentUrl" target="_blank">Open File | เปิดไฟล์ | 点击这</a>
+                    <a :href="currentUrl" target="_blank"
+                      >Open File | เปิดไฟล์ | 点击这</a
+                    >
                   </span>
-                  <span
-                    class="error"
-                    v-show="hasError"
-                  >{{ $t('content.verifyReport.section.verify.error.subject')}}</span>
-                  <br>
-                  <span
-                    class="error"
-                    v-show="hasError"
-                  >{{ $t('content.verifyReport.section.verify.error.detail')}}</span>
+                  <span class="error" v-show="hasError">{{
+                    $t("content.verifyReport.section.verify.error.subject")
+                  }}</span>
+                  <br />
+                  <span class="error" v-show="hasError">{{
+                    $t("content.verifyReport.section.verify.error.detail")
+                  }}</span>
+                </p>
+                <p class="p-type-3 color-red bold-text margin-t20">
+                  {{ $t("content.verifyReport.section.verify.exclamation") }}
+                </p>
+
+                <p class="p-type-3 color-grey bold-text margin-t20">
+                  {{
+                    $t("content.verifyReport.section.verify.contact.lines[0]")
+                  }}
+                  <br />
+                  {{
+                    $t("content.verifyReport.section.verify.contact.lines[1]")
+                  }}
+                  <br />
+                  {{
+                    $t("content.verifyReport.section.verify.contact.lines[2]")
+                  }}
+                  <br />
+                  {{
+                    $t("content.verifyReport.section.verify.contact.lines[3]")
+                  }}
                 </p>
               </form>
             </div>
           </div>
           <div class="col-md-8 col-sm-7 col-xs-12 text-center">
             <div class="row wrapper-image">
-              <h4 class="h4-type1">{{ $t('content.verifyReport.section.sample.subject')}}</h4>
+              <h4 class="h4-type1">
+                {{ $t("content.verifyReport.section.sample.subject") }}
+              </h4>
             </div>
             <div class="row wrapper-image">
               <a
@@ -72,7 +102,7 @@
                 data-lightbox="sample-lightbox"
                 data-alt="Sample Verify Image"
               >
-                <img src="/img/verify/verify1.jpg" alt="Sample Verify Image">
+                <img src="/img/verify/verify1.jpg" alt="Sample Verify Image" />
               </a>
             </div>
             <div class="row wrapper-image">
@@ -81,7 +111,7 @@
                 data-lightbox="sample-lightbox"
                 data-alt="Sample Verify Image"
               >
-                <img src="/img/verify/verify2.jpg" alt="Sample Verify Image">
+                <img src="/img/verify/verify2.jpg" alt="Sample Verify Image" />
               </a>
             </div>
             <div class="row wrapper-image">
@@ -90,7 +120,7 @@
                 data-lightbox="sample-lightbox"
                 data-alt="Sample Verify Image"
               >
-                <img src="/img/verify/verify3.jpg" alt="Sample Verify Image">
+                <img src="/img/verify/verify3.jpg" alt="Sample Verify Image" />
               </a>
             </div>
           </div>
@@ -133,9 +163,7 @@ export default class PageVerifyReport extends Vue {
     const localSubFolderUrl = `/certificates/${vm.reportId.substr(0, 4)}/${
       vm.reportId
     }.pdf`;
-    const apiUrl = `http://dreamxchange-001-site3.btempurl.com/api/certificates/DownloadAndOpen?id=${
-      vm.reportId
-    }`;
+    const apiUrl = `http://dreamxchange-001-site3.btempurl.com/api/certificates/DownloadAndOpen?id=${vm.reportId}`;
 
     // =================== [Get Local Report Main] ========================
     try {
@@ -218,69 +246,74 @@ export default class PageVerifyReport extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-  #verify {
-    .input_text {
-      width: 100%;
-      height: 50px;
-      border: 1px solid #ddd;
-      margin: 10px 0 0 0;
-      padding: 0 15px;
-      border-radius: 2px;
-      font-size: 14px;
-      box-shadow: 1px 4px 8px -3px rgb(221, 221, 221);
-      outline: none;
-    }
-    .input_submit {
-      width: 150px;
-      height: 40px;
-      border: none;
-      outline: none;
-      padding: 10px 30px;
-      margin: 20px 0;
-      color: #000;
-      font-size: 14px;
-      font-weight: 900;
-      text-transform: uppercase;
-      background-color: #dea700;
-      letter-spacing: 1px;
-      border-radius: 25px;
-      font-family: "Gothic", sans-serif;
-      box-shadow: 0px 4px 12px -1px rgba(240, 182, 23, 0.671);
-    }
+#verify {
+  .input_text {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ddd;
+    margin: 10px 0 0 0;
+    padding: 0 15px;
+    border-radius: 2px;
+    font-size: 14px;
+    box-shadow: 1px 4px 8px -3px rgb(221, 221, 221);
+    outline: none;
   }
-  .input_submit[disabled] {
-    filter: grayscale(1);
+  .input_submit {
+    width: 150px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding: 10px 30px;
+    margin: 20px 0;
+    color: #000;
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    background-color: #dea700;
+    letter-spacing: 1px;
+    border-radius: 25px;
+    font-family: "Gothic", sans-serif;
+    box-shadow: 0px 4px 12px -1px rgba(240, 182, 23, 0.671);
   }
-  .loader {
-    border-radius: 50%;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
-    animation: spin 2s linear infinite;
+}
+.input_submit[disabled] {
+  filter: grayscale(1);
+}
+.loader {
+  border-radius: 50%;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+.error {
+  font-style: italic;
+  color: red;
+  font-weight: 800;
+  font-size: 14px;
+}
+.bold-text {
+  font-size: 15px;
+  font-weight: bolder;
+  font-family: serif;
+}
+.wrapper-image {
+  padding: 25px 15px;
+}
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
   }
-  .error {
-    font-style: italic;
-    color: red;
-    font-weight: 400;
-    font-size: 15px;
+  100% {
+    -webkit-transform: rotate(360deg);
   }
-  .wrapper-image {
-    padding: 25px 15px;
-  }
-  /* Safari */
-  @-webkit-keyframes spin {
-    0% {
-      -webkit-transform: rotate(0deg);
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-    }
-  }
+}
 
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 </style>

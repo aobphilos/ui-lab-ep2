@@ -164,6 +164,15 @@
           "error": {
             "subject": "** Invalid Report Id **",
             "detail": "\"GCi reports can be verified after 5 business days\" (from the date of issued)"
+          },
+          "exclamation": "Sealed card and box reports cannot be verified online. If you require verification, please contact GCi Lab.",
+          "contact": {
+            "lines": [
+              "Phone: +66 839167158",
+              "Email: info@gcilab.com",
+              "Line: @gcilab",
+              "Facebook: GCi LAB"
+            ]
           }
         },
         "sample": {
