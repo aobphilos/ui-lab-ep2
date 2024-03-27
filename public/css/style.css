@@ -173,6 +173,10 @@ body {
   color: #333;
 }
 
+.color-red {
+  color: #df2121;
+}
+
 .bg-grey {
   background-color: rgb(247, 247, 247);
 }
